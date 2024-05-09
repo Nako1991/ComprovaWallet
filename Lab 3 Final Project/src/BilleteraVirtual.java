@@ -4,8 +4,7 @@ public class BilleteraVirtual {
     private Banco unBanco;
     private String api;
 
-    public BilleteraVirtual(String id, Persona unaPersona, Banco unBanco, String api) {
-        this.id = id;
+    public BilleteraVirtual(Persona unaPersona, Banco unBanco, String api) {
         this.unaPersona = unaPersona;
         this.unBanco = unBanco;
         this.api = api;
@@ -16,5 +15,11 @@ public class BilleteraVirtual {
     public String getApi() { return api; }
     public void setApi(String api) { this.api = api; }
 
-
+    @Override
+    public String toString() {
+        return "\nBILLETERA VIRTUAL" + '\n' +
+                unaPersona + '\n' +
+                unBanco + '\n' +
+                " API: " + api + '\n';
+    }
 }
