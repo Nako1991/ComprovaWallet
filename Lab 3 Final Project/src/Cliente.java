@@ -1,4 +1,6 @@
-public class Cliente {
+import java.util.Random;
+
+public class Cliente implements GeneradorID{
     private String id;
     private Persona persona;
     private Banco banco;
@@ -9,6 +11,7 @@ public class Cliente {
         this.persona = persona;
         this.banco = banco;
         this.tipoCliente = tipoCliente;
+        this.id = generarID();
     }
 
     public Cliente() {
@@ -32,5 +35,18 @@ public class Cliente {
                 persona + '\n' +
                 banco + '\n' +
                 " Tipo cliente: " + tipoCliente + '\n';
+    }
+
+    @Override
+    public String generarID() {
+        String letraIncial = "C";
+        int longitudId = 15;
+        String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder();
+        sb.append(letraIncial);
+        for(int i = 1; i < longitudId; i++) sb.append(caracteres.charAt(random.nextInt(caracteres.length())));
+        String idUnico = String.valueOf(sb);
+        return idUnico;
     }
 }
