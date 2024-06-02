@@ -27,11 +27,11 @@ public class Usuario implements GeneradorID{
 
     @Override
     public String toString() {
-        return "CUENTA" + '\n' +
-                " Usuario: " + usuario + '\n' +
-                " Contraseña: " + contraseña + '\n' +
-                " TEST ID UNICO: " + id + '\n' +
-                " Billetera Virtual: " + billeterasVirtuales + '\n';
+        return "CUENTA" + "\n" +
+                " Usuario: " + usuario + "\n" +
+                " Contraseña: " + contraseña + "\n" +
+                " TEST ID UNICO: " + id + "\n" +
+                " Billetera Virtual: " + billeterasVirtuales + "\n";
     }
 
     @Override
