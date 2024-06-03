@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Usuario implements GeneradorID{
+public class Usuario implements GeneradorID {
+
     private String id;
     private String usuario;
     private String contraseña;
@@ -10,14 +11,17 @@ public class Usuario implements GeneradorID{
     public Usuario() {
         this.usuario = "";
         this.contraseña = "";
+        this.id = generarID("US");
         this.billeterasVirtuales = new ArrayList<>();
     }
+
     public Usuario(String usuario, String contraseña) {
         this.usuario = usuario;
         this.contraseña = contraseña;
-        this.id = generarID();
+        this.id = generarID("US");
         this.billeterasVirtuales = new ArrayList<>();
     }
+
     public String getUsuario() { return usuario; }
     public String getContraseña() { return contraseña; }
     public void setContraseña(String contraseña) { this.contraseña = contraseña; }
@@ -32,18 +36,5 @@ public class Usuario implements GeneradorID{
                 " Contraseña: " + contraseña + "\n" +
                 " TEST ID UNICO: " + id + "\n" +
                 " Billetera Virtual: " + billeterasVirtuales + "\n";
-    }
-
-    @Override
-    public String generarID() {
-        String letraIncial = "U";
-        int longitudId = 15;
-        String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder();
-        sb.append(letraIncial);
-        for(int i = 1; i < longitudId; i++) sb.append(caracteres.charAt(random.nextInt(caracteres.length())));
-        String idUnico = String.valueOf(sb);
-        return idUnico;
     }
 }

@@ -29,7 +29,6 @@ public class GestorBilleteras {
         System.out.println("-----+++++ TEST +++++-----");
         System.out.println("CREANDO CLIENTE COMPLETO");
         Cliente cliente1 = new Cliente(
-                "16454848",
                 new Persona(
                     "Maria Gonzales",
                         "9-26545145-10"

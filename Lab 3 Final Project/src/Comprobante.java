@@ -1,6 +1,7 @@
 import java.util.Date;
 
-public class Comprobante {
+public class Comprobante implements GeneradorID {
+
     private String id;
     private String codigoTransferencia;
     private Date fecha;
@@ -9,8 +10,8 @@ public class Comprobante {
     private Banco bancoDestino; //banco usuario
     private String estado;
 
-    public Comprobante(String id, String codigoTransferencia, Date fecha, double monto, Banco bancoOrigen, Banco bancoDestino, String estado) {
-        this.id = id;
+    public Comprobante(String codigoTransferencia, Date fecha, double monto, Banco bancoOrigen, Banco bancoDestino, String estado) {
+        this.id = generarID("CP");
         this.codigoTransferencia = codigoTransferencia;
         this.fecha = fecha;
         this.monto = monto;
@@ -18,6 +19,7 @@ public class Comprobante {
         this.bancoDestino = bancoDestino;
         this.estado = estado;
     }
+
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
     public String getCodigoTransferencia() { return codigoTransferencia; }
@@ -35,12 +37,12 @@ public class Comprobante {
 
     @Override
     public String toString() {
-        return "COMPROBANTE" + '\n' +
-                " Codigo de Transferencia: " + codigoTransferencia + '\n' +
-                " Fecha: " + fecha + '\n' +
-                " Monto: " + monto + '\n' +
-                " Banco Origen: " + bancoOrigen + '\n' +
-                " Banco Destino: " + bancoDestino + '\n' +
-                " Estado: " + estado + '\n';
+        return  "COMPROBANTE" + "\n" +
+                " Codigo de Transferencia: " + codigoTransferencia + "\n" +
+                " Fecha: " + fecha + "\n" +
+                " Monto: " + monto + "\n" +
+                " Banco Origen: " + bancoOrigen + "\n" +
+                " Banco Destino: " + bancoDestino + "\n" +
+                " Estado: " + estado + "\n";
     }
 }

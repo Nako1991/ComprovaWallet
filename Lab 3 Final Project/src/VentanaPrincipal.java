@@ -9,10 +9,10 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
-public class Menu {
-    public Menu() {}
+public class VentanaPrincipal {
+    public VentanaPrincipal() {}
 
-    public void ejecutarMenuPrincipal(){
+    public void ejecutarVentanaPrincipal(){
         JFrame ventanaMenu = new JFrame("ComprovaWallet");
         ///Cambiando icono de la ventana:
         iconoVentanaGrafica(ventanaMenu);
@@ -24,7 +24,7 @@ public class Menu {
         imagen.setLayout(new BorderLayout());
         ventanaMenu.add(imagen);
 
-        componentesMenu(imagen);
+        componentesVentanaPrincipal(imagen);
 
         ///Colocamos los componentes de esta ventana
 
@@ -33,7 +33,7 @@ public class Menu {
 
     }
 
-    private void componentesMenu(JPanel componentes){
+    private void componentesVentanaPrincipal(JPanel componentes){
         componentes.setLayout(null);
         ///Creando etiqueta
         JLabel label = new JLabel("HOLA SWING");
