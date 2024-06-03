@@ -9,7 +9,7 @@ public class ImagenFondoMenu extends JPanel {
 
     public ImagenFondoMenu(){
         try {
-            imagen = ImageIO.read(new File("C:\\Users\\Usuario\\Documents\\GitHub\\Lab-3-Final-Project"));
+            imagen = ImageIO.read(new File("C:\\Users\\Usuario\\Documents\\GitHub\\Lab-3-Final-Project\\background.jpg"));
         }catch (IOException err){
             System.out.println("ERROR---> " + err.getMessage());
         }
