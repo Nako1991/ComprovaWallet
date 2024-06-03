@@ -31,10 +31,13 @@ public class VentanaPrincipal {
         imagen.setLayout(new BorderLayout());
         ventanaPrincipal.add(imagen);
 
-        componentesVentanaPrincipal(imagen, ventanaPrincipal);
-
         ///Colocamos los componentes de esta ventana
-
+        componentesVentanaPrincipal(imagen, ventanaPrincipal);
+        ///Agregando la columna
+        JPanel columna = new JPanel();
+        columna.setBackground(Color.black);
+        columna.setBounds(0, 0, (ancho / 5), alto);
+        imagen.add(columna);
         ///Hacemos visible la ventana
         ventanaPrincipal.setVisible(true);
 
@@ -60,7 +63,7 @@ public class VentanaPrincipal {
                 VentanaLogueo ventanaLogueo = new VentanaLogueo();
                 ventanaLogueo.setVisible(true);
                 ///A la ventana principal la ocultamos
-                ventanaPrincipal.setVisible(false);
+                ///ventanaPrincipal.setVisible(false);
             }
         });
     }
