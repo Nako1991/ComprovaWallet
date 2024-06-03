@@ -8,12 +8,18 @@ public class ControladorVentanaLogin {
 
     public ControladorVentanaLogin() {}
 
-    public static boolean comprobarLogin(String usuario, String contraseña){
-        //comprobar el usuario y que devuelva el usuario, luego la contraseña
-        return (comprobarUsuario(usuario) && comprobarContraseña(contraseña));
-    }
 
-    private static boolean comprobarUsuario(String usuarioBuscado){
+
+
+
+
+    /*public static boolean comprobarLogin(String usuario, String contraseña){
+        //comprobar el usuario y que devuelva el usuario, luego la contraseña
+
+        return (comprobarUsuario(usuario) && comprobarContraseña(contraseña));
+    }*/
+
+    /*private static boolean comprobarUsuario(String usuarioBuscado){
         boolean comprobado = false;
 
 
@@ -22,9 +28,9 @@ public class ControladorVentanaLogin {
                 comprobado = true;
         }
         return comprobado;
-    }
+    }*/
 
-    private static boolean comprobarContraseña(String contraseña){
+    /*private static boolean comprobarContraseña(String contraseña){
         return 0;
-    }
+    }*/
 }

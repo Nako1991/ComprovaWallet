@@ -1,4 +1,6 @@
-/*import java.util.Date;
+package Model;
+
+import java.util.Date;
 
 public class Comprobante implements Model.GeneradorID {
 
@@ -45,4 +47,4 @@ public class Comprobante implements Model.GeneradorID {
                 " Model.Banco Destino: " + bancoDestino + "\n" +
                 " Estado: " + estado + "\n";
     }
-}*/
+}
