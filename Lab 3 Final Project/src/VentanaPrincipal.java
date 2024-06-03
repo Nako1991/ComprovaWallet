@@ -20,7 +20,7 @@ public class VentanaPrincipal {
         ventanaMenu.setLocationRelativeTo(null);
         ventanaMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        imagenFondoMenu imagen = new imagenFondoMenu();
+        ImagenFondoMenu imagen = new ImagenFondoMenu();
         imagen.setLayout(new BorderLayout());
         ventanaMenu.add(imagen);
 
