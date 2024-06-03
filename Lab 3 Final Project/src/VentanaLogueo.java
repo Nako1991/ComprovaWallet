@@ -4,7 +4,10 @@ import java.awt.*;
 public class VentanaLogueo extends JFrame {
     public VentanaLogueo() {
         setTitle("Ingreso");
-        setSize(600, 600);
+        Dimension dim = calcularDimensionPantalla();
+        int ancho = dim.width;
+        int alto = dim.height;
+        setSize(ancho,alto);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -25,5 +28,11 @@ public class VentanaLogueo extends JFrame {
         ventanaLogin.add(botonLogin);
 
         add(ventanaLogin);
+    }
+
+
+    private Dimension calcularDimensionPantalla(){
+        Dimension tamañoPantalla = Toolkit.getDefaultToolkit().getScreenSize();
+        return tamañoPantalla;
     }
 }

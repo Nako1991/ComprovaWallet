@@ -1,4 +1,4 @@
-import java.util.Date;
+/*import java.util.Date;
 
 public class Comprobante implements GeneradorID {
 
@@ -45,4 +45,4 @@ public class Comprobante implements GeneradorID {
                 " Banco Destino: " + bancoDestino + "\n" +
                 " Estado: " + estado + "\n";
     }
-}
+}*/

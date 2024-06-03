@@ -1,8 +1,5 @@
 import javax.imageio.ImageIO;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,6 +35,8 @@ public class VentanaPrincipal {
         columna.setBackground(Color.black);
         columna.setBounds(0, 0, (ancho / 5), alto);
         imagen.add(columna);
+
+
         ///Hacemos visible la ventana
         ventanaPrincipal.setVisible(true);
 
@@ -62,6 +61,8 @@ public class VentanaPrincipal {
             public void actionPerformed(ActionEvent e) {
                 VentanaLogueo ventanaLogueo = new VentanaLogueo();
                 ventanaLogueo.setVisible(true);
+                ComprobanteTest comprobante = new ComprobanteTest("Brisa ortiz", 500, "03/06/2024");
+                ventanaLogueo.add(comprobante);
                 ///A la ventana principal la ocultamos
                 ///ventanaPrincipal.setVisible(false);
             }
@@ -81,4 +82,18 @@ public class VentanaPrincipal {
         Dimension tamañoPantalla = Toolkit.getDefaultToolkit().getScreenSize();
         return tamañoPantalla;
     }
+
+    /*public void generarComprobanteTest() {
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Comprobante de Pago");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+            ComprobanteTest comprobantePago = new ComprobanteTest("Juan Pérez", 50.00, "01/06/2024");
+            frame.add(comprobantePago);
+
+            frame.pack();
+            frame.setVisible(true);
+        });
+    }
+    */
 }
