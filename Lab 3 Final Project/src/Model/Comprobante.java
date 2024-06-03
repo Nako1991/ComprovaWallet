@@ -1,4 +1,9 @@
-/*import java.util.Date;
+package Model;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.Date;
 
 public class Comprobante implements Model.GeneradorID {
 
@@ -45,4 +50,17 @@ public class Comprobante implements Model.GeneradorID {
                 " Model.Banco Destino: " + bancoDestino + "\n" +
                 " Estado: " + estado + "\n";
     }
-}*/
+
+
+   public JSONObject ToJSON(){
+        JSONObject comprobante = new JSONObject();
+        comprobante.put("ID", this.id);
+        comprobante.put("Codigo Transferencia", this.codigoTransferencia);
+        comprobante.put("Fecha", this.fecha);
+        comprobante.put("Monto", this.monto);
+        comprobante.put("Banco Origen", this.bancoOrigen.ToJSON());
+        comprobante.put("Banco Destino", this.bancoDestino.ToJSON());
+        comprobante.put("Estado", this.estado);
+        return comprobante;
+    }
+}

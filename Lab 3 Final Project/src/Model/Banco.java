@@ -1,5 +1,7 @@
 package Model;
 
+import org.json.JSONObject;
+
 public class Banco {
 
     protected String banco;
@@ -26,5 +28,13 @@ public class Banco {
         return  "BANCO" + "\n" +
                 " Alias: " + alias + "\n" +
                 " CVU: " + cvu + "\n";
+    }
+
+    public JSONObject ToJSON(){
+        JSONObject banco = new JSONObject();
+        banco.put("Banco", this.banco);
+        banco.put("Alias", this.alias);
+        banco.put("Cvu", this.cvu);
+        return banco;
     }
 }

@@ -1,5 +1,8 @@
 package Model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class Usuario implements GeneradorID {
@@ -38,4 +41,15 @@ public class Usuario implements GeneradorID {
                 " TEST ID UNICO: " + id + "\n" +
                 " Billetera Virtual: " + billeterasVirtuales + "\n";
     }
+    public JSONObject ToJSON(){
+        JSONObject usuario = new JSONObject();
+        usuario.put("Usuario", this.usuario);
+        usuario.put("Contraseña", this.contraseña);
+        JSONArray billeteras = new JSONArray();
+        for(BilleteraVirtual buffer : this.billeterasVirtuales) billeteras.put(buffer.ToJSON());
+        usuario.put("Billeteras Virtuales", billeteras);
+        return usuario;
+    }
+
+
 }
