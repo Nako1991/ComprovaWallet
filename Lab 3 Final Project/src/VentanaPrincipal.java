@@ -13,27 +13,34 @@ public class VentanaPrincipal {
     public VentanaPrincipal() {}
 
     public void ejecutarVentanaPrincipal(){
-        JFrame ventanaMenu = new JFrame("ComprovaWallet");
+        JFrame ventanaPrincipal = new JFrame("ComprovaWallet");
         ///Cambiando icono de la ventana:
-        iconoVentanaGrafica(ventanaMenu);
-        ventanaMenu.setSize(400,300);
-        ventanaMenu.setLocationRelativeTo(null);
-        ventanaMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        iconoVentanaGrafica(ventanaPrincipal);
+
+        ///Dimension pantalla:
+        Dimension dimPantalla = calcularDimensionPantalla();
+        int ancho = dimPantalla.width;
+        int alto = dimPantalla.height;
+
+        ventanaPrincipal.setSize(ancho,alto);
+
+        ventanaPrincipal.setLocationRelativeTo(null);
+        ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         ImagenFondoMenu imagen = new ImagenFondoMenu();
         imagen.setLayout(new BorderLayout());
-        ventanaMenu.add(imagen);
+        ventanaPrincipal.add(imagen);
 
-        componentesVentanaPrincipal(imagen);
+        componentesVentanaPrincipal(imagen, ventanaPrincipal);
 
         ///Colocamos los componentes de esta ventana
 
         ///Hacemos visible la ventana
-        ventanaMenu.setVisible(true);
+        ventanaPrincipal.setVisible(true);
 
     }
 
-    private void componentesVentanaPrincipal(JPanel componentes){
+    private void componentesVentanaPrincipal(JPanel componentes, JFrame ventanaPrincipal){
         componentes.setLayout(null);
         ///Creando etiqueta
         JLabel label = new JLabel("HOLA SWING");
@@ -42,15 +49,18 @@ public class VentanaPrincipal {
         componentes.add(label);
 
         ///Creamos un boton
-        JButton boton = new JButton("Login");
-        boton.setBounds(150, 60, 100, 25);
-        componentes.add(boton);
+        JButton login = new JButton("Login");
+        login.setBounds(150, 60, 100, 25);
+        componentes.add(login);
 
         ///Probando darle interaccion al boton:
-        boton.addActionListener(new ActionListener() {
+        login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                label.setText("Boton pulsado");
+                VentanaLogueo ventanaLogueo = new VentanaLogueo();
+                ventanaLogueo.setVisible(true);
+                ///A la ventana principal la ocultamos
+                ventanaPrincipal.setVisible(false);
             }
         });
     }
@@ -64,4 +74,8 @@ public class VentanaPrincipal {
         }
     }
 
+    private Dimension calcularDimensionPantalla(){
+        Dimension tamañoPantalla = Toolkit.getDefaultToolkit().getScreenSize();
+        return tamañoPantalla;
+    }
 }
