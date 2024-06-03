@@ -4,10 +4,10 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class imagenFondoMenu extends JPanel {
+public class ImagenFondoMenu extends JPanel {
     private Image imagen;
 
-    public imagenFondoMenu(){
+    public ImagenFondoMenu(){
         try {
             imagen = ImageIO.read(new File("C:\\Users\\Brisa Ortiz\\Documents\\GitHub\\Lab-3-Final-Project\\background.jpg"));
         }catch (IOException err){
