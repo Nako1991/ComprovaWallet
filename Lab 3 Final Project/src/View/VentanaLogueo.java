@@ -2,6 +2,8 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class VentanaLogueo extends JFrame {
     public VentanaLogueo() {
@@ -21,15 +23,23 @@ public class VentanaLogueo extends JFrame {
         JLabel etiquetaPassword = new JLabel("Contraseña:");
         JPasswordField textoPassword = new JPasswordField(20);
         JButton botonLogin = new JButton("LOGIN");
+        JButton botonBack = new JButton("BACK");
 
         ventanaLogin.add(etiquetaUsuario);
         ventanaLogin.add(userText);
         ventanaLogin.add(etiquetaPassword);
         ventanaLogin.add(textoPassword);
-        ventanaLogin.add(new JLabel());
+        ventanaLogin.add(botonBack);
         ventanaLogin.add(botonLogin);
-
         add(ventanaLogin);
+        ///Probando darle interaccion al boton:
+        botonBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+            }
+        });
+
     }
 
 

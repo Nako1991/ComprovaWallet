@@ -40,4 +40,8 @@ public class Usuario implements GeneradorID {
                 " TEST ID UNICO: " + id + "\n" +
                 " Billetera Virtual: " + billeterasVirtuales + "\n";
     }
+
+    public void addBilleteraVirtual(BilleteraVirtual billeteraVirtual){
+        this.billeterasVirtuales.add(billeteraVirtual);
+    }
 }

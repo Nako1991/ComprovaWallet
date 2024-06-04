@@ -4,6 +4,7 @@ import Model.ComprobanteTest;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,17 +29,16 @@ public class VentanaPrincipal {
         ventanaPrincipal.setLocationRelativeTo(null);
         ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        ImagenFondoMenu imagen = new ImagenFondoMenu();
+        ImagenFondoMenu imagen = new ImagenFondoMenu(dimPantalla);
         imagen.setLayout(new BorderLayout());
         ventanaPrincipal.add(imagen);
 
         ///Colocamos los componentes de esta ventana
         componentesVentanaPrincipal(imagen, ventanaPrincipal);
-        ///Agregando la columna
+
+        ///AGREGANDO LA COLUMNA:
         JPanel columna = new JPanel();
-        columna.setBackground(Color.black);
-        columna.setBounds(0, 0, (ancho / 5), alto);
-        imagen.add(columna);
+        agregarColumna(columna,imagen,ancho,alto);
 
         ComprobanteTest comprobanteTest = new ComprobanteTest("Brisa Ortiz", 500,"10/05/2023");
         ///Hacemos visible la ventana
@@ -48,16 +48,14 @@ public class VentanaPrincipal {
 
     private void componentesVentanaPrincipal(JPanel componentes, JFrame ventanaPrincipal){
         componentes.setLayout(null);
-        ///Creando etiqueta
-        JLabel label = new JLabel("HOLA SWING");
-        ///posicion y tamaño:
-        label.setBounds(150, 20, 100, 25);
-        componentes.add(label);
 
-        ///Creamos un boton
-        JButton login = new JButton("Login");
-        login.setBounds(150, 60, 100, 25);
+        ///Creamos boton login
+        JButton login = new JButton("LOGIN");
+        login.setBounds(100, 250, 100, 25);
         componentes.add(login);
+
+        ///Creamos boton register
+        botonRegister(componentes);
 
         ///Probando darle interaccion al boton:
         login.addActionListener(new ActionListener() {
@@ -65,17 +63,39 @@ public class VentanaPrincipal {
             public void actionPerformed(ActionEvent e) {
                 VentanaLogueo ventanaLogueo = new VentanaLogueo();
                 ventanaLogueo.setVisible(true);
-                ComprobanteTest comprobante = new ComprobanteTest("Brisa ortiz", 500, "03/06/2024");
-                ventanaLogueo.add(comprobante);
+                //ComprobanteTest comprobante = new ComprobanteTest("Brisa ortiz", 500, "03/06/2024");
+                //ventanaLogueo.add(comprobante);
                 ///A la ventana principal la ocultamos
                 ///ventanaPrincipal.setVisible(false);
             }
         });
     }
 
+    public void botonRegister(JPanel componentes){
+        JButton register = new JButton("REGISTER");
+        register.setBounds(50,450,200,100);
+        Font letra = new Font("Segoe UI", Font.BOLD, 34);
+        register.setFont(letra);
+        LineBorder linea = new LineBorder(Color.BLUE,10,false);
+        register.setBorder(linea);
+        componentes.add(register);
+    }
+    public void agregarColumna(JPanel columna,JPanel imagen,int ancho, int alto){
+        ///Creamos el color personalizado:
+        Color colorColumna = new Color(9,21,88);
+        ///Agregando la columna
+
+        columna.setBackground(colorColumna);
+        columna.setBounds(0, 0, (ancho / 5), alto);
+        ///Agregando una linea a la columna
+        LineBorder linea = new LineBorder(Color.BLUE,10,true);
+        columna.setBorder(linea);
+        imagen.add(columna);
+    }
+
     public void iconoVentanaGrafica(JFrame ventana){
         try {
-            Image icono = ImageIO.read(new File("C:\\Users\\Model.Usuario\\Documents\\GitHub\\Lab-3-Final-Project\\logo.jpeg"));
+            Image icono = ImageIO.read(new File("C:\\Users\\Brisa Ortiz\\Documents\\GitHub\\Lab-3-Final-Project\\logo.jpeg"));
             ventana.setIconImage(icono);
         }catch (IOException err){
             System.out.println("ERROR--->" + err.getMessage());
