@@ -5,46 +5,46 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class VentanaLogueo extends JFrame {
-    public VentanaLogueo() {
-        setTitle("Ingreso");
-        Dimension dim = calcularDimensionPantalla();
-        int ancho = dim.width;
-        int alto = dim.height;
-        setSize(ancho,alto);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setLocationRelativeTo(null);
+public class VentanaLogueo implements DimensionPantalla, IconoVentanas {
+    private static JFrame ventanaLogin = new JFrame("Inicio de Sesión");
+    public VentanaLogueo() {}
 
-        JPanel ventanaLogin = new JPanel();
-        ventanaLogin.setLayout(new GridLayout(3, 2));
+    public void ejecutarVentanaLogeo(){
+        iconoVentanaGrafica(ventanaLogin);
+        Dimension dimensionPantalla = calcularDimensionPantalla();
+        ventanaLogin.setSize(dimensionPantalla);
+        ventanaLogin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ventanaLogin.setLocationRelativeTo(null);
 
-        JLabel etiquetaUsuario = new JLabel("Model.Usuario:");
+        JPanel panelLogin = new JPanel();
+        panelLogin.setLayout(new GridLayout(3, 2));
+
+        JLabel etiquetaUsuario = new JLabel("Usuario:");
         JTextField userText = new JTextField(20);
         JLabel etiquetaPassword = new JLabel("Contraseña:");
         JPasswordField textoPassword = new JPasswordField(20);
         JButton botonLogin = new JButton("LOGIN");
         JButton botonBack = new JButton("BACK");
 
-        ventanaLogin.add(etiquetaUsuario);
-        ventanaLogin.add(userText);
-        ventanaLogin.add(etiquetaPassword);
-        ventanaLogin.add(textoPassword);
-        ventanaLogin.add(botonBack);
-        ventanaLogin.add(botonLogin);
-        add(ventanaLogin);
-        ///Probando darle interaccion al boton:
+        panelLogin.add(etiquetaUsuario);
+        panelLogin.add(userText);
+        panelLogin.add(etiquetaPassword);
+        panelLogin.add(textoPassword);
+        panelLogin.add(botonBack);
+        panelLogin.add(botonLogin);
+        ventanaLogin.add(panelLogin);
+
+        ///Probando darle interaccion al boton back:
         botonBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setVisible(false);
+                ventanaLogin.setVisible(false);
             }
         });
-
     }
 
-
-    private Dimension calcularDimensionPantalla(){
-        Dimension tamañoPantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        return tamañoPantalla;
+    public void mostrarVentana(){
+        ventanaLogin.setVisible(true);
     }
+
 }
