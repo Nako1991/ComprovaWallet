@@ -1,5 +1,7 @@
 package Model;
 
+import org.json.JSONObject;
+
 public class BilleteraVirtual implements GeneradorID {
 
     private String id;
@@ -27,5 +29,16 @@ public class BilleteraVirtual implements GeneradorID {
                 " " + unBanco + "\n" +
                 " ID UNICO BILLETERA VIRTUAL TEST "+ id + "\n" +
                 " API: " + api + "\n";
+    }
+
+    public JSONObject toJSON() {
+
+        JSONObject jsonBilleteraVirtual = new JSONObject();
+        jsonBilleteraVirtual.put("ID:", this.id);
+        jsonBilleteraVirtual.put("Persona:", this.unaPersona.toJSON());
+        jsonBilleteraVirtual.put("Banco:", this.unBanco.toJSON());
+        jsonBilleteraVirtual.put("API: ", this.api);
+
+        return jsonBilleteraVirtual;
     }
 }

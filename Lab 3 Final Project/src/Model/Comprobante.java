@@ -1,5 +1,7 @@
 package Model;
 
+import org.json.JSONObject;
+
 import java.util.Date;
 
 public class Comprobante implements Model.GeneradorID {
@@ -46,5 +48,19 @@ public class Comprobante implements Model.GeneradorID {
                 " Model.Banco Origen: " + bancoOrigen + "\n" +
                 " Model.Banco Destino: " + bancoDestino + "\n" +
                 " Estado: " + estado + "\n";
+    }
+
+    public JSONObject toJSON() {
+
+        JSONObject jsonComprobante = new JSONObject();
+        jsonComprobante.put("ID:", this.id);
+        jsonComprobante.put("Codigo Transferencia:", this.codigoTransferencia);
+        jsonComprobante.put("Fecha:", this.fecha);
+        jsonComprobante.put("Monto:", this.monto);
+        jsonComprobante.put("Banco Origen:", this.bancoOrigen);
+        jsonComprobante.put("Banco Destino:", this.bancoDestino);
+        jsonComprobante.put("Estado Comprobante:", this.estado);
+
+        return jsonComprobante;
     }
 }

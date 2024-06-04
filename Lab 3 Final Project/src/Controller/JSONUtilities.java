@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class JSONUtilities {
+
     public JSONUtilities() {}
 
     ///PARA GUARDAR UN JSON ARRAY A UN ARCHIVO
@@ -35,7 +36,7 @@ public class JSONUtilities {
     }
 
     ///DESCARGAR INFO DEL ARCHIVO: Nos sirve para mostrar lo que contiene el archivo, si es un JSONArray o un JSONObject
-    public static String downloadJSON(String archivo){
+    public static String downloadJSON(String archivo) {
         String contenido = "";
         try {
             contenido = new String(Files.readAllBytes(Paths.get(archivo+".json")));

@@ -1,5 +1,7 @@
 package Model;
 
+import org.json.JSONObject;
+
 public class Persona implements GeneradorID {
 
     private String id;
@@ -24,5 +26,15 @@ public class Persona implements GeneradorID {
                 " Nombre y Apellido: " + nombreApellido + "\n" +
                 " ID UNICO TEST: " + id + "\n" +
                 " Cuil: " + cuil + "\n";
+    }
+
+    public JSONObject toJSON() {
+
+        JSONObject jsonPersona = new JSONObject();
+        jsonPersona.put("ID:", this.id);
+        jsonPersona.put("Nombre y Apellido:", this.nombreApellido);
+        jsonPersona.put("CUIL:", this.cuil);
+
+        return jsonPersona;
     }
 }

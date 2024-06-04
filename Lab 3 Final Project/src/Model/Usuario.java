@@ -1,5 +1,8 @@
 package Model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class Usuario implements GeneradorID {
@@ -35,13 +38,35 @@ public class Usuario implements GeneradorID {
     @Override
     public String toString() {
         return "CUENTA" + "\n" +
-                " Model.Usuario: " + usuario + "\n" +
-                " Contraseña: " + contraseña + "\n" +
                 " TEST ID UNICO: " + id + "\n" +
-                " Billetera Virtual: " + billeterasVirtuales + "\n";
+                " Contraseña: " + contraseña + "\n" +
+                " Billetera Virtuales: " + billeterasVirtuales + "\n" +
+                " Comprobantes: " + billeterasVirtuales + "\n";
     }
 
-    public void addBilleteraVirtual(BilleteraVirtual billeteraVirtual){
+    public JSONObject toJSON() {
+
+        JSONObject jsonUsuario = new JSONObject();
+        jsonUsuario.put("ID:", this.id);
+        jsonUsuario.put("Usuario:", this.usuario);
+        jsonUsuario.put("Contraseña:", this.contraseña);
+
+        JSONArray jsonBilleteras = new JSONArray();
+        for(BilleteraVirtual billeteraBuffer : this.billeterasVirtuales) {
+            jsonBilleteras.put(billeteraBuffer.toJSON());
+        }
+        jsonUsuario.put("Billeteras:", jsonBilleteras);
+
+        JSONArray jsonHistorialDeComprobantes = new JSONArray();
+        for(Comprobante comprobanteBuffer : this.historialDeComprobantes) {
+            jsonHistorialDeComprobantes.put(comprobanteBuffer.toJSON());
+        }
+        jsonUsuario.put("Comprobantes:", jsonHistorialDeComprobantes);
+
+        return jsonUsuario;
+    }
+
+    public void addBilleteraVirtual(BilleteraVirtual billeteraVirtual) {
         this.billeterasVirtuales.add(billeteraVirtual);
     }
 }

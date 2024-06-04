@@ -1,5 +1,7 @@
 package Model;
 
+import org.json.JSONObject;
+
 public class Cliente implements GeneradorID {
 
     private String id;
@@ -36,5 +38,16 @@ public class Cliente implements GeneradorID {
                 " " + persona + "\n" +
                 " " + banco +  "\n" +
                 " Tipo cliente: " + tipoCliente + "\n";
+    }
+
+    public JSONObject toJSON() {
+
+        JSONObject jsonCliente = new JSONObject();
+        jsonCliente.put("ID:", this.id);
+        jsonCliente.put("Persona:", this.persona);
+        jsonCliente.put("Banco:", this.banco);
+        jsonCliente.put("TipoCliente:", this.tipoCliente);
+
+        return jsonCliente;
     }
 }
