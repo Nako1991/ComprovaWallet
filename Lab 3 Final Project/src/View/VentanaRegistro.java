@@ -1,5 +1,8 @@
 package View;
 
+import Interface.DimensionPantalla;
+import Interface.IconoVentanas;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

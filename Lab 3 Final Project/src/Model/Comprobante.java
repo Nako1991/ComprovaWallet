@@ -1,10 +1,11 @@
 package Model;
 
+import Interface.GeneradorID;
 import org.json.JSONObject;
 
 import java.util.Date;
 
-public class Comprobante implements Model.GeneradorID {
+public class Comprobante implements GeneradorID {
 
     private String id;
     private String codigoTransferencia;

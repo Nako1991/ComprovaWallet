@@ -1,5 +1,6 @@
 package Model;
 
+import Interface.GeneradorID;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

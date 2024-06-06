@@ -1,4 +1,6 @@
 package View;
+import Interface.DimensionPantalla;
+import Interface.IconoVentanas;
 import Model.ComprobanteTest;
 
 import javax.swing.*;
@@ -83,7 +85,7 @@ public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
         salir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ventanaPrincipal.setVisible(false);
+                System.exit(0);
             }
         });
     }
