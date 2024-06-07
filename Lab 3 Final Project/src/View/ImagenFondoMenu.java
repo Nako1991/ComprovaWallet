@@ -1,5 +1,7 @@
 package View;
 
+import Model.Config;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +13,7 @@ public class ImagenFondoMenu extends JPanel {
 
     public ImagenFondoMenu(Dimension dimPantalla){
         try {
-            imagen = ImageIO.read(new File("C:\\Users\\Brisa Ortiz\\Documents\\GitHub\\Lab-3-Final-Project\\background.jpg"));
+            imagen = ImageIO.read(new File(Config.getCarpetaImagenes() + "background.jpg"));
         }catch (IOException err){
             System.out.println("ERROR---> " + err.getMessage());
         }
