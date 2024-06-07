@@ -18,8 +18,8 @@ public class JSONUtilities {
             file.write(jsonArray.toString());
             file.flush();
             file.close();
-        }catch (IOException err){
-            System.out.println("ERROR---> " + err.getMessage());
+        }catch (IOException error){
+            System.out.println("ERROR---> " + error.getMessage());
         }
     }
     ///PARA GUARDAR UN JSON OBJECT A UN ARCHIVO
@@ -30,8 +30,8 @@ public class JSONUtilities {
             file.flush();
             file.close();
         }
-        catch (IOException err){
-            System.out.println("ERROR---> " + err.getMessage());
+        catch (IOException error){
+            System.out.println("ERROR---> " + error.getMessage());
         }
     }
 
@@ -41,8 +41,8 @@ public class JSONUtilities {
         try {
             contenido = new String(Files.readAllBytes(Paths.get(archivo+".json")));
         }
-        catch (IOException err){
-            System.out.println("ERROR--> " + err.getMessage());
+        catch (IOException error){
+            System.out.println("ERROR--> " + error.getMessage());
         }
         return contenido;
     }
