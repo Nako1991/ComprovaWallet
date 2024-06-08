@@ -13,7 +13,11 @@ public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
     public VentanaPrincipal() {}
 
     public void ejecutarVentanaPrincipal(){
+        ///Creando los componentes de la ventana principal
+
         JFrame ventanaPrincipal = new JFrame("ComprovaWallet");
+        ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         ///Cambiando icono de la ventana:
         iconoVentanaGrafica(ventanaPrincipal);
 
@@ -25,7 +29,7 @@ public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
         ventanaPrincipal.setSize(ancho,alto);
 
         ventanaPrincipal.setLocationRelativeTo(null);
-        ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
         ImagenFondoMenu imagen = new ImagenFondoMenu(dimPantalla);
         imagen.setLayout(new BorderLayout());
@@ -39,9 +43,17 @@ public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
         agregarColumna(columna,imagen,ancho,alto);
 
         ComprobanteTest comprobanteTest = new ComprobanteTest("Brisa Ortiz", 500,"10/05/2023");
+
         ///Hacemos visible la ventana
         ventanaPrincipal.setVisible(true);
 
+        ///Panel de Comprobantes
+        JPanel panelComprobantes = new JPanel();
+        panelComprobantes.setBackground(Color.BLACK);
+        panelComprobantes.setBounds(500, 0, 500, 500);
+        ventanaPrincipal.add(panelComprobantes);
+
+        //ventanaPrincipal.setVisible(true);
     }
 
     private void componentesVentanaPrincipal(JPanel componentes, JFrame ventanaPrincipal){
