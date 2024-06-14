@@ -1,0 +1,10 @@
+Glosario
+
+JPanel: Es un contenedor que se utiliza para organizar otros componentes dentro de un contenedor. Proporciona un área donde puedes colocar botones, etiquetas, campos de texto y otros componentes.
+
+JButton: Representa un botón en una interfaz de usuario. Se utiliza para realizar acciones cuando se hace clic en él.
+
+JLabel: Es un componente que muestra texto o una imagen en una interfaz de usuario. Se utiliza principalmente para proporcionar información descriptiva o etiquetar otros componentes.
+
+JTextField: Es un componente de entrada de texto de una sola línea que permite al usuario escribir texto.
+

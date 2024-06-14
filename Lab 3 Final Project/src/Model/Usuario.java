@@ -1,9 +1,7 @@
 package Model;
-
 import Interface.GeneradorID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 public class Usuario implements GeneradorID {
