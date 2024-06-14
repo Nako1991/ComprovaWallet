@@ -1,6 +1,7 @@
 package View;
 import Interface.DimensionPantalla;
 import Interface.IconoVentanas;
+import Model.Usuario;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -9,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
+    private Usuario usuarioLogueado = new Usuario();
 
     public VentanaPrincipal() {}
 
@@ -72,10 +74,6 @@ public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
                 VentanaLogueo ventanaLogueo = new VentanaLogueo();
                 ventanaLogueo.ejecutarVentanaLogeo();
                 ventanaLogueo.mostrarVentana();
-                //ComprobanteTest comprobante = new ComprobanteTest("Brisa ortiz", 500, "03/06/2024");
-                //ventanaLogueo.add(comprobante);
-                ///A la ventana principal la ocultamos
-                ///ventanaPrincipal.setVisible(false);
             }
         });
         ///Dandole interaccion al boton register:

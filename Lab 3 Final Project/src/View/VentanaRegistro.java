@@ -1,6 +1,6 @@
 package View;
 
-import Controller.ControladorVentanaRegistro;
+import Controller.ControladorRegistroUsuarios;
 import Exceptions.InvalidWrongPasswordFormat;
 import Exceptions.InvalidUserAlreadyExists;
 import Exceptions.InvalidWrongUserFormat;
@@ -16,11 +16,11 @@ import java.util.Scanner;
 public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
 
     Scanner scanner = new Scanner(System.in);
-    private ControladorVentanaRegistro controladorVentanaRegistro;
+    private ControladorRegistroUsuarios controladorRegistroUsuarios;
     private static JFrame ventanaRegistro = new JFrame();
 
     public VentanaRegistro() {
-        this.controladorVentanaRegistro = new ControladorVentanaRegistro();
+        this.controladorRegistroUsuarios = new ControladorRegistroUsuarios();
     }
 
     public void ejecutarVentanaRegistro(){
@@ -28,7 +28,8 @@ public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
         ventanaRegistro.setTitle("Registro");
         iconoVentanaGrafica(ventanaRegistro);
         Dimension dimPantalla = calcularDimensionPantalla();
-        ventanaRegistro.setSize(dimPantalla);
+        Dimension dimVentanaRegistro = new Dimension((int)dimPantalla.getWidth() / 4, (int)dimPantalla.getHeight() / 4);
+        ventanaRegistro.setSize(dimVentanaRegistro);
         ventanaRegistro.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventanaRegistro.setLocationRelativeTo(null);
 
@@ -41,7 +42,7 @@ public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
         JPasswordField textoPassword = new JPasswordField(20);
         JLabel etiquetaBilletera = new JLabel("Billetera Virtual:");
         JTextField userBilletera = new JTextField(20);
-        JButton botonRegister = new JButton("REGISTER");
+        JButton botonRegister = new JButton("REGISTRAR");
         JButton botonBack = new JButton("BACK");
 
         ventanaRegister.add(etiquetaUsuario);
@@ -69,11 +70,15 @@ public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
             }
         });
     }
+    public void mostrarVentana(){
+        ventanaRegistro.setVisible(true);
+    }
     public void botonBack(JButton back, JPanel ventanaRegister){
         Font letra = new Font("Segoe UI", Font.BOLD, 34);
         back.setFont(letra);
         ventanaRegister.add(back);
     }
+
     public void botonRegister(JButton register, JPanel ventanaRegister){
         Font letra = new Font("Segoe UI", Font.BOLD, 34);
         register.setFont(letra);
@@ -82,19 +87,17 @@ public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
 
     public void registracionUsuario(){
         try {
+            ///TODO Transformar a interfaz grafica
             System.out.println("Ingrese el nombre de usuario a registrar: ");
             String usuario = scanner.nextLine();
-            System.out.println("Ingrese el nombre de usuario a registrar: ");
+            System.out.println("Ingrese la contraseña de usuario a registrar: ");
             String password = scanner.nextLine();
-            controladorVentanaRegistro.registrarUsuario(usuario, password);
+            controladorRegistroUsuarios.registrarUsuario(usuario, password);
             System.out.println("Usuario registrado con exito.");
+            ventanaRegistro.setVisible(false);
         }
         catch(InvalidWrongUserFormat | InvalidUserAlreadyExists | InvalidWrongPasswordFormat exception) {
             System.out.println("El usuario no se ha registrado.");
         }
-    }
-
-    public void mostrarVentana(){
-        ventanaRegistro.setVisible(true);
     }
 }
