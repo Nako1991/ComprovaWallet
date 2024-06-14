@@ -19,7 +19,7 @@ public class JSONUtilities {
             file.flush();
             file.close();
         }catch (IOException error){
-            System.out.println("ERROR---> " + error.getMessage());
+            System.out.println("ERROR:" + error.getMessage());
         }
     }
     ///PARA GUARDAR UN JSON OBJECT A UN ARCHIVO
@@ -31,7 +31,7 @@ public class JSONUtilities {
             file.close();
         }
         catch (IOException error){
-            System.out.println("ERROR---> " + error.getMessage());
+            System.out.println("ERROR:" + error.getMessage());
         }
     }
 
@@ -42,7 +42,7 @@ public class JSONUtilities {
             contenido = new String(Files.readAllBytes(Paths.get(archivo)));
         }
         catch (IOException error){
-            System.out.println("ERROR--> " + error.getMessage());
+            System.out.println("ERROR:" + error.getMessage());
         }
         return contenido;
     }

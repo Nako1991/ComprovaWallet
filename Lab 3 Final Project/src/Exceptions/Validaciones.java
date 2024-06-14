@@ -23,11 +23,14 @@ public class Validaciones {
 
     //Verificamos que la contraseña tenga 8 dígitos, al menos una mayúscula, un número y un caracter especial
     public static boolean invalidWrongPasswordFormat(String password) throws InvalidWrongPasswordFormat {
-        if (password.matches("\\d{8}") &&
-            password.matches(".*[A-Z].*") &&
-            password.matches(".*\\d.*") &&
-            password.matches(".*[!@#$%^&*()\\[\\]{};:,.<>?\\/\\\\].*")) return true;
-        else throw new InvalidWrongPasswordFormat("La contraseña debe contener al menos 8 caracteres, una mayúscula, un número y un caracter especial");
+        if (password.length() >= 8 &&
+                password.matches(".*[A-Z].*") &&
+                password.matches(".*\\d.*") &&
+                password.matches(".*[-_.#*@<>&$].*")) {
+            return false;  // La contraseña es válida
+        } else {
+            throw new InvalidWrongPasswordFormat("La contraseña debe contener al menos 8 caracteres, una mayúscula, un número y un caracter especial");
+        }
     }
 
     //Verificamos que el nombre de usuario solo contenga letras minúsculas y mayúsculas

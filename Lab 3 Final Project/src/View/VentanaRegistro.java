@@ -13,9 +13,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
 
 public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
     private ControladorVentanaRegistro controladorVentanaRegistro;
+    Scanner scanner = new Scanner(System.in);
     private static JFrame ventanaRegistro = new JFrame();
     public VentanaRegistro(Repositorio repositorio) {
         this.controladorVentanaRegistro = new ControladorVentanaRegistro(repositorio);
@@ -59,21 +61,11 @@ public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
                 ventanaRegistro.setVisible(false);
             }
         });
+
         botonRegister.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                try {
-                    controladorVentanaRegistro.registrarUsuario("juancito", "lalala");
-                } catch (InvalidWrongUserFormat exception) {
-                    throw new RuntimeException(exception);
-                } catch (InvalidWrongPasswordFormat exception) {
-                    throw new RuntimeException(exception);
-                } catch (InvalidUserAlreadyExists exception) {
-                    throw new RuntimeException(exception);
-                }
-
-
+                registracionUsuario();
             }
         });
     }
@@ -88,8 +80,21 @@ public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
         ventanaRegister.add(register);
     }
 
+    public void registracionUsuario(){
+        try {
+            System.out.println("Ingrese el nombre de usuario a registrar: ");
+            String usuario = scanner.nextLine();
+            System.out.println("Ingrese el nombre de usuario a registrar: ");
+            String password = scanner.nextLine();
+            controladorVentanaRegistro.registrarUsuario(usuario, password);
+            System.out.println("Usuario registrado con exito.");
+        }
+        catch(InvalidWrongUserFormat | InvalidUserAlreadyExists | InvalidWrongPasswordFormat exception) {
+            System.out.println("El usuario no se ha registrado.");
+        }
+    }
+
     public void mostrarVentana(){
         ventanaRegistro.setVisible(true);
     }
-
 }

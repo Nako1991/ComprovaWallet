@@ -6,4 +6,5 @@ public class Main {
         VentanaPrincipal ventana = new VentanaPrincipal();
         ventana.ejecutarVentanaPrincipal();
     }
+
 }
