@@ -1,7 +1,9 @@
 package View;
+import Controller.ControladorVentanaRegistro;
 import Interface.DimensionPantalla;
 import Interface.IconoVentanas;
 import Model.ComprobanteTest;
+import Repositorio.Repositorio;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -10,7 +12,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
-    public VentanaPrincipal() {}
+    private Repositorio repositorio;
+
+    public VentanaPrincipal() {
+        this.repositorio = new Repositorio();
+    }
+    public VentanaPrincipal(Repositorio repositorio, ControladorVentanaRegistro controladorVentanaRegistro) {
+        this.repositorio = repositorio;
+    }
 
     public void ejecutarVentanaPrincipal(){
         ///Creando los componentes de la ventana principal
@@ -87,7 +96,7 @@ public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
         register.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VentanaRegistro ventanaRegistro = new VentanaRegistro();
+                VentanaRegistro ventanaRegistro = new VentanaRegistro(repositorio);
                 ventanaRegistro.ejecutarVentanaRegistro();
                 ventanaRegistro.mostrarVentana();
             }

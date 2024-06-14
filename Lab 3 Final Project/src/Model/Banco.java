@@ -9,11 +9,13 @@ public class Banco {
     protected String cvu;
 
     public Banco() {
+        this.banco = "";
         this.alias = "";
         this.cvu = "";
     }
 
-    public Banco(String alias, String cvu) {
+    public Banco(String banco, String alias, String cvu) {
+        this.banco = banco;
         this.alias = alias;
         this.cvu = cvu;
     }
@@ -22,6 +24,8 @@ public class Banco {
     public void setAlias(String alias) { this.alias = alias; }
     public String getCvu() { return cvu; }
     public void setCvu(String cvu) { this.cvu = cvu; }
+    public String getBanco() { return banco; }
+    public void setBanco(String banco) {  this.banco = banco; }
 
     @Override
     public String toString() {
@@ -33,10 +37,17 @@ public class Banco {
     public JSONObject toJSON() {
 
         JSONObject jsonBanco = new JSONObject();
-        jsonBanco.put("Banco:", this.banco);
-        jsonBanco.put("Alias:", this.alias);
-        jsonBanco.put("CVU:", this.cvu);
+        jsonBanco.put("Banco", this.banco);
+        jsonBanco.put("Alias", this.alias);
+        jsonBanco.put("CVU", this.cvu);
 
         return jsonBanco;
+    }
+
+    public static Banco fromJSON(JSONObject bancoJSON) {
+        return new Banco(
+                bancoJSON.getString("Banco"),
+                bancoJSON.getString("Alias"),
+                bancoJSON.getString("CVU"));
     }
 }

@@ -1,7 +1,10 @@
 package Model;
 
 import Interface.GeneradorID;
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class BilleteraVirtual implements GeneradorID {
 
@@ -9,6 +12,13 @@ public class BilleteraVirtual implements GeneradorID {
     private Persona unaPersona;
     private Banco unBanco;
     private String api;
+
+    public BilleteraVirtual(String id, Persona unaPersona, Banco unBanco, String api) {
+        this.unaPersona = unaPersona;
+        this.unBanco = unBanco;
+        this.api = api;
+        this.id = id;
+    }
 
     public BilleteraVirtual(Persona unaPersona, Banco unBanco, String api) {
         this.unaPersona = unaPersona;
@@ -35,11 +45,25 @@ public class BilleteraVirtual implements GeneradorID {
     public JSONObject toJSON() {
 
         JSONObject jsonBilleteraVirtual = new JSONObject();
-        jsonBilleteraVirtual.put("ID:", this.id);
-        jsonBilleteraVirtual.put("Persona:", this.unaPersona.toJSON());
-        jsonBilleteraVirtual.put("Banco:", this.unBanco.toJSON());
-        jsonBilleteraVirtual.put("API: ", this.api);
+        jsonBilleteraVirtual.put("ID", this.id);
+        jsonBilleteraVirtual.put("Persona", this.unaPersona.toJSON());
+        jsonBilleteraVirtual.put("Banco", this.unBanco.toJSON());
+        jsonBilleteraVirtual.put("API", this.api);
 
         return jsonBilleteraVirtual;
+    }
+
+    public static BilleteraVirtual fromJSON(JSONObject billeteraVirtual) {
+
+        String id = billeteraVirtual.getString("ID");
+        Persona persona = Persona.fromJSON(billeteraVirtual.getJSONObject("Banco"));
+        Banco banco = Banco.fromJSON(billeteraVirtual.getJSONObject("Banco"));
+        String api = billeteraVirtual.getString("API");
+
+        return new BilleteraVirtual(
+                id,
+                persona,
+                banco,
+                api);
     }
 }
