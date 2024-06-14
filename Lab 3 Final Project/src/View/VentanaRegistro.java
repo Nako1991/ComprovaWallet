@@ -4,7 +4,7 @@ import Controller.ControladorVentanaRegistro;
 import Exceptions.InvalidWrongPasswordFormat;
 import Exceptions.InvalidUserAlreadyExists;
 import Exceptions.InvalidWrongUserFormat;
-import Exceptions.invalidWrongUserFormat;
+import Exceptions.InvalidWrongUserFormat;
 import Interface.DimensionPantalla;
 import Interface.IconoVentanas;
 import Repositorio.Repositorio;
