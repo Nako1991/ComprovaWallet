@@ -1,9 +1,6 @@
 package View;
-import Controller.ControladorVentanaRegistro;
 import Interface.DimensionPantalla;
 import Interface.IconoVentanas;
-import Model.ComprobanteTest;
-import Repositorio.Repositorio;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -12,18 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
-    private Repositorio repositorio;
 
-    public VentanaPrincipal() {
-        this.repositorio = new Repositorio();
-    }
-    public VentanaPrincipal(Repositorio repositorio) {
-        this.repositorio = repositorio;
-    }
+    public VentanaPrincipal() {}
 
     public void ejecutarVentanaPrincipal(){
+        ///----------VENTANA PRINCIPAL----------
         ///Creando los componentes de la ventana principal
-
         JFrame ventanaPrincipal = new JFrame("ComprovaWallet");
         ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -34,12 +25,10 @@ public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
         Dimension dimPantalla = calcularDimensionPantalla();
         int ancho = dimPantalla.width;
         int alto = dimPantalla.height;
-
         ventanaPrincipal.setSize(ancho,alto);
-
         ventanaPrincipal.setLocationRelativeTo(null);
 
-
+        ///COLOCANDO FONDO
         ImagenFondoMenu imagen = new ImagenFondoMenu(dimPantalla);
         imagen.setLayout(new BorderLayout());
         ventanaPrincipal.add(imagen);
@@ -51,8 +40,6 @@ public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
         JPanel columna = new JPanel();
         agregarColumna(columna,imagen,ancho,alto);
 
-        ComprobanteTest comprobanteTest = new ComprobanteTest("Brisa Ortiz", 500,"10/05/2023");
-
         ///Hacemos visible la ventana
         ventanaPrincipal.setVisible(true);
 
@@ -62,7 +49,6 @@ public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
         panelComprobantes.setBounds(500, 0, 500, 500);
         ventanaPrincipal.add(panelComprobantes);
 
-        //ventanaPrincipal.setVisible(true);
     }
 
     private void componentesVentanaPrincipal(JPanel componentes, JFrame ventanaPrincipal){
@@ -96,7 +82,7 @@ public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
         register.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VentanaRegistro ventanaRegistro = new VentanaRegistro(repositorio);
+                VentanaRegistro ventanaRegistro = new VentanaRegistro();
                 ventanaRegistro.ejecutarVentanaRegistro();
                 ventanaRegistro.mostrarVentana();
             }

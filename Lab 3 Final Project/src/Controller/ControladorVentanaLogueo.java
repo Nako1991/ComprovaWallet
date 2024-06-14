@@ -1,18 +1,11 @@
 package Controller;
 
-import Repositorio.Repositorio;
 
 public class ControladorVentanaLogueo {
-    private Repositorio repositorio;
 
-    public ControladorVentanaLogueo(Repositorio repositorio) {
-        this.repositorio = repositorio;
+    public ControladorVentanaLogueo() {
+
     }
-
-
-
-
-
 
     /*public static boolean comprobarLogin(String usuario, String contraseña){
         //comprobar el usuario y que devuelva el usuario, luego la contraseña
