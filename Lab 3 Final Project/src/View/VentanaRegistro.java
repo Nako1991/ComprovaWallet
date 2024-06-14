@@ -16,10 +16,14 @@ import java.awt.event.ActionListener;
 import java.util.Scanner;
 
 public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
+
+    private Repositorio repositorio;
     private ControladorVentanaRegistro controladorVentanaRegistro;
     Scanner scanner = new Scanner(System.in);
     private static JFrame ventanaRegistro = new JFrame();
+
     public VentanaRegistro(Repositorio repositorio) {
+        this.repositorio = repositorio;
         this.controladorVentanaRegistro = new ControladorVentanaRegistro(repositorio);
     }
 
@@ -86,7 +90,7 @@ public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
             String usuario = scanner.nextLine();
             System.out.println("Ingrese el nombre de usuario a registrar: ");
             String password = scanner.nextLine();
-            controladorVentanaRegistro.registrarUsuario(usuario, password);
+            controladorVentanaRegistro.registrarUsuario(repositorio, usuario, password);
             System.out.println("Usuario registrado con exito.");
         }
         catch(InvalidWrongUserFormat | InvalidUserAlreadyExists | InvalidWrongPasswordFormat exception) {

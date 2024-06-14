@@ -1,12 +1,13 @@
 package Controller;
 
-import Model.Usuario;
+import Repositorio.Repositorio;
 
-import java.util.ArrayList;
+public class ControladorVentanaLogueo {
+    private Repositorio repositorio;
 
-public class ControladorVentanaLogin {
-
-    public ControladorVentanaLogin() {}
+    public ControladorVentanaLogueo(Repositorio repositorio) {
+        this.repositorio = repositorio;
+    }
 
 
 

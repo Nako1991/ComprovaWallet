@@ -25,11 +25,17 @@ public class VentanaLogueo implements DimensionPantalla, IconoVentanas {
         JButton botonBack = new JButton("BACK");
         panelVentanaLogueo(panelLogin,botonLogin,botonBack);
 
-        ///Probando darle interaccion al boton back:
         botonBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ventanaLogin.setVisible(false);
+            }
+        });
+
+        botonLogin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }

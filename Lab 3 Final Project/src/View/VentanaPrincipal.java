@@ -17,7 +17,7 @@ public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
     public VentanaPrincipal() {
         this.repositorio = new Repositorio();
     }
-    public VentanaPrincipal(Repositorio repositorio, ControladorVentanaRegistro controladorVentanaRegistro) {
+    public VentanaPrincipal(Repositorio repositorio) {
         this.repositorio = repositorio;
     }
 
