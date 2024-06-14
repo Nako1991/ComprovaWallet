@@ -1,6 +1,7 @@
 package View;
 
 import Controller.ControladorLogueoUsuarios;
+import Exceptions.InvalidUserDoesntExists;
 import Exceptions.InvalidWrongPasswordFormat;
 import Exceptions.InvalidWrongUserFormat;
 import Interface.DimensionPantalla;
@@ -80,12 +81,12 @@ public class VentanaLogueo implements DimensionPantalla, IconoVentanas {
             controladorLogueoUsuarios.loguearUsuario(usuario, password);
             Usuario usuarioALoguear = new Usuario(usuario, password);
 
-            System.out.println("Usuario registrado con exito.");
+            System.out.println("Usuario logueado con exito.");
             ventanaLogueo.setVisible(false);
             return usuarioALoguear;
         }
-        catch(InvalidWrongUserFormat | InvalidWrongPasswordFormat exception) {
-            System.out.println("El usuario no ha podido ser logueado.");
+        catch(InvalidWrongUserFormat | InvalidWrongPasswordFormat | InvalidUserDoesntExists exception) {
+            System.out.println("Error: " + exception.getMessage());
         }
         return null;
     }

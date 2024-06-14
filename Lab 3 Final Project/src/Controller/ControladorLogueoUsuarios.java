@@ -1,10 +1,7 @@
 package Controller;
 
 
-import Exceptions.InvalidUserAlreadyExists;
-import Exceptions.InvalidWrongPasswordFormat;
-import Exceptions.InvalidWrongUserFormat;
-import Exceptions.Validaciones;
+import Exceptions.*;
 import Interface.InterfazControladorArchivoUsuarios;
 import Model.Config;
 import Model.Usuario;
@@ -22,22 +19,19 @@ public class ControladorLogueoUsuarios implements InterfazControladorArchivoUsua
         this.mostrarArchivo();
     }
 
-    public Usuario loguearUsuario(String nombreUsuario, String contraseña) throws InvalidWrongUserFormat, InvalidWrongPasswordFormat {
+    public Usuario loguearUsuario(String nombreUsuario, String contraseña) throws InvalidWrongUserFormat, InvalidWrongPasswordFormat, InvalidUserDoesntExists {
+
         HashMap<String, Usuario> repositorio = cargarRepositorioDesdeArchivo();
         try {
-            Usuario usuarioALoguear = new Usuario();
             Validaciones.invalidWrongUserFormat(nombreUsuario);
             Validaciones.invalidWrongPasswordFormat(contraseña);
+            Validaciones.invalidUserDoesntExists(nombreUsuario, repositorio);
 
-//            Usuario nuevoUsuario = new Usuario(nombreUsuario, contraseña);
-//
-//            JSONObject nuevoUsuarioJSON = nuevoUsuario.toJSON();
-//            JSONArray usuariosJSONArray = new JSONArray(JSONUtilities.downloadJSON(Config.getCarpetaRaiz() + "usuariosRegistrados.json"));
-//            usuariosJSONArray.put(nuevoUsuarioJSON);
-//            JSONUtilities.uploadJSON(usuariosJSONArray, Config.getCarpetaRaiz() + "usuariosRegistrados.json");
+            Usuario usuarioALoguear = repositorio.get(nombreUsuario);
+
             return usuarioALoguear;
         }
-        catch(InvalidWrongUserFormat | InvalidWrongPasswordFormat exception) {
+        catch(InvalidWrongUserFormat | InvalidWrongPasswordFormat | InvalidUserDoesntExists exception) {
             throw exception;
         }
     }

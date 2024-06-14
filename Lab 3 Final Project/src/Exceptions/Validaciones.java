@@ -15,7 +15,7 @@ public class Validaciones {
             throw new InvalidFileIsEmpty("No hay usuarios registrados");
 
         File file = new File(rutaAlArchivo);
-        if (!file.exists() || file.length() == 0)
+        if(!file.exists() || file.length() == 0)
             throw new InvalidFileIsEmpty("No hay usuarios registrados. El archivo no existe o está vacío.");
 
         return true;
@@ -43,6 +43,12 @@ public class Validaciones {
 
         if(mapaUsuariosRegistrados.containsKey(nombreUsuario)) throw new InvalidUserAlreadyExists("El usuario ya existe");
         else return true;
+    }
+
+    public static boolean invalidUserDoesntExists(String nombreUsuario, HashMap<String, Usuario> mapaUsuariosRegistrados) throws InvalidUserDoesntExists {
+
+        if(mapaUsuariosRegistrados.containsKey(nombreUsuario)) return true;
+        else throw new InvalidUserDoesntExists("El usuario no existe");
     }
 
 }
