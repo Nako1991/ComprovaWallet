@@ -1,7 +1,13 @@
 package View;
 
+import Controller.ControladorVentanaRegistro;
+import Exceptions.InvalidWrongPasswordFormat;
+import Exceptions.InvalidUserAlreadyExists;
+import Exceptions.InvalidWrongUserFormat;
+import Exceptions.invalidWrongUserFormat;
 import Interface.DimensionPantalla;
 import Interface.IconoVentanas;
+import Repositorio.Repositorio;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,10 +15,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
+    private ControladorVentanaRegistro controladorVentanaRegistro;
     private static JFrame ventanaRegistro = new JFrame();
-    public VentanaRegistro() {}
+    public VentanaRegistro(Repositorio repositorio) {
+        this.controladorVentanaRegistro = new ControladorVentanaRegistro(repositorio);
+    }
 
     public void ejecutarVentanaRegistro(){
+
         ventanaRegistro.setTitle("Registro");
         iconoVentanaGrafica(ventanaRegistro);
         Dimension dimPantalla = calcularDimensionPantalla();
@@ -47,6 +57,23 @@ public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ventanaRegistro.setVisible(false);
+            }
+        });
+        botonRegister.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                try {
+                    controladorVentanaRegistro.registrarUsuario("juancito", "lalala");
+                } catch (InvalidWrongUserFormat exception) {
+                    throw new RuntimeException(exception);
+                } catch (InvalidWrongPasswordFormat exception) {
+                    throw new RuntimeException(exception);
+                } catch (InvalidUserAlreadyExists exception) {
+                    throw new RuntimeException(exception);
+                }
+
+
             }
         });
     }

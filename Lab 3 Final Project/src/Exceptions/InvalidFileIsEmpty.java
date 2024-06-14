@@ -1,4 +1,4 @@
-package Controller;
+package Exceptions;
 
 public class InvalidFileIsEmpty extends Exception {
 

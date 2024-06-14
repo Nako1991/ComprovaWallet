@@ -14,7 +14,7 @@ public class JSONUtilities {
     ///PARA GUARDAR UN JSON ARRAY A UN ARCHIVO
     public static void uploadJSON(JSONArray jsonArray, String archivo) {
         try {
-            FileWriter file = new FileWriter(archivo+".json");
+            FileWriter file = new FileWriter(archivo);
             file.write(jsonArray.toString());
             file.flush();
             file.close();
@@ -25,7 +25,7 @@ public class JSONUtilities {
     ///PARA GUARDAR UN JSON OBJECT A UN ARCHIVO
     public static void uploadJSON(JSONObject jsonObject, String archivo) {
         try {
-            FileWriter file = new FileWriter(archivo+".json");
+            FileWriter file = new FileWriter(archivo);
             file.write(jsonObject.toString());
             file.flush();
             file.close();
@@ -39,7 +39,7 @@ public class JSONUtilities {
     public static String downloadJSON(String archivo) {
         String contenido = "";
         try {
-            contenido = new String(Files.readAllBytes(Paths.get(archivo+".json")));
+            contenido = new String(Files.readAllBytes(Paths.get(archivo)));
         }
         catch (IOException error){
             System.out.println("ERROR--> " + error.getMessage());
