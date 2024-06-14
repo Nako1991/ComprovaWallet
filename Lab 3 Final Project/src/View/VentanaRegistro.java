@@ -1,12 +1,10 @@
 package View;
-
 import Controller.ControladorRegistroUsuarios;
 import Exceptions.InvalidWrongPasswordFormat;
 import Exceptions.InvalidUserAlreadyExists;
 import Exceptions.InvalidWrongUserFormat;
 import Interface.DimensionPantalla;
 import Interface.IconoVentanas;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -23,7 +21,7 @@ public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
         this.controladorRegistroUsuarios = new ControladorRegistroUsuarios();
     }
 
-    public void ejecutarVentanaRegistro(){
+    public void ejecutarVentanaRegistro() {
 
         ventanaRegistro.setTitle("Registro");
         iconoVentanaGrafica(ventanaRegistro);
@@ -85,7 +83,7 @@ public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
         ventanaRegister.add(register);
     }
 
-    public void registracionUsuario(){
+    public void registracionUsuario() {
         try {
             ///TODO Transformar a interfaz grafica
             System.out.println("Ingrese el nombre de usuario a registrar: ");
@@ -97,7 +95,7 @@ public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
             ventanaRegistro.setVisible(false);
         }
         catch(InvalidWrongUserFormat | InvalidUserAlreadyExists | InvalidWrongPasswordFormat exception) {
-            System.out.println("El usuario no se ha registrado.");
+            System.out.println("Error: " + exception);
         }
     }
 }

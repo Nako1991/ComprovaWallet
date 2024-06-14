@@ -50,7 +50,6 @@ public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
         panelComprobantes.setBackground(Color.BLACK);
         panelComprobantes.setBounds(500, 0, 500, 500);
         ventanaPrincipal.add(panelComprobantes);
-
     }
 
     private void componentesVentanaPrincipal(JPanel componentes, JFrame ventanaPrincipal){

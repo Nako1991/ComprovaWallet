@@ -91,7 +91,6 @@ public class Usuario implements GeneradorID {
             comprobantes.add(Comprobante.fromJSON(comprobantesJSON.getJSONObject(i)));
         }
 
-
         return new Usuario(
                 id,
                 usuario,

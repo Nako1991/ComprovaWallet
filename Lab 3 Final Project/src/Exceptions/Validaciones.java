@@ -40,8 +40,13 @@ public class Validaciones {
     }
 
     public static boolean invalidUserAlreadyExists(String nombreUsuario, HashMap<String, Usuario> mapaUsuariosRegistrados) throws InvalidUserAlreadyExists {
-
         if(mapaUsuariosRegistrados.containsKey(nombreUsuario)) throw new InvalidUserAlreadyExists("El usuario ya existe");
+        else return true;
+    }
+
+    public static boolean invalidUserDoesntExist(String nombreUsuario, HashMap<String, Usuario> mapaUsuariosRegistrados) throws InvalidUserDoesntExist {
+
+        if(mapaUsuariosRegistrados.containsKey(nombreUsuario)) throw new InvalidUserDoesntExist("No se encontro el usuario");
         else return true;
     }
 

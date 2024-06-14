@@ -1,6 +1,6 @@
 package View;
-
 import Controller.ControladorLogueoUsuarios;
+import Exceptions.InvalidUserDoesntExist;
 import Exceptions.InvalidWrongPasswordFormat;
 import Exceptions.InvalidWrongUserFormat;
 import Interface.DimensionPantalla;
@@ -18,10 +18,14 @@ public class VentanaLogueo implements DimensionPantalla, IconoVentanas {
     private Scanner scanner = new Scanner(System.in);
     private ControladorLogueoUsuarios controladorLogueoUsuarios = new ControladorLogueoUsuarios();
     private static JFrame ventanaLogueo = new JFrame("Inicio de Sesión");
+    private static Usuario usuarioALoguear;
 
     public VentanaLogueo() {}
+    public static Usuario getUsuarioALoguear() { return usuarioALoguear; }
+    public void setUsuarioALoguear(Usuario usuarioALoguear) { this.usuarioALoguear = usuarioALoguear; }
 
-    public void ejecutarVentanaLogeo(){
+    public void ejecutarVentanaLogeo() {
+
         iconoVentanaGrafica(ventanaLogueo);
         Dimension dimensionPantalla = calcularDimensionPantalla();
         Dimension dimPantalla = calcularDimensionPantalla();
@@ -37,6 +41,7 @@ public class VentanaLogueo implements DimensionPantalla, IconoVentanas {
         panelVentanaLogueo(panelLogin,botonLogin,botonBack);
 
         botonBack.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 ventanaLogueo.setVisible(false);
@@ -45,11 +50,12 @@ public class VentanaLogueo implements DimensionPantalla, IconoVentanas {
 
         botonLogin.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) { ingresarUsuario(); }
+            public void actionPerformed(ActionEvent e) { usuarioALoguear = ingresarUsuario(); }
         });
     }
 
-    public void panelVentanaLogueo(JPanel panelLogin, JButton botonLogin, JButton botonBack){
+    public void panelVentanaLogueo(JPanel panelLogin, JButton botonLogin, JButton botonBack) {
+
         panelLogin.setLayout(new GridLayout(3, 2));
         ///CREACION DEL FORMULARIO:
         JLabel etiquetaUsuario = new JLabel("Usuario:");
@@ -71,6 +77,7 @@ public class VentanaLogueo implements DimensionPantalla, IconoVentanas {
     }
 
     public Usuario ingresarUsuario() {
+
         try {
             ///TODO Transformar a interfaz grafica
             System.out.println("Ingrese el nombre de usuario a loguear: ");
@@ -84,8 +91,8 @@ public class VentanaLogueo implements DimensionPantalla, IconoVentanas {
             ventanaLogueo.setVisible(false);
             return usuarioALoguear;
         }
-        catch(InvalidWrongUserFormat | InvalidWrongPasswordFormat exception) {
-            System.out.println("El usuario no ha podido ser logueado.");
+        catch(InvalidWrongUserFormat | InvalidWrongPasswordFormat | InvalidUserDoesntExist exception) {
+            System.out.println("\nError: " + exception);
         }
         return null;
     }
