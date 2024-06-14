@@ -1,5 +1,10 @@
 package Controller;
-import Exceptions.*;
+
+
+import Exceptions.InvalidUserAlreadyExists;
+import Exceptions.InvalidWrongPasswordFormat;
+import Exceptions.InvalidWrongUserFormat;
+import Exceptions.Validaciones;
 import Interface.InterfazControladorArchivoUsuarios;
 import Model.Config;
 import Model.Usuario;
@@ -12,27 +17,49 @@ public class ControladorLogueoUsuarios implements InterfazControladorArchivoUsua
 
     public ControladorLogueoUsuarios() {
         if(cargarRepositorioDesdeArchivo() == null) {
-            this.crearArchivoUsuariosDummy();
+            this.crearArchivo();
         }
         this.mostrarArchivo();
     }
 
-    public Usuario loguearUsuario(String nombreUsuario, String contraseña) throws InvalidWrongUserFormat, InvalidWrongPasswordFormat, InvalidUserDoesntExist {
-
+    public Usuario loguearUsuario(String nombreUsuario, String contraseña) throws InvalidWrongUserFormat, InvalidWrongPasswordFormat {
         HashMap<String, Usuario> repositorio = cargarRepositorioDesdeArchivo();
         try {
             Usuario usuarioALoguear = new Usuario();
             Validaciones.invalidWrongUserFormat(nombreUsuario);
             Validaciones.invalidWrongPasswordFormat(contraseña);
-            Validaciones.invalidUserDoesntExist(nombreUsuario, repositorio);
-            if( repositorio.containsKey(nombreUsuario) && repositorio.get(contraseña).equals(contraseña)) {
-                return usuarioALoguear;
-            }
-            else return null;
+
+//            Usuario nuevoUsuario = new Usuario(nombreUsuario, contraseña);
+//
+//            JSONObject nuevoUsuarioJSON = nuevoUsuario.toJSON();
+//            JSONArray usuariosJSONArray = new JSONArray(JSONUtilities.downloadJSON(Config.getCarpetaRaiz() + "usuariosRegistrados.json"));
+//            usuariosJSONArray.put(nuevoUsuarioJSON);
+//            JSONUtilities.uploadJSON(usuariosJSONArray, Config.getCarpetaRaiz() + "usuariosRegistrados.json");
+            return usuarioALoguear;
         }
-        catch(InvalidWrongUserFormat | InvalidWrongPasswordFormat | InvalidUserDoesntExist exception) {
+        catch(InvalidWrongUserFormat | InvalidWrongPasswordFormat exception) {
             throw exception;
         }
     }
 
+    /*public static boolean comprobarLogin(String usuario, String contraseña){
+        //comprobar el usuario y que devuelva el usuario, luego la contraseña
+
+        return (comprobarUsuario(usuario) && comprobarContraseña(contraseña));
+    }*/
+
+    /*private static boolean comprobarUsuario(String usuarioBuscado){
+        boolean comprobado = false;
+
+
+        for( Usuario usuario : usuarios ) {
+            if ( usuario.getUsuario().equals(usuarioBuscado) )
+                comprobado = true;
+        }
+        return comprobado;
+    }*/
+
+    /*private static boolean comprobarContraseña(String contraseña){
+        return 0;
+    }*/
 }

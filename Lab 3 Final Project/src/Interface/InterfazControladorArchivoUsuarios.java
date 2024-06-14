@@ -14,25 +14,7 @@ import java.util.HashMap;
 
 public interface InterfazControladorArchivoUsuarios {
 
-    default void crearArchivoUsuariosDummy() {
-
-        Usuario usuario1 = new Usuario("Ro", "asd123");
-        Usuario usuario2 = new Usuario("Nano", "dsa321");
-        Usuario usuario3 = new Usuario("Bri", "suerteConMate");
-
-        JSONObject user1JSON = usuario1.toJSON();
-        JSONObject user2JSON = usuario2.toJSON();
-        JSONObject user3JSON = usuario3.toJSON();
-
-        JSONArray usuarios = new JSONArray();
-        usuarios.put(user1JSON);
-        usuarios.put(user2JSON);
-        usuarios.put(user3JSON);
-        JSONUtilities.uploadJSON(usuarios, Config.getCarpetaRaiz() + "usuariosRegistrados.json");
-    }
-
     default void crearArchivo() {
-
         JSONObject jsonObjVacio = new JSONObject();
 
         try {
@@ -47,7 +29,6 @@ public interface InterfazControladorArchivoUsuarios {
     }
 
     default HashMap<String, Usuario> cargarRepositorioDesdeArchivo() {
-
         HashMap<String, Usuario> repositorio = new HashMap<>();
 
         try {
@@ -68,7 +49,6 @@ public interface InterfazControladorArchivoUsuarios {
     }
 
     default void grabarRepositorioEnArchivo(HashMap<String, Usuario> repositorio) {
-
         JSONArray usuariosJSONArray = new JSONArray();
         if( !repositorio.isEmpty() ) {
             for (Usuario usuario : repositorio.values()) {
@@ -87,7 +67,6 @@ public interface InterfazControladorArchivoUsuarios {
     }
 
     default Usuario leerUsuario(String claveUsuario) {
-
         HashMap<String, Usuario> repositorio = cargarRepositorioDesdeArchivo();
 
         if( repositorio.containsKey(claveUsuario) )
@@ -97,7 +76,6 @@ public interface InterfazControladorArchivoUsuarios {
     }
 
     default void modificarUsuario(Usuario usuario) {
-
         HashMap<String, Usuario> repositorio = cargarRepositorioDesdeArchivo();
 
         if( repositorio.containsKey(usuario.getUsuario()) ) {
@@ -110,7 +88,6 @@ public interface InterfazControladorArchivoUsuarios {
     }
 
     default Usuario eliminarUsuario(Usuario usuario) {
-
         HashMap<String, Usuario> repositorio = cargarRepositorioDesdeArchivo();
 
         Usuario usuarioEliminado = null;

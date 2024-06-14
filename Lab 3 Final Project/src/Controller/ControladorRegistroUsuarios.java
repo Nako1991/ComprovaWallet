@@ -1,4 +1,5 @@
 package Controller;
+
 import Exceptions.InvalidUserAlreadyExists;
 import Exceptions.InvalidWrongPasswordFormat;
 import Exceptions.InvalidWrongUserFormat;
@@ -13,8 +14,14 @@ import java.util.HashMap;
 
 public class ControladorRegistroUsuarios implements InterfazControladorArchivoUsuarios {
 
-    public void registrarUsuario(String nombreUsuario, String contraseña) throws InvalidWrongUserFormat, InvalidUserAlreadyExists, InvalidWrongPasswordFormat {
+    public ControladorRegistroUsuarios() {
+        if(cargarRepositorioDesdeArchivo() == null) {
+            this.crearArchivo();
+        }
+        this.mostrarArchivo();
+    }
 
+    public void registrarUsuario(String nombreUsuario, String contraseña) throws InvalidWrongUserFormat, InvalidUserAlreadyExists, InvalidWrongPasswordFormat {
         HashMap<String, Usuario> repositorio = cargarRepositorioDesdeArchivo();
 
         try {
@@ -34,8 +41,7 @@ public class ControladorRegistroUsuarios implements InterfazControladorArchivoUs
         }
     }
 
-    public void testRegistrarUsuarios() {
-
+    public void testRegistrarUsuarios(){
         try {
             registrarUsuario("juancito", "lalala"); }
         catch(InvalidWrongUserFormat | InvalidUserAlreadyExists | InvalidWrongPasswordFormat exception) {
@@ -50,5 +56,21 @@ public class ControladorRegistroUsuarios implements InterfazControladorArchivoUs
             registrarUsuario("Rouse02", "Rouse025#"); }
         catch(InvalidWrongUserFormat | InvalidUserAlreadyExists | InvalidWrongPasswordFormat exception) {
             System.out.println("\nError: " + exception.getMessage()); }
+    }
+
+    public void crearArchivoUsuariosDummy() {
+        Usuario usuario1 = new Usuario("Ro", "asd123");
+        Usuario usuario2 = new Usuario("Nano", "dsa321");
+        Usuario usuario3 = new Usuario("Bri", "suerteConMate");
+
+        JSONObject user1JSON = usuario1.toJSON();
+        JSONObject user2JSON = usuario2.toJSON();
+        JSONObject user3JSON = usuario3.toJSON();
+
+        JSONArray usuarios = new JSONArray();
+        usuarios.put(user1JSON);
+        usuarios.put(user2JSON);
+        usuarios.put(user3JSON);
+        JSONUtilities.uploadJSON(usuarios, Config.getCarpetaRaiz() + "usuariosRegistrados.json");
     }
 }
