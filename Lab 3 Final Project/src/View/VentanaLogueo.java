@@ -19,7 +19,9 @@ public class VentanaLogueo implements DimensionPantalla, IconoVentanas {
     private ControladorLogueoUsuarios controladorLogueoUsuarios = new ControladorLogueoUsuarios();
     private static JFrame ventanaLogueo = new JFrame("Inicio de Sesión");
 
-    public VentanaLogueo() {}
+    public VentanaLogueo() {
+
+    }
 
     public void ejecutarVentanaLogeo(){
         iconoVentanaGrafica(ventanaLogueo);

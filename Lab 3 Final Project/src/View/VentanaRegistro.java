@@ -70,9 +70,11 @@ public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
             }
         });
     }
+
     public void mostrarVentana(){
         ventanaRegistro.setVisible(true);
     }
+
     public void botonBack(JButton back, JPanel ventanaRegister){
         Font letra = new Font("Segoe UI", Font.BOLD, 34);
         back.setFont(letra);

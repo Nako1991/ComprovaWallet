@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="JSON.ORG libreria" level="project" />
+    <orderEntry type="library" name="AbsoluteLayout" level="project" />
   </component>
 </module>
