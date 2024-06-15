@@ -43,7 +43,7 @@ public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
         agregarColumna(columna,imagen,ancho,alto);
 
         ///Hacemos visible la ventana
-        ventanaPrincipal.setVisible(true);
+        //ventanaPrincipal.setVisible(true);
 
         ///Panel de Comprobantes
         JPanel panelComprobantes = new JPanel();
@@ -51,6 +51,7 @@ public class VentanaPrincipal implements DimensionPantalla, IconoVentanas {
         panelComprobantes.setBounds(500, 0, 500, 500);
         ventanaPrincipal.add(panelComprobantes);
 
+        ventanaPrincipal.setVisible(true);
     }
 
     private void componentesVentanaPrincipal(JPanel componentes, JFrame ventanaPrincipal){
