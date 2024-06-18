@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 
-public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
+public class VentanaRegistro extends JFrame implements DimensionPantalla, IconoVentanas {
 
     Scanner scanner = new Scanner(System.in);
     private ControladorRegistroUsuarios controladorRegistroUsuarios;
@@ -26,7 +26,7 @@ public class VentanaRegistro implements DimensionPantalla, IconoVentanas {
     public void ejecutarVentanaRegistro(){
 
         ventanaRegistro.setTitle("Registro");
-        iconoVentanaGrafica(ventanaRegistro);
+        //iconoVentanaGrafica(ventanaRegistro);
         Dimension dimPantalla = calcularDimensionPantalla();
         Dimension dimVentanaRegistro = new Dimension((int)dimPantalla.getWidth() / 4, (int)dimPantalla.getHeight() / 4);
         ventanaRegistro.setSize(dimVentanaRegistro);

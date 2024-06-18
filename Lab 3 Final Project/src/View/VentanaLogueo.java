@@ -24,7 +24,7 @@ public class VentanaLogueo implements DimensionPantalla, IconoVentanas {
     }
 
     public void ejecutarVentanaLogeo(){
-        iconoVentanaGrafica(ventanaLogueo);
+        //iconoVentanaGrafica(ventanaLogueo);
         Dimension dimensionPantalla = calcularDimensionPantalla();
         Dimension dimPantalla = calcularDimensionPantalla();
         Dimension dimVentanaRegistro = new Dimension((int)dimPantalla.getWidth() / 4, (int)dimPantalla.getHeight() / 4);

@@ -9,12 +9,12 @@ import java.io.IOException;
 import Model.Config;
 
 public interface IconoVentanas {
-    default Image iconoVentanaGrafica(){
+    default ImageIcon iconoVentanaGrafica(){
         try {
-            Image icono = ImageIO.read(new File(Config.getCarpetaImagenes() + "logo.jpeg"));
+            ImageIcon icono = new ImageIcon(getClass().getResource("img/logo.jpeg"));
             return icono;
-        }catch (IOException err){
-            System.out.println("ERROR--->" + err.getMessage());
+        }catch (NullPointerException exception) {
+            System.out.println("El archivo logo.jpeg no pudo ser abierto.");
         }
         return null;
     }

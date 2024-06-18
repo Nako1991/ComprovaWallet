@@ -15,6 +15,8 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Icono
     private Usuario usuarioLogueado;
     private Dimension dimensionPantalla;
 
+    private JLabel fondoPantallaPrincipal;
+    private JLabel fondoPanelLateral;
     private JButton botonSalir;
     private JButton botonLogueo;
     private JButton botonRegistrar;
@@ -23,8 +25,6 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Icono
     private JFormattedTextField campoUsuario;
     private JLabel textoContraseña;
     private JPasswordField campoContraseña;
-    private JLabel fondoPanelLateral;
-    private JLabel fondoPantallaPrincipal;
 
     public VentanaPrincipal() {
         this.inicializarVentanaPrincipal();
@@ -40,17 +40,20 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Icono
     private void inicializarFrameVentanaPrincipal() {
         this.setTitle("ComprovaWallet");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         dimensionPantalla = calcularDimensionPantalla();
         this.setBounds(0, 0, (int)dimensionPantalla.getWidth(), (int)dimensionPantalla.getHeight());
         setUndecorated(true);
         this.getContentPane().setLayout(new AbsoluteLayout());
 
         inicializarFondoVentanaPrincipal();
+        this.setLocationRelativeTo(null);
     }
 
 
     private void inicializarFondoVentanaPrincipal() {
-        fondoPantallaPrincipal.setIcon(new ImageIcon(this.iconoVentanaGrafica())); // NOI18N
+        fondoPantallaPrincipal = new JLabel();
+        fondoPantallaPrincipal.setIcon(new ImageIcon("C:\\Users\\Olmos\\Documents\\GitHub\\Lab-3-Final-Project\\Lab 3 Final Project\\src\\background.jpg"));
         getContentPane().add(fondoPantallaPrincipal, new AbsoluteConstraints(0, 0, -1, -1));
     }
 
@@ -66,8 +69,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Icono
     }
 
     private void inicializarBotonSalir() {
+        botonSalir = new JButton();
         botonSalir.setBackground(new Color(0, 51, 102));
-        botonSalir.setFont(new Font("Segoe UI", 1, 24)); // NOI18N
+        botonSalir.setFont(new Font("Segoe UI", 1, 24));
         botonSalir.setForeground(new Color(204, 204, 255));
         botonSalir.setText("SALIR");
         botonSalir.addActionListener(new ActionListener() {
@@ -79,8 +83,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Icono
     }
 
     private void inicializarBotonLogin() {
+        botonLogueo = new JButton();
         botonLogueo.setBackground(new Color(0, 51, 102));
-        botonLogueo.setFont(new Font("Segoe UI", 1, 24)); // NOI18N
+        botonLogueo.setFont(new Font("Segoe UI", 1, 24));
         botonLogueo.setForeground(new Color(204, 204, 255));
         botonLogueo.setText("LOGIN");
         botonLogueo.addActionListener(new ActionListener() {
@@ -93,8 +98,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Icono
     }
 
     private void inicializarBotonRegistrar() {
+        botonRegistrar = new JButton();
         botonRegistrar.setBackground(new Color(0, 51, 102));
-        botonRegistrar.setFont(new Font("Segoe UI", 1, 24)); // NOI18N
+        botonRegistrar.setFont(new Font("Segoe UI", 1, 24));
         botonRegistrar.setForeground(new Color(204, 204, 255));
         botonRegistrar.setText("REGISTER");
         botonRegistrar.addActionListener(new ActionListener() {
@@ -106,23 +112,25 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Icono
     }
 
     private void inicializarComponentesPanelLateralLogin() {
+        inicializarFondoPanelLateral();
         inicializarIconoUsuario();
         inicializarTextoUsuario();
         inicializarCampoUsuario();
         inicializarTextoContraseña();
         inicializarCampoContraseña();
-        inicializarFondoPanelLateralLogin();
     }
 
     private void inicializarIconoUsuario() {
-        iconoUsuario.setIcon(new ImageIcon(getClass().getResource("/Img/logo.jpeg"))); // NOI18N
+        iconoUsuario = new JLabel();
+        iconoUsuario.setIcon(new ImageIcon("C:\\Users\\Olmos\\Documents\\GitHub\\Lab-3-Final-Project\\Lab 3 Final Project\\src\\logo.jpeg"));
         iconoUsuario.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(204, 204, 255)));
         getContentPane().add(iconoUsuario, new AbsoluteConstraints(20, 30, 250, 250));
     }
 
     private void inicializarTextoUsuario() {
+        textoUsuario = new JLabel();
         textoUsuario.setBackground(new Color(0, 51, 153));
-        textoUsuario.setFont(new Font("Segoe UI", 0, 24)); // NOI18N
+        textoUsuario.setFont(new Font("Segoe UI", 0, 24));
         textoUsuario.setForeground(new Color(204, 204, 255));
         textoUsuario.setHorizontalAlignment(SwingConstants.CENTER);
         textoUsuario.setText("Usuario");
@@ -130,17 +138,19 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Icono
     }
 
     private void inicializarCampoUsuario() {
+        campoUsuario = new JFormattedTextField();
         campoUsuario.setBackground(new Color(0, 51, 153));
         campoUsuario.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(204, 204, 255)));
         campoUsuario.setForeground(new Color(204, 204, 255));
         campoUsuario.setToolTipText("");
-        campoUsuario.setFont(new Font("Segoe UI", 1, 24)); // NOI18N
+        campoUsuario.setFont(new Font("Segoe UI", 1, 24));
         getContentPane().add(campoUsuario, new AbsoluteConstraints(20, 370, 250, 40));
     }
 
     private void inicializarTextoContraseña() {
+        textoContraseña = new JLabel();
         textoContraseña.setBackground(new Color(0, 51, 153));
-        textoContraseña.setFont(new Font("Segoe UI", 0, 24)); // NOI18N
+        textoContraseña.setFont(new Font("Segoe UI", 0, 24));
         textoContraseña.setForeground(new Color(204, 204, 255));
         textoContraseña.setHorizontalAlignment(SwingConstants.CENTER);
         textoContraseña.setText("Contraseña");
@@ -148,6 +158,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Icono
     }
 
     private void inicializarCampoContraseña() {
+        campoContraseña = new JPasswordField();
         campoContraseña.setBackground(new Color(0, 51, 153));
         campoContraseña.setFont(new Font("Segoe UI", 1, 24)); // NOI18N
         campoContraseña.setForeground(new Color(204, 204, 255));
@@ -155,8 +166,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Icono
         getContentPane().add(campoContraseña, new AbsoluteConstraints(20, 490, 250, 40));
     }
 
-    private void inicializarFondoPanelLateralLogin() {
-        fondoPanelLateral.setIcon(new ImageIcon(getClass().getResource("/Imagenes/panelLateral.jpg"))); // NOI18N
+    private void inicializarFondoPanelLateral() {
+        fondoPanelLateral = new JLabel();
+        fondoPanelLateral.setIcon(new ImageIcon("C:\\Users\\Olmos\\Documents\\GitHub\\Lab-3-Final-Project\\Lab 3 Final Project\\src\\panelLateral.jpg"));
         getContentPane().add(fondoPanelLateral, new AbsoluteConstraints(-10, 0, 320, 1080));
     }
 
@@ -173,96 +185,6 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Icono
         ///TODO implementacion del boton registrar
     }
 
-//    private JFrame ventanaPrincipal;
-//    private JPanel columna;
-//    private JButton login;
-//    private JButton register;
-//    private JButton salir;
-//    private VentanaLogueo ventanaLogueo;
-//    private VentanaRegistro ventanaRegistro;
-//
-//
-//    private void componentesVentanaPrincipal(JPanel componentes, JFrame ventanaPrincipal){
-//
-//        ventanaLogueo = new VentanaLogueo();
-//        ventanaRegistro = new VentanaRegistro();
-//
-//        //componentes.setLayout(null);
-//        ///Creamos boton login
-//        login = new JButton("LOGIN");
-//        botonLogin(componentes, login);
-//
-//        ///Creamos boton register
-//        register = new JButton("REGISTER");
-//        botonRegister(componentes,register);
-//
-//        ///Creamos boton salir
-//        salir = new JButton("SALIR");
-//        botonSalir(componentes, salir);
-//
-//        ///Dandole interaccion al boton login:
-//        login.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                VentanaLogueo ventana
-//                ventanaLogueo.ejecutarVentanaLogeo();
-//                ventanaLogueo.mostrarVentana();
-//            }
-//        });
-//        ///Dandole interaccion al boton register:
-//        register.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                ventanaRegistro.ejecutarVentanaRegistro();
-//                ventanaRegistro.mostrarVentana();
-//            }
-//        });
-//
-//        ///Dandole interaccion al boton salir:
-//        salir.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                System.exit(0);
-//            }
-//        });
-//    }
-//
-//    public void botonRegister(JPanel componentes, JButton register){
-//        register.setBounds(50,450,200,100);
-//        Font letra = new Font("Segoe UI", Font.BOLD, 34);
-//        register.setFont(letra);
-//        LineBorder linea = new LineBorder(Color.BLUE,10,false);
-//        register.setBorder(linea);
-//        componentes.add(register);
-//    }
-//
-//    public void botonLogin(JPanel componentes, JButton login){
-//        login.setBounds(50, 250, 200, 100);
-//        Font letra = new Font("Segoe UI", Font.BOLD, 34);
-//        login.setFont(letra);
-//        LineBorder linea = new LineBorder(Color.BLUE,10,false);
-//        login.setBorder(linea);
-//        componentes.add(login);
-//    }
-//
-//    public void botonSalir(JPanel componentes, JButton salir){
-//        salir.setBounds(90,700,100,50);
-//        Font letra = new Font("Segoe UI", Font.BOLD, 24);
-//        salir.setFont(letra);
-//        LineBorder linea = new LineBorder(Color.BLUE,5,false);
-//        salir.setBorder(linea);
-//        componentes.add(salir);
-//    }
-//
-//    public void agregarColumna(JPanel columna,JPanel imagen,int ancho, int alto){
-//        ///Creamos el color personalizado:
-//        Color colorColumna = new Color(9,21,88);
-//        ///Agregando la columna
-//        columna.setBackground(colorColumna);
-//        columna.setBounds(0, 0, (ancho / 5), alto);
-//        ///Agregando una linea a la columna
-//        LineBorder linea = new LineBorder(Color.BLUE,10,true);
-//        columna.setBorder(linea);
-//        imagen.add(columna);
-//    }
+
+
 }
