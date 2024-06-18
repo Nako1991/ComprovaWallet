@@ -9,12 +9,13 @@ import java.io.IOException;
 import Model.Config;
 
 public interface IconoVentanas {
-    default void iconoVentanaGrafica(JFrame ventana){
+    default Image iconoVentanaGrafica(){
         try {
             Image icono = ImageIO.read(new File(Config.getCarpetaImagenes() + "logo.jpeg"));
-            ventana.setIconImage(icono);
+            return icono;
         }catch (IOException err){
             System.out.println("ERROR--->" + err.getMessage());
         }
+        return null;
     }
 }
