@@ -1,9 +1,9 @@
 package Modelo;
 
-import Interface.GeneradorID;
+import Interface.Generador;
 import org.json.JSONObject;
 
-public class Cliente implements GeneradorID {
+public class Cliente {
 
     private String id;
     private Persona persona;
@@ -14,11 +14,11 @@ public class Cliente implements GeneradorID {
         this.persona = persona;
         this.banco = banco;
         this.tipoCliente = tipoCliente;
-        this.id = generarID("CL");
+        this.id = Generador.generarID("CL");
     }
 
     public Cliente() {
-        this.id = generarID("CL");
+        this.id = Generador.generarID("CL");
         this.persona = null;
         this.tipoCliente = "";
         this.banco = null;

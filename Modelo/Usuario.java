@@ -1,10 +1,10 @@
 package Modelo;
-import Interface.GeneradorID;
+import Interface.Generador;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.util.ArrayList;
 
-public class Usuario implements GeneradorID {
+public class Usuario {
 
     private String id;
     private String usuario;
@@ -13,7 +13,7 @@ public class Usuario implements GeneradorID {
     private ArrayList<Comprobante> historialDeComprobantes;
 
     public Usuario() {
-        this.id = generarID("US");
+        this.id = Generador.generarID("US");
         this.usuario = "";
         this.contraseña = "";
         this.billeterasVirtuales = new ArrayList<>();
@@ -21,7 +21,7 @@ public class Usuario implements GeneradorID {
     }
 
     public Usuario(String usuario, String contraseña) {
-        this.id = generarID("US");
+        this.id = Generador.generarID("US");
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.billeterasVirtuales = new ArrayList<>();

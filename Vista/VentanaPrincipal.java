@@ -6,10 +6,13 @@ import Modelo.Config;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class VentanaPrincipal extends JFrame implements DimensionPantalla {
@@ -45,6 +48,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarVentanaPrincipal() {
+        inicializarControladores();
         inicializarPanelFondo();
         inicializarPanelLateralLogueo();
         inicializarPanelLateralBilleteras();
@@ -93,14 +97,13 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private void inicializarComponentesPanelFondo() {
         panelFondo = new JPanel();
         panelFondo.setLayout(new AbsoluteLayout());
-        panelFondo.add(botonPanelBilleteras, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 260, 110, -1));
-        panelFondo.add(botonPanelLogueo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 210, 110, -1));
-        panelFondo.add(fondoVentanaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        panelFondo.add(botonPanelBilleteras, new AbsoluteConstraints(700, 260, 110, -1));
+        panelFondo.add(botonPanelLogueo, new AbsoluteConstraints(700, 210, 110, -1));
+        panelFondo.add(fondoVentanaPrincipal, new AbsoluteConstraints(0, 0, -1, -1));
     }
 
     ///INICIALIZACION PANEL LATERAL LOGUEO
     private void inicializarPanelLateralLogueo() {
-        inicializarControladores();
         inicializarFondoPanelLateralLogueo();
         inicializarImagenPanelLateralLogueo();
         inicializarCamposPanelLateralLogueo();
@@ -246,9 +249,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private void inicializarPanelVentanaPrincipal() {
         panelVentanaPrincipal = new JLayeredPane();
         panelVentanaPrincipal.setLayout(new AbsoluteLayout());
-        panelVentanaPrincipal.add(panelLateralLogueo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, -1));
-        panelVentanaPrincipal.add(panelLateralBilleteras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        panelVentanaPrincipal.add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        panelVentanaPrincipal.add(panelLateralLogueo, new AbsoluteConstraints(0, 0, 320, -1));
+        panelVentanaPrincipal.add(panelLateralBilleteras, new AbsoluteConstraints(0, 0, -1, -1));
+        panelVentanaPrincipal.add(panelFondo, new AbsoluteConstraints(0, 0, -1, -1));
     }
 
     ///INICIALIZACION FRAME VENTANA PRINCIPAL
@@ -257,6 +260,12 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         this.setBounds(new Rectangle(0, 0, 1920, 1080));
         this.setUndecorated(true);
         this.getContentPane().setLayout(new AbsoluteLayout());
+
+        try {
+            this.setIconImage(ImageIO.read(new File(Config.getCarpetaImagenes() + "logo.jpeg")));
+        } catch (IOException err){
+            System.out.println("ERROR--->" + err.getMessage());
+        }
 
         this.getContentPane().add(panelVentanaPrincipal, new AbsoluteConstraints(0, 0, -1, -1));
 

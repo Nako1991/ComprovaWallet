@@ -1,8 +1,8 @@
 package Modelo;
-import Interface.GeneradorID;
+import Interface.Generador;
 import org.json.JSONObject;
 
-public class Comprobante implements GeneradorID {
+public class Comprobante {
 
     private String id;
     private String codigoTransferencia;
@@ -13,7 +13,7 @@ public class Comprobante implements GeneradorID {
     private String estado;
 
     public Comprobante(String codigoTransferencia, String fecha, double monto, Banco bancoOrigen, Banco bancoDestino, String estado) {
-        this.id = generarID("CP");
+        this.id = Generador.generarID("CP");
         this.codigoTransferencia = codigoTransferencia;
         this.fecha = fecha;
         this.monto = monto;

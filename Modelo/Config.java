@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Config { ///Esta config es local, se encuentra en gitignore
+public class Config { ///TODO Esta config es local, se encuentra en gitignore
     /// Agregar la direccion de la carpeta de imagenes de tu pc aca
     private static String carpetaRaiz = "C:\\Users\\Olmos\\Documents\\GitHub\\Lab-3-Final-Project\\";
     private static String carpetaImagenes = getCarpetaRaiz() + "img\\";

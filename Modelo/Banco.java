@@ -1,10 +1,10 @@
 package Modelo;
 import Controlador.ControladorArchivoUsuarios;
-import Interface.GeneradorCVU;
+import Interface.Generador;
 import org.json.JSONObject;
 import java.util.HashMap;
 
-public class Banco implements GeneradorCVU {
+public class Banco {
 
     private static HashMap<String, Usuario> mapaBuffer = ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo();
     protected String nombreBanco;
@@ -12,15 +12,21 @@ public class Banco implements GeneradorCVU {
     protected String cvu;
 
     public Banco() {
-        this.nombreBanco = null;
-        this.alias = "";
-        this.cvu = GeneradorCVU.generarCVU(mapaBuffer);
+        this.nombreBanco = "";
+        this.alias = Generador.generarAlias();
+        this.cvu = Generador.generarCVU(mapaBuffer);
+    }
+
+    public Banco(String banco) {
+        this.nombreBanco = banco;
+        this.alias = Generador.generarAlias();
+        this.cvu = Generador.generarCVU(mapaBuffer);
     }
 
     public Banco(String banco, String alias) {
         this.nombreBanco = banco;
         this.alias = alias;
-        this.cvu = GeneradorCVU.generarCVU(mapaBuffer);
+        this.cvu = Generador.generarCVU(mapaBuffer);
     }
 
     public Banco(String banco, String alias, String cvu) {

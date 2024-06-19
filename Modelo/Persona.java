@@ -1,9 +1,9 @@
 package Modelo;
 
-import Interface.GeneradorID;
+import Interface.Generador;
 import org.json.JSONObject;
 
-public class Persona implements GeneradorID {
+public class Persona {
 
     private String id;
     private String nombreApellido;
@@ -12,7 +12,7 @@ public class Persona implements GeneradorID {
     public Persona(String nombreApellido, String cuil) {
         this.nombreApellido = nombreApellido;
         this.cuil = cuil;
-        this.id = generarID("PS");
+        this.id = Generador.generarID("PS");
     }
 
     public Persona(String id, String nombreApellido, String cuil) {

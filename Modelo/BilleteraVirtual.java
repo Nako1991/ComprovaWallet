@@ -1,8 +1,8 @@
 package Modelo;
-import Interface.GeneradorID;
+import Interface.Generador;
 import org.json.JSONObject;
 
-public class BilleteraVirtual implements GeneradorID {
+public class BilleteraVirtual {
 
     private String id;
     private Persona unaPersona;
@@ -20,7 +20,7 @@ public class BilleteraVirtual implements GeneradorID {
         this.unaPersona = unaPersona;
         this.unBanco = unBanco;
         this.api = api;
-        this.id = generarID("BV");
+        this.id = Generador.generarID("BV");
     }
 
     public String getId() { return id; }
