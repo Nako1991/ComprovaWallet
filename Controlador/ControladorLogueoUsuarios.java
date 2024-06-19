@@ -17,18 +17,13 @@ public class ControladorLogueoUsuarios {
 
         HashMap<String, Usuario> repositorio = ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo();
 
-        try {
-            Validaciones.invalidWrongUserFormat(nombreUsuario);
-            Validaciones.invalidWrongPasswordFormat(contraseña);
-            Validaciones.invalidUserDoesntExists(nombreUsuario, repositorio);
+        Validaciones.invalidWrongUserFormat(nombreUsuario);
+        Validaciones.invalidWrongPasswordFormat(contraseña);
+        Validaciones.invalidUserDoesntExists(nombreUsuario, repositorio);
 
-            Usuario usuarioALoguear = repositorio.get(nombreUsuario);
+        Usuario usuarioALoguear = repositorio.get(nombreUsuario);
 
-            return usuarioALoguear;
-        }
-        catch(InvalidWrongUserFormat | InvalidWrongPasswordFormat | InvalidUserDoesntExists exception) {
-            throw exception;
-        }
+        return usuarioALoguear;
     }
 
     /*public static boolean comprobarLogin(String usuario, String contraseña){

@@ -77,4 +77,17 @@ public class Validaciones {
 
         return false;
     }
+
+    public static boolean usuarioVerificado(String nombreUsuario) {
+
+        HashMap<String, Usuario> repositorio = ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo();
+
+        for( Usuario usuario : repositorio.values() ) {
+            if( usuario.getUsuario().equals(nombreUsuario) ) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

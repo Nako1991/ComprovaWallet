@@ -366,11 +366,27 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void loguearUsuario() {
+
+        char[] contraseñaArray = campoContraseña.getPassword();
+        String contraseña = new String(contraseñaArray);
+
         try {
-            usuarioLogueado = controladorLogueoUsuarios.loguearUsuario(campoUsuario.getText(), campoContraseña.getPassword().toString());
-            if(usuarioLogueado != null) {
+            usuarioLogueado = controladorLogueoUsuarios.loguearUsuario(campoUsuario.getText(), contraseña);
+        }
+        catch(InvalidWrongUserFormat | InvalidWrongPasswordFormat | InvalidUserDoesntExists exception) {
+            System.out.println("Error: " + exception.getMessage());
+        }
+
+        if(usuarioLogueado != null) {
+
+            System.out.println(contraseña);
+            if( !Validaciones.contraseñaVerificada(contraseña) ) {
+
+                cartelContraseñaInvalida.setVisible(true);
+                cartelContraseñaInvalida.setVisible(false);
+            }
+            else {
                 cartelUsuarioLogueo.setVisible(true);
-                //System.out.println(usuarioLogueado.toString());
                 Timer temporizador = new Timer(2000, new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -380,16 +396,13 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
                 });
                 temporizador.setRepeats(false);
                 temporizador.start();
-            }
-            else {
-                cartelUsuarioInvalido.setVisible(true);
+                cartelUsuarioLogueo.setVisible(false);
             }
         }
-        catch(InvalidWrongUserFormat | InvalidWrongPasswordFormat | InvalidUserDoesntExists exception) {
-            System.out.println("Error: " + exception.getMessage());
+        else {
+            cartelUsuarioInvalido.setVisible(true);
         }
     }
-
 
     private void botonPanelLogueoActionPerformed(ActionEvent evt) { ///TEST
         panelLateralLogueo.setVisible(true);
