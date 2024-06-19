@@ -2,6 +2,10 @@ package Vista;
 import Controlador.ControladorBilleteraVirtual;
 import Controlador.ControladorLogueoUsuarios;
 import Controlador.ControladorRegistroUsuarios;
+import Exceptions.InvalidUserDoesntExists;
+import Exceptions.InvalidWrongPasswordFormat;
+import Exceptions.InvalidWrongUserFormat;
+import Exceptions.Validaciones;
 import Interface.DimensionPantalla;
 import Modelo.Config;
 import Modelo.Usuario;
@@ -10,9 +14,6 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -44,9 +45,11 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private JButton botonLogueo;
     private JButton botonRegistrar;
     private JButton botonSalir;
+
     private JLabel cartelUsuarioLogueo;
-    private JLabel cartelUsuarioExistente;
     private JLabel cartelUsuarioInvalido;
+
+    private JLabel cartelUsuarioExistente;
     private JLabel cartelContraseñaInvalida;
 
     private JPanel panelLateralBilleteras;
@@ -359,29 +362,34 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void botonLogueoActionPerformed(ActionEvent evt) {
-        String nombreUsuario = this.campoUsuario.getText();
-        char[] caracteresContraseña = this.campoContraseña.getPassword();
-        String contraseñaUsuario = new String(caracteresContraseña);
-        usuarioLogueado = VistaPanelLogueo.ingresarUsuario(nombreUsuario, contraseñaUsuario, controladorLogueoUsuarios);
-
-        if(usuarioLogueado != null) {
-            cartelUsuarioLogueo.setVisible(true);
-            System.out.println(usuarioLogueado.toString());
-            Timer temporizador = new Timer(2000, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    panelLateralLogueo.setVisible(false);
-                    panelLateralBilleteras.setVisible(true);
-                }
-            });
-            temporizador.setRepeats(false);
-            temporizador.start();
-        }
-        else {
-            cartelUsuarioInvalido.setVisible(true);
-        }
-
+        loguearUsuario();
     }
+
+    private void loguearUsuario() {
+        try {
+            usuarioLogueado = controladorLogueoUsuarios.loguearUsuario(campoUsuario.getText(), campoContraseña.getPassword().toString());
+            if(usuarioLogueado != null) {
+                cartelUsuarioLogueo.setVisible(true);
+                //System.out.println(usuarioLogueado.toString());
+                Timer temporizador = new Timer(2000, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        panelLateralLogueo.setVisible(false);
+                        panelLateralBilleteras.setVisible(true);
+                    }
+                });
+                temporizador.setRepeats(false);
+                temporizador.start();
+            }
+            else {
+                cartelUsuarioInvalido.setVisible(true);
+            }
+        }
+        catch(InvalidWrongUserFormat | InvalidWrongPasswordFormat | InvalidUserDoesntExists exception) {
+            System.out.println("Error: " + exception.getMessage());
+        }
+    }
+
 
     private void botonPanelLogueoActionPerformed(ActionEvent evt) { ///TEST
         panelLateralLogueo.setVisible(true);

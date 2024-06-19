@@ -8,7 +8,8 @@ public class ControladorLogueoUsuarios {
 
     public ControladorLogueoUsuarios() {
 
-        if(ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo() == null) ControladorArchivoUsuarios.crearArchivoUsuariosDummy();
+        if(ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo() == null)
+            ControladorArchivoUsuarios.crearArchivoUsuariosDummy();
         ControladorArchivoUsuarios.mostrarArchivo();
     }
 

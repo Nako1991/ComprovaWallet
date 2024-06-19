@@ -1,4 +1,5 @@
 package Exceptions;
+import Controlador.ControladorArchivoUsuarios;
 import Modelo.BilleteraVirtual;
 import Modelo.Usuario;
 
@@ -62,5 +63,18 @@ public class Validaciones {
                     if((billeteraVirtualBuffer.getUnBanco().getCvu().equals(cvu))) throw new InvalidCVUAlreadyExists("El cvu ya existe");
 
         return true;
+    }
+
+    public static boolean contraseñaVerificada(String contraseña) {
+
+        HashMap<String, Usuario> repositorio = ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo();
+
+        for( Usuario usuario : repositorio.values() ) {
+            if( usuario.getContraseña().equals(contraseña) ) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
