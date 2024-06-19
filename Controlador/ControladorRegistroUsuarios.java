@@ -14,8 +14,10 @@ public class ControladorRegistroUsuarios {
 
     public ControladorRegistroUsuarios() {
 
-        if(ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo() == null) ControladorArchivoUsuarios.crearArchivoUsuariosDummy();
+        if(ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo() == null)
+            ControladorArchivoUsuarios.crearArchivoUsuariosDummy();
         ControladorArchivoUsuarios.mostrarArchivo();
+
     }
 
     public void registrarUsuario(String nombreUsuario, String contraseña) throws InvalidWrongUserFormat, InvalidUserAlreadyExists, InvalidWrongPasswordFormat {

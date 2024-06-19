@@ -1,4 +1,6 @@
 package Vista;
+import Controlador.ControladorLogueoUsuarios;
+import Controlador.ControladorRegistroUsuarios;
 import Interface.DimensionPantalla;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
@@ -7,8 +9,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
 
 public class VentanaPrincipal extends JFrame implements DimensionPantalla {
+
+    private Scanner scanner = new Scanner(System.in);
+    private ControladorRegistroUsuarios controladorRegistroUsuarios;
+    private ControladorLogueoUsuarios controladorLogueoUsuarios;
 
     private JLayeredPane panelVentanaPrincipal;
 
@@ -92,11 +99,17 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     ///INICIALIZACION PANEL LATERAL LOGUEO
     private void inicializarPanelLateralLogueo() {
+        inicializarControladores();
         inicializarFondoPanelLateralLogueo();
         inicializarImagenPanelLateralLogueo();
         inicializarCamposPanelLateralLogueo();
         inicializarBotonesPanelLateralLogueo();
         inicializarComponentesPanelLateralLogueo();
+    }
+
+    private void inicializarControladores() {
+        controladorRegistroUsuarios = new ControladorRegistroUsuarios();
+        controladorLogueoUsuarios = new ControladorLogueoUsuarios();
     }
 
     private void inicializarFondoPanelLateralLogueo() {
