@@ -34,7 +34,7 @@ public abstract class ControladorArchivoUsuarios {
     //Crear archivo con usuarios Dummy
     public static void crearArchivoUsuariosDummy() {
 
-        Usuario usuario1 = new Usuario("Rouse", "asd123");
+        Usuario usuario1 = new Usuario("Rouse", "Rouse484848@@");
         Usuario usuario2 = new Usuario("Nakko", "dsa321");
         Usuario usuario3 = new Usuario("Britany", "suerteConMate");
 
