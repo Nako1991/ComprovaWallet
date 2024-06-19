@@ -53,7 +53,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     private void inicializarFondoVentanaPrincipal() {
         fondoVentanaPrincipal = new JLabel();
-        fondoVentanaPrincipal.setIcon(new ImageIcon("C:\\Users\\Olmos\\Documents\\GitHub\\Lab-3-Final-Project\\Lab 3 Final Project\\src\\background.jpg")); ///TODO comprobacion de null
+        fondoVentanaPrincipal.setIcon(new ImageIcon("C:\\Users\\Olmos\\Documents\\GitHub\\Lab-3-Final-Project\\img\\background.jpg")); ///TODO comprobacion de null
         fondoVentanaPrincipal.setOpaque(true);
     }
 
@@ -101,12 +101,12 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     private void inicializarFondoPanelLateralLogueo() {
         fondoPanelLateral1 = new JLabel();
-        fondoPanelLateral1.setIcon(new ImageIcon("C:\\Users\\Olmos\\Documents\\GitHub\\Lab-3-Final-Project\\Lab 3 Final Project\\src\\panelLateral.jpg")); ///TODO verificar q no sea null
+        fondoPanelLateral1.setIcon(new ImageIcon("C:\\Users\\Olmos\\Documents\\GitHub\\Lab-3-Final-Project\\img\\panelLateral.jpg")); ///TODO verificar q no sea null
     }
 
     private void inicializarImagenPanelLateralLogueo() {
         iconoUsuario = new JLabel();
-        iconoUsuario.setIcon(new ImageIcon("C:\\Users\\Olmos\\Documents\\GitHub\\Lab-3-Final-Project\\Lab 3 Final Project\\src\\logo.jpeg"));
+        iconoUsuario.setIcon(new ImageIcon("C:\\Users\\Olmos\\Documents\\GitHub\\Lab-3-Final-Project\\img\\logo.jpeg"));
         iconoUsuario.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(204, 204, 255)));
     }
 
@@ -219,7 +219,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     private void inicializarFondoPanelLateralBilleteras() {
         fondoPanelLateral2 = new JLabel();
-        fondoPanelLateral2.setIcon(new ImageIcon("C:\\Users\\Olmos\\Documents\\GitHub\\Lab-3-Final-Project\\Lab 3 Final Project\\src\\panelLateral.jpg"));
+        fondoPanelLateral2.setIcon(new ImageIcon("C:\\Users\\Olmos\\Documents\\GitHub\\Lab-3-Final-Project\\img\\panelLateral.jpg"));
     }
 
     private void inicializarComponentesPanelLateralBilleteras() {
