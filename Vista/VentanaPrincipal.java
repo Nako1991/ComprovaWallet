@@ -1,4 +1,5 @@
 package Vista;
+import Controlador.ControladorBilleteraVirtual;
 import Controlador.ControladorLogueoUsuarios;
 import Controlador.ControladorRegistroUsuarios;
 import Interface.DimensionPantalla;
@@ -24,6 +25,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private Scanner scanner = new Scanner(System.in);
     private ControladorRegistroUsuarios controladorRegistroUsuarios;
     private ControladorLogueoUsuarios controladorLogueoUsuarios;
+    private ControladorBilleteraVirtual controladorBilleteraVirtual;
 
     private JLayeredPane panelVentanaPrincipal;
 
@@ -124,6 +126,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private void inicializarControladores() {
         controladorRegistroUsuarios = new ControladorRegistroUsuarios();
         controladorLogueoUsuarios = new ControladorLogueoUsuarios();
+        controladorBilleteraVirtual = new ControladorBilleteraVirtual();
     }
 
     private void inicializarFondoPanelLateralLogueo() {
@@ -352,6 +355,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     private void botonRegistrarActionPerformed(ActionEvent evt) {
         // TODO add your handling code here:
+
     }
 
     private void botonLogueoActionPerformed(ActionEvent evt) {
