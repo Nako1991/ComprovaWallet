@@ -370,38 +370,45 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         char[] contraseñaArray = campoContraseña.getPassword();
         String contraseña = new String(contraseñaArray);
 
-        try {
-            usuarioLogueado = controladorLogueoUsuarios.loguearUsuario(campoUsuario.getText(), contraseña);
-        }
-        catch(InvalidWrongUserFormat | InvalidWrongPasswordFormat | InvalidUserDoesntExists exception) {
-            System.out.println("Error: " + exception.getMessage());
-        }
+        usuarioLogueado = controladorLogueoUsuarios.loguearUsuario(campoUsuario.getText(), contraseña);
 
-        if(usuarioLogueado != null) {
+        System.out.println(contraseña); //TEST
+        System.out.println(usuarioLogueado); //TEST
+        System.out.println(campoUsuario.getText()); //TEST
 
-            System.out.println(contraseña);
-            if( !Validaciones.contraseñaVerificada(contraseña) ) {
-
-                cartelContraseñaInvalida.setVisible(true);
-                cartelContraseñaInvalida.setVisible(false);
-            }
-            else {
-                cartelUsuarioLogueo.setVisible(true);
-                Timer temporizador = new Timer(2000, new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        panelLateralLogueo.setVisible(false);
-                        panelLateralBilleteras.setVisible(true);
-                    }
-                });
-                temporizador.setRepeats(false);
-                temporizador.start();
-                cartelUsuarioLogueo.setVisible(false);
-            }
-        }
-        else {
+        if ( usuarioLogueado == null ) {
             cartelUsuarioInvalido.setVisible(true);
         }
+        else if ( !Validaciones.contraseñaVerificada(contraseña) ) {
+            cartelContraseñaInvalida.setVisible(true);
+        }
+        else {
+            cartelUsuarioLogueo.setVisible(true);
+            Timer temporizadorLogueado = new Timer(2000, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                    panelLateralLogueo.setVisible(false);
+                    panelLateralBilleteras.setVisible(true);
+
+                }
+            });
+            temporizadorLogueado.setRepeats(false);
+            temporizadorLogueado.start();
+        }
+
+        Timer temporizadorNoLogueado = new Timer(5000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                cartelUsuarioInvalido.setVisible(false);
+                cartelContraseñaInvalida.setVisible(false);
+                cartelUsuarioLogueo.setVisible(false);
+            }
+        });
+        temporizadorNoLogueado.setRepeats(false);
+        temporizadorNoLogueado.start();
+
     }
 
     private void botonPanelLogueoActionPerformed(ActionEvent evt) { ///TEST
