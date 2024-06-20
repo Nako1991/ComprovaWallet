@@ -57,6 +57,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private JLabel fondoPanelLateral2;
     private JLabel iconoUsuario;
     private JLabel textoUsuarioLogueado;
+    private JButton botonAgregarBilletera;
     private JButton botonCerrarSesion;
     private JButton botonSalirPanelBilleteras;
 
@@ -381,8 +382,22 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarBotonesPanelLateralBilleteras() {
+        inicializarBotonAgregarBilletera();
         inicializarBotonCerrarSesion();
         inicializarBotonSalirPanelBilleteras();
+    }
+
+    private void inicializarBotonAgregarBilletera() {
+        botonAgregarBilletera = new JButton();
+        botonAgregarBilletera.setBackground(new Color(0, 51, 102));
+        botonAgregarBilletera.setFont(new Font("Segoe UI", 1, 24));
+        botonAgregarBilletera.setForeground(new Color(204, 204, 255));
+        botonAgregarBilletera.setText("+ Billetera");
+        botonAgregarBilletera.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                botonAgregarBilleteraActionPerformed(evt);
+            }
+        });
     }
 
     private void inicializarBotonCerrarSesion() {
@@ -415,7 +430,8 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         panelLateralBilleteras = new JPanel();
         panelLateralBilleteras.setLayout(new AbsoluteLayout());
         panelLateralBilleteras.add(botonSalirPanelBilleteras, new AbsoluteConstraints(50, 960, 190, 60));
-        panelLateralBilleteras.add(botonCerrarSesion, new AbsoluteConstraints(50, 860, 190, 60));
+        panelLateralBilleteras.add(botonCerrarSesion, new AbsoluteConstraints(50, 870, 190, 60));
+        panelLateralBilleteras.add(botonAgregarBilletera, new AbsoluteConstraints(50, 780, 190, 60));
         panelLateralBilleteras.add(iconoUsuario, new AbsoluteConstraints(20, 30, 250, 250));
         panelLateralBilleteras.add(textoUsuarioLogueado, new AbsoluteConstraints(20, 310, 250, 50));
         panelLateralBilleteras.add(fondoPanelLateral2, new AbsoluteConstraints(0, 0, -1, -1));
@@ -449,6 +465,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         this.pack();
     }
 
+    ///FUNCIONALIDADES BOTONES
     private void botonSalirActionPerformed(ActionEvent evt) {
         System.exit(0);
     }
@@ -467,6 +484,10 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         panelLateralBilleteras.setVisible(false);
         textoUsuarioLogueado.setText("");
         ocultarCarteles();
+    }
+
+    private void botonAgregarBilleteraActionPerformed(ActionEvent evt) {
+        agregarBilletaraVirtual();
     }
 
     private void registrarUsuario() {
@@ -512,16 +533,6 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
 
-    private void ocultarCarteles() {
-        cartelUsuarioRegistrado.setVisible(false);
-        cartelFormatoUsuarioIncorrecto.setVisible(false);
-        cartelFormatoContraseñaIncorrecto.setVisible(false);
-        cartelUsuarioExistente.setVisible(false);
-        cartelUsuarioInvalido.setVisible(false);
-        cartelContraseñaInvalida.setVisible(false);
-        cartelUsuarioLogueo.setVisible(false);
-    }
-
     private void loguearUsuario() {
 
         char[] contraseñaArray = campoContraseña.getPassword();
@@ -563,6 +574,20 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         temporizadorOcultarCarteles.setRepeats(false);
         temporizadorOcultarCarteles.start();
 
+    }
+
+    private void agregarBilletaraVirtual() { //TODO continuar aca
+        
+    }
+
+    private void ocultarCarteles() {
+        cartelUsuarioRegistrado.setVisible(false);
+        cartelFormatoUsuarioIncorrecto.setVisible(false);
+        cartelFormatoContraseñaIncorrecto.setVisible(false);
+        cartelUsuarioExistente.setVisible(false);
+        cartelUsuarioInvalido.setVisible(false);
+        cartelContraseñaInvalida.setVisible(false);
+        cartelUsuarioLogueo.setVisible(false);
     }
 
     private void botonPanelLogueoActionPerformed(ActionEvent evt) { ///TEST
