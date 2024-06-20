@@ -4,6 +4,7 @@ import Controlador.ControladorLogueoUsuarios;
 import Controlador.JSONUtilities;
 import Exceptions.*;
 import Interface.DimensionPantalla;
+import Interface.Generador;
 import Modelo.Config;
 import Modelo.Usuario;
 import org.json.JSONArray;
@@ -18,6 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class VentanaPrincipal extends JFrame implements DimensionPantalla {
@@ -577,7 +579,8 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void agregarBilletaraVirtual() { //TODO continuar aca
-        
+        System.out.println(Generador.generarNombreBanco());
+        System.out.println(Generador.generarNombreYApellido());
     }
 
     private void ocultarCarteles() {

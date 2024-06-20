@@ -1,16 +1,14 @@
 package Interface;
 
 import Exceptions.Validaciones;
-import Modelo.Banco;
-import Modelo.BilleteraVirtual;
-import Modelo.Comprobante;
+import Modelo.NombresBancos;
+import Modelo.NombresMujeres;
+import Modelo.NombresVarones;
 import Modelo.Usuario;
-
-import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
 
 public interface Generador {
+
     static String generarAlias(){
         String[] palabras = {
                 "Cirujano", "Arena","Pasado","Flores","Basto","Juicio","Tablero","Alfajor","Florero","Mochila",
@@ -71,7 +69,7 @@ public interface Generador {
         return cvuValido;
     }
 
-    static public String generarID(String identificadorDeClase) {
+    static String generarID(String identificadorDeClase) {
         int longitudId = 15;
         String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         Random random = new Random();
@@ -80,6 +78,55 @@ public interface Generador {
         for(int i = 1; i < longitudId; i++) sb.append(caracteres.charAt(random.nextInt(caracteres.length())));
         String idUnico = String.valueOf(sb);
         return idUnico;
+    }
+
+    static String generarNombreBanco() {
+        Random random = new Random();
+        NombresBancos[] nombreBancos = NombresBancos.values();
+        NombresBancos nombreBanco = nombreBancos[random.nextInt(nombreBancos.length)];
+        String nombreBancoString = formatearDeEnumAString(nombreBanco.name());
+
+        return nombreBancoString;
+    }
+
+    static String generarNombreYApellido() {
+
+        Random random = new Random();
+
+        String nombreYApellido = "";
+
+        int hombreOMujer = random.nextInt(0, 2);
+
+        int unoODosNombres = random.nextInt(1, 3);
+        int unoODosApellidos = random.nextInt(1, 3);
+
+        if ( hombreOMujer == 0 ) {
+
+            NombresVarones[] nombresVarones = NombresVarones.values();
+            NombresVarones nombreVaron1 = nombresVarones[random.nextInt(nombresVarones.length)];
+            NombresVarones nombreVaron2 = nombresVarones[random.nextInt(nombresVarones.length)];
+
+            if ( unoODosNombres == 1 )
+                //nombreYApellido = nombreVaron1;
+
+        }
+        else if ( hombreOMujer == 1 ) {
+
+            NombresMujeres[] nombresMujeres = NombresMujeres.values();
+            NombresMujeres nombreMujer1 = nombresMujeres[random.nextInt(nombresMujeres.length)];
+            NombresMujeres nombreMujer2 = nombresMujeres[random.nextInt(nombresMujeres.length)];
+
+        }
+
+        return nombreYApellido;
+    }
+
+    static String formatearDeEnumAString(String stringSinFormato) {
+        stringSinFormato = stringSinFormato.replace('_', ' ');
+        stringSinFormato = stringSinFormato.toLowerCase();
+        String stringFormateado = stringSinFormato.substring(0, 1).toUpperCase() + stringSinFormato.substring(1);
+
+        return stringFormateado;
     }
 
 //    Del arreglo de billeteras virtuales, el usuarioLogueado tendrá una abierta a la cual le llegarán comprobantes
