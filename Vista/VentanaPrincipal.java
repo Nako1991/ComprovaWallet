@@ -57,6 +57,8 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private JLabel fondoPanelLateral2;
     private JLabel iconoUsuario;
     private JLabel textoUsuarioLogueado;
+    private JButton botonCerrarSesion;
+    private JButton botonSalirPanelBilleteras;
 
     private Usuario usuarioLogueado;
 
@@ -379,15 +381,45 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarBotonesPanelLateralBilleteras() {
+        inicializarBotonCerrarSesion();
+        inicializarBotonSalirPanelBilleteras();
+    }
 
+    private void inicializarBotonCerrarSesion() {
+        botonCerrarSesion = new JButton();
+        botonCerrarSesion.setBackground(new Color(0, 51, 102));
+        botonCerrarSesion.setFont(new Font("Segoe UI", 1, 24));
+        botonCerrarSesion.setForeground(new Color(204, 204, 255));
+        botonCerrarSesion.setText("Cerrar Sesion");
+        botonCerrarSesion.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                botonCerrarSesionActionPerformed(evt);
+            }
+        });
+    }
+
+    private void inicializarBotonSalirPanelBilleteras() {
+        botonSalirPanelBilleteras = new JButton();
+        botonSalirPanelBilleteras.setBackground(new Color(0, 51, 102));
+        botonSalirPanelBilleteras.setFont(new Font("Segoe UI", 1, 24));
+        botonSalirPanelBilleteras.setForeground(new Color(204, 204, 255));
+        botonSalirPanelBilleteras.setText("Salir");
+        botonSalirPanelBilleteras.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                botonSalirActionPerformed(evt);
+            }
+        });
     }
 
     private void inicializarComponentesPanelLateralBilleteras() {
         panelLateralBilleteras = new JPanel();
         panelLateralBilleteras.setLayout(new AbsoluteLayout());
+        panelLateralBilleteras.add(botonSalirPanelBilleteras, new AbsoluteConstraints(50, 960, 190, 60));
+        panelLateralBilleteras.add(botonCerrarSesion, new AbsoluteConstraints(50, 860, 190, 60));
         panelLateralBilleteras.add(iconoUsuario, new AbsoluteConstraints(20, 30, 250, 250));
         panelLateralBilleteras.add(textoUsuarioLogueado, new AbsoluteConstraints(20, 310, 250, 50));
         panelLateralBilleteras.add(fondoPanelLateral2, new AbsoluteConstraints(0, 0, -1, -1));
+        panelLateralBilleteras.setVisible(false);
     }
 
     ///INICIALIZACION PANEL VENTANA PRINCIPAL
@@ -429,6 +461,14 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         loguearUsuario();
     }
 
+    private void botonCerrarSesionActionPerformed(ActionEvent evt) {
+        usuarioLogueado = null;
+        panelLateralLogueo.setVisible(true);
+        panelLateralBilleteras.setVisible(false);
+        textoUsuarioLogueado.setText("");
+        ocultarCarteles();
+    }
+
     private void registrarUsuario() {
 
         char[] contraseñaArray = campoContraseña.getPassword();
@@ -464,14 +504,22 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         Timer temporizadorOcultarCarteles = new Timer(5000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cartelUsuarioRegistrado.setVisible(false);
-                cartelFormatoUsuarioIncorrecto.setVisible(false);
-                cartelFormatoContraseñaIncorrecto.setVisible(false);
-                cartelUsuarioExistente.setVisible(false);
+                ocultarCarteles();
             }
         });
         temporizadorOcultarCarteles.setRepeats(false);
         temporizadorOcultarCarteles.start();
+    }
+
+
+    private void ocultarCarteles() {
+        cartelUsuarioRegistrado.setVisible(false);
+        cartelFormatoUsuarioIncorrecto.setVisible(false);
+        cartelFormatoContraseñaIncorrecto.setVisible(false);
+        cartelUsuarioExistente.setVisible(false);
+        cartelUsuarioInvalido.setVisible(false);
+        cartelContraseñaInvalida.setVisible(false);
+        cartelUsuarioLogueo.setVisible(false);
     }
 
     private void loguearUsuario() {
@@ -509,9 +557,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         Timer temporizadorOcultarCarteles = new Timer(5000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cartelUsuarioInvalido.setVisible(false);
-                cartelContraseñaInvalida.setVisible(false);
-                cartelUsuarioLogueo.setVisible(false);
+                ocultarCarteles();
             }
         });
         temporizadorOcultarCarteles.setRepeats(false);
