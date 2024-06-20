@@ -42,9 +42,11 @@ public class Validaciones {
     }
 
     //Verificamos que el nombre de usuario no se repita
-    public static boolean invalidUserAlreadyExists(String nombreUsuario, HashMap<String, Usuario> mapaUsuariosRegistrados) throws InvalidUserAlreadyExists {
+    public static boolean invalidUserAlreadyExists(String nombreUsuario) throws InvalidUserAlreadyExists {
 
-        if(mapaUsuariosRegistrados.containsKey(nombreUsuario)) throw new InvalidUserAlreadyExists("El usuario ya existe");
+        HashMap<String, Usuario> repositorio = ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo();
+
+        if(repositorio.containsKey(nombreUsuario)) throw new InvalidUserAlreadyExists("El usuario ya existe");
         else return true;
     }
 
