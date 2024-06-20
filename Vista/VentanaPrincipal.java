@@ -35,7 +35,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     private JPanel panelLateralLogueo;
     private JLabel fondoPanelLateral1;
-    private JLabel iconoUsuario;
+    private JLabel iconoLogueo;
     private JLabel textoUsuario;
     private JFormattedTextField campoUsuario;
     private JLabel textoContraseña;
@@ -55,6 +55,8 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     private JPanel panelLateralBilleteras;
     private JLabel fondoPanelLateral2;
+    private JLabel iconoUsuario;
+    private JLabel textoUsuarioLogueado;
 
     private Usuario usuarioLogueado;
 
@@ -139,9 +141,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarImagenPanelLateralLogueo() {
-        iconoUsuario = new JLabel();
-        iconoUsuario.setIcon(new ImageIcon(Config.getCarpetaImagenes() + "logo.jpeg"));
-        iconoUsuario.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(204, 204, 255)));
+        iconoLogueo = new JLabel();
+        iconoLogueo.setIcon(new ImageIcon(Config.getCarpetaImagenes() + "logo.jpeg"));
+        iconoLogueo.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(204, 204, 255)));
     }
 
     private void inicializarCamposPanelLateralLogueo() {
@@ -335,7 +337,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         panelLateralLogueo.add(textoContraseña, new AbsoluteConstraints(20, 430, 250, 50));
         panelLateralLogueo.add(campoUsuario, new AbsoluteConstraints(20, 370, 250, 40));
         panelLateralLogueo.add(textoUsuario, new AbsoluteConstraints(20, 310, 250, 50));
-        panelLateralLogueo.add(iconoUsuario, new AbsoluteConstraints(20, 30, 250, 250));
+        panelLateralLogueo.add(iconoLogueo, new AbsoluteConstraints(20, 30, 250, 250));
         ///TODO ver el tamaño correcto de los carteles
         panelLateralLogueo.add(cartelUsuarioLogueo,new AbsoluteConstraints(20, 800, 250, 50));
         panelLateralLogueo.add(cartelUsuarioInvalido,new AbsoluteConstraints(20, 800, 250, 50));
@@ -350,6 +352,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     ///INICIALIZACION PANEL LATERAL BILLETERAS
     private void  inicializarPanelLateralBilleteras() {
         inicializarFondoPanelLateralBilleteras();
+        inicializarImagenPanelLateralBilleteras();
+        inicializarCamposPanelLateralBilleteras();
+        inicializarBotonesPanelLateralBilleteras();
         inicializarComponentesPanelLateralBilleteras();
     }
 
@@ -358,9 +363,30 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         fondoPanelLateral2.setIcon(new ImageIcon(Config.getCarpetaImagenes() + "panelLateral.jpg"));
     }
 
+    private void inicializarImagenPanelLateralBilleteras() {
+        iconoUsuario = new JLabel();
+        iconoUsuario.setIcon(new ImageIcon(Config.getCarpetaImagenes() + "IconoUsuario.png"));
+        iconoUsuario.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(204, 204, 255)));
+    }
+
+    private void inicializarCamposPanelLateralBilleteras() {
+        textoUsuarioLogueado = new JLabel();
+        textoUsuarioLogueado.setBackground(new Color(0, 51, 153));
+        textoUsuarioLogueado.setFont(new Font("Segoe UI", 0, 24));
+        textoUsuarioLogueado.setForeground(new Color(204, 204, 255));
+        textoUsuarioLogueado.setHorizontalAlignment(SwingConstants.CENTER);
+        textoUsuarioLogueado.setText(""); ///TODO setear el texto cuando se loguea
+    }
+
+    private void inicializarBotonesPanelLateralBilleteras() {
+
+    }
+
     private void inicializarComponentesPanelLateralBilleteras() {
         panelLateralBilleteras = new JPanel();
         panelLateralBilleteras.setLayout(new AbsoluteLayout());
+        panelLateralBilleteras.add(iconoUsuario, new AbsoluteConstraints(20, 30, 250, 250));
+        panelLateralBilleteras.add(textoUsuarioLogueado, new AbsoluteConstraints(20, 310, 250, 50));
         panelLateralBilleteras.add(fondoPanelLateral2, new AbsoluteConstraints(0, 0, -1, -1));
     }
 
@@ -453,7 +479,6 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         char[] contraseñaArray = campoContraseña.getPassword();
         String contraseña = new String(contraseñaArray);
 
-        //boolean resultadoLogueo = controladorLogueoUsuarios.loguearUsuario(campoUsuario.getText(), contraseña);
         usuarioLogueado = controladorLogueoUsuarios.loguearUsuario(campoUsuario.getText(), contraseña);
 
         System.out.println(contraseña); //TEST
@@ -471,7 +496,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
             Timer temporizadorLogueado = new Timer(2000, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-
+                    textoUsuarioLogueado.setText(usuarioLogueado.getUsuario());
                     panelLateralLogueo.setVisible(false);
                     panelLateralBilleteras.setVisible(true);
 
