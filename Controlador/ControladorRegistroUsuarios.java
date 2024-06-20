@@ -16,7 +16,7 @@ public class ControladorRegistroUsuarios {
 
         if(ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo() == null)
             ControladorArchivoUsuarios.crearArchivoUsuariosDummy();
-        ControladorArchivoUsuarios.mostrarArchivo();
+        ControladorArchivoUsuarios.mostrarArchivo(); //TEST
 
     }
 
@@ -41,7 +41,7 @@ public class ControladorRegistroUsuarios {
         }
     }
 
-    public void testRegistrarUsuarios() {
+    public void testRegistrarUsuarios() { //TEST
 
         try {
             registrarUsuario("juancito", "lalala"); }

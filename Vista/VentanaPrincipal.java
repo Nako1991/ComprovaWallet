@@ -2,13 +2,13 @@ package Vista;
 import Controlador.ControladorBilleteraVirtual;
 import Controlador.ControladorLogueoUsuarios;
 import Controlador.ControladorRegistroUsuarios;
-import Exceptions.InvalidUserDoesntExists;
-import Exceptions.InvalidWrongPasswordFormat;
-import Exceptions.InvalidWrongUserFormat;
-import Exceptions.Validaciones;
+import Controlador.JSONUtilities;
+import Exceptions.*;
 import Interface.DimensionPantalla;
 import Modelo.Config;
 import Modelo.Usuario;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
@@ -48,9 +48,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     private JLabel cartelUsuarioLogueo;
     private JLabel cartelUsuarioInvalido;
+    private JLabel cartelContraseñaInvalida;
 
     private JLabel cartelUsuarioExistente;
-    private JLabel cartelContraseñaInvalida;
 
     private JPanel panelLateralBilleteras;
     private JLabel fondoPanelLateral2;
@@ -69,6 +69,13 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         inicializarPanelLateralBilleteras();
         inicializarPanelVentanaPrincipal();
         inicializarFrameVentanaPrincipal();
+    }
+
+    ///INICIALIZACION CONTROLADORES8
+    private void inicializarControladores() {
+        controladorRegistroUsuarios = new ControladorRegistroUsuarios();
+        controladorLogueoUsuarios = new ControladorLogueoUsuarios();
+        controladorBilleteraVirtual = new ControladorBilleteraVirtual();
     }
 
     ///INICIALIZACION PANEL FONDO
@@ -116,20 +123,14 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         panelFondo.add(botonPanelLogueo, new AbsoluteConstraints(700, 210, 110, -1));
         panelFondo.add(fondoVentanaPrincipal, new AbsoluteConstraints(0, 0, -1, -1));
     }
-
     ///INICIALIZACION PANEL LATERAL LOGUEO
+
     private void inicializarPanelLateralLogueo() {
         inicializarFondoPanelLateralLogueo();
         inicializarImagenPanelLateralLogueo();
         inicializarCamposPanelLateralLogueo();
         inicializarBotonesPanelLateralLogueo();
         inicializarComponentesPanelLateralLogueo();
-    }
-
-    private void inicializarControladores() {
-        controladorRegistroUsuarios = new ControladorRegistroUsuarios();
-        controladorLogueoUsuarios = new ControladorLogueoUsuarios();
-        controladorBilleteraVirtual = new ControladorBilleteraVirtual();
     }
 
     private void inicializarFondoPanelLateralLogueo() {
@@ -148,11 +149,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         inicializarCampoUsuario();
         inicializarTextoContraseña();
         inicializarCampoContraseña();
-        ///TOCADO POR BRI
-        inicializarCartelLogueoUsuario();
-        inicializarCartelUsuarioExistente();
-        inicializarCartelUsuarioInvalido();
-        inicializarCartelContraseñaInvalida();
+        inicializarCarteles();
     }
 
     private void inicializarTextoUsuario() {
@@ -190,12 +187,70 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         campoContraseña.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(204, 204, 255)));
     }
 
+    public void inicializarCarteles() {
+        inicializarCartelLogueoUsuario();
+        inicializarCartelUsuarioExistente();
+        inicializarCartelUsuarioInvalido();
+        inicializarCartelContraseñaInvalida();
+    }
+
+    public void inicializarCartelLogueoUsuario() {
+        cartelUsuarioLogueo = new JLabel();
+        cartelUsuarioLogueo.setBackground(new Color(0, 51, 153));
+        cartelUsuarioLogueo.setOpaque(true);
+        cartelUsuarioLogueo.setFont(new Font("Segoe UI", 0, 24));
+        cartelUsuarioLogueo.setForeground(new Color(204, 204, 255));
+        cartelUsuarioLogueo.setHorizontalAlignment(SwingConstants.CENTER);
+        cartelUsuarioLogueo.setToolTipText("");
+        cartelUsuarioLogueo.setBorder(BorderFactory.createMatteBorder(8, 8, 8, 8, new Color(046,139,87)));
+        cartelUsuarioLogueo.setText("Iniciando Sesion");
+        cartelUsuarioLogueo.setVisible(false);
+    }
+
+    public void inicializarCartelUsuarioExistente() {
+        cartelUsuarioExistente = new JLabel();
+        cartelUsuarioExistente.setBackground(new Color(0, 51, 153));
+        cartelUsuarioExistente.setOpaque(true);
+        cartelUsuarioExistente.setFont(new Font("Segoe UI", 0, 24));
+        cartelUsuarioExistente.setForeground(new Color(204, 204, 255));
+        cartelUsuarioExistente.setHorizontalAlignment(SwingConstants.CENTER);
+        cartelUsuarioExistente.setToolTipText("");
+        cartelUsuarioExistente.setBorder(BorderFactory.createMatteBorder(8, 8, 8, 8, new Color(139,000,000)));
+        cartelUsuarioExistente.setText("El usuario ya existe");
+        cartelUsuarioExistente.setVisible(false);
+    }
+
+    public void inicializarCartelUsuarioInvalido() {
+        cartelUsuarioInvalido = new JLabel();
+        cartelUsuarioInvalido.setBackground(new Color(0, 51, 153));
+        cartelUsuarioInvalido.setOpaque(true);
+        cartelUsuarioInvalido.setFont(new Font("Segoe UI", 0, 24));
+        cartelUsuarioInvalido.setForeground(new Color(204, 204, 255));
+        cartelUsuarioInvalido.setHorizontalAlignment(SwingConstants.CENTER);
+        cartelUsuarioInvalido.setText("Usuario inválido");
+        cartelUsuarioInvalido.setToolTipText("");
+        cartelUsuarioInvalido.setBorder(BorderFactory.createMatteBorder(8, 8, 8, 8, new Color(139,000,000)));
+        cartelUsuarioInvalido.setVisible(false);
+    }
+
+    public void inicializarCartelContraseñaInvalida() {
+        cartelContraseñaInvalida = new JLabel();
+        cartelContraseñaInvalida.setBackground(new Color(0, 51, 153));
+        cartelContraseñaInvalida.setOpaque(true);
+        cartelContraseñaInvalida.setFont(new Font("Segoe UI", 0, 24));
+        cartelContraseñaInvalida.setForeground(new Color(204, 204, 255));
+        cartelContraseñaInvalida.setHorizontalAlignment(SwingConstants.CENTER);
+        cartelContraseñaInvalida.setToolTipText("");
+        cartelContraseñaInvalida.setBorder(BorderFactory.createMatteBorder(8, 8, 8, 8, new Color(139,000,000)));
+        cartelContraseñaInvalida.setText("Contraseña inválida");
+        cartelContraseñaInvalida.setVisible(false);
+    }
+
     private void inicializarBotonesPanelLateralLogueo() {
         inicializarBotonLogueo();
         inicializarBotonRegistrar();
         inicializarBotonSalir();
     }
-
     private void inicializarBotonLogueo() {
         botonLogueo = new JButton();
         botonLogueo.setBackground(new Color(0, 51, 102));
@@ -245,67 +300,12 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         panelLateralLogueo.add(textoContraseña, new AbsoluteConstraints(20, 430, 250, 50));
         panelLateralLogueo.add(campoUsuario, new AbsoluteConstraints(20, 370, 250, 40));
         panelLateralLogueo.add(textoUsuario, new AbsoluteConstraints(20, 310, 250, 50));
-        ///TOCADO POR BRI
+        panelLateralLogueo.add(iconoUsuario, new AbsoluteConstraints(20, 30, 250, 250));
         panelLateralLogueo.add(cartelUsuarioLogueo,new AbsoluteConstraints(20, 800, 250, 50));
         panelLateralLogueo.add(cartelUsuarioExistente,new AbsoluteConstraints(20, 800, 250, 50));
         panelLateralLogueo.add(cartelUsuarioInvalido,new AbsoluteConstraints(20, 800, 250, 50));
         panelLateralLogueo.add(cartelContraseñaInvalida,new AbsoluteConstraints(20, 800, 250, 50));
-        //---------------
-        panelLateralLogueo.add(iconoUsuario, new AbsoluteConstraints(20, 30, 250, 250));
         panelLateralLogueo.add(fondoPanelLateral1, new AbsoluteConstraints(0, 0, -1, -1));
-    }
-    ///TOCADO POR BRI
-    public void inicializarCartelLogueoUsuario() {
-        cartelUsuarioLogueo = new JLabel();
-        cartelUsuarioLogueo.setBackground(new Color(046,139,87));
-        cartelUsuarioLogueo.setOpaque(true);
-        cartelUsuarioLogueo.setFont(new Font("Segoe UI", 0, 24));
-        cartelUsuarioLogueo.setForeground(new Color(204, 204, 255));
-        cartelUsuarioLogueo.setHorizontalAlignment(SwingConstants.CENTER);
-        cartelUsuarioLogueo.setToolTipText("");
-        cartelUsuarioLogueo.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(204, 204, 255)));
-        cartelUsuarioLogueo.setText("Inicio de sesión exitoso");
-        cartelUsuarioLogueo.setVisible(false);
-    }
-
-    public void inicializarCartelUsuarioInvalido() {
-        cartelUsuarioInvalido = new JLabel();
-        cartelUsuarioInvalido.setBackground(new Color(139,000,000));
-        cartelUsuarioInvalido.setOpaque(true);
-        cartelUsuarioInvalido.setFont(new Font("Segoe UI", 0, 24));
-        cartelUsuarioInvalido.setForeground(new Color(204, 204, 255));
-        cartelUsuarioInvalido.setHorizontalAlignment(SwingConstants.CENTER);
-        cartelUsuarioInvalido.setText("Usuario inválido");
-        cartelUsuarioInvalido.setToolTipText("");
-        cartelUsuarioInvalido.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(204, 204, 255)));
-
-        cartelUsuarioInvalido.setVisible(false);
-    }
-
-    public void inicializarCartelContraseñaInvalida() {
-        cartelContraseñaInvalida = new JLabel();
-        cartelContraseñaInvalida.setBackground(new Color(139,000,000));
-        cartelContraseñaInvalida.setOpaque(true);
-        cartelContraseñaInvalida.setFont(new Font("Segoe UI", 0, 24));
-        cartelContraseñaInvalida.setForeground(new Color(204, 204, 255));
-        cartelContraseñaInvalida.setHorizontalAlignment(SwingConstants.CENTER);
-        cartelContraseñaInvalida.setToolTipText("");
-        cartelContraseñaInvalida.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(204, 204, 255)));
-        cartelContraseñaInvalida.setText("Contraseña inválida");
-        cartelContraseñaInvalida.setVisible(false);
-    }
-
-    public void inicializarCartelUsuarioExistente() {
-        cartelUsuarioExistente = new JLabel();
-        cartelUsuarioExistente.setBackground(new Color(139,000,000));
-        cartelUsuarioExistente.setOpaque(true);
-        cartelUsuarioExistente.setFont(new Font("Segoe UI", 0, 24));
-        cartelUsuarioExistente.setForeground(new Color(204, 204, 255));
-        cartelUsuarioExistente.setHorizontalAlignment(SwingConstants.CENTER);
-        cartelUsuarioExistente.setToolTipText("");
-        cartelUsuarioExistente.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(204, 204, 255)));
-        cartelUsuarioExistente.setText("El usuario ya existe");
-        cartelUsuarioExistente.setVisible(false);
     }
 
     ///INICIALIZACION PANEL LATERAL BILLETERAS
@@ -357,12 +357,16 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void botonRegistrarActionPerformed(ActionEvent evt) {
-        // TODO add your handling code here:
+        registrarUsuario();
 
     }
 
     private void botonLogueoActionPerformed(ActionEvent evt) {
         loguearUsuario();
+    }
+
+    private void registrarUsuario() {
+
     }
 
     private void loguearUsuario() {
