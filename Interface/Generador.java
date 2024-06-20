@@ -1,16 +1,16 @@
 package Interface;
 
 import Exceptions.Validaciones;
-import Modelo.NombresBancos;
-import Modelo.NombresMujeres;
-import Modelo.NombresVarones;
-import Modelo.Usuario;
+import Modelo.*;
+
 import java.util.*;
 
 public interface Generador {
 
-    static String generarAlias(){
+    static String generarAlias() {
+
         String[] palabras = {
+
                 "Cirujano", "Arena","Pasado","Flores","Basto","Juicio","Tablero","Alfajor","Florero","Mochila",
                 "Abrigo","Reina","Remo","Matemática","Olímpico","Escoba","Vestuario","Silo","Fideos","Ropa",
                 "Gaseosa","Guiñar","Grueso","Canguro","Jabón","Altura","Gemelo","Felicidad","Funcionario",
@@ -22,6 +22,7 @@ public interface Generador {
                 "Anteojos","León","Ardilla","Tiburón","Pescado","Tinta","Belleza","Fibra","Color","Rabino","Alucinar","Marihuana",
                 "Maiz","Cogollo","Flota","Auto","Moto","Barco","Puñetazo","Mosca","Pelo","Flecha","Arco","Volante","Puerta","Madera"
         };
+
         int longitud = 2;
         StringBuilder sb = new StringBuilder();
         Random rand = new Random();
@@ -32,7 +33,8 @@ public interface Generador {
         return String.valueOf(sb);
     }
 
-    static String generarAPI(){
+    static String generarAPI() {
+
         int longitud = 15;
         String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         Random random = new Random();
@@ -70,6 +72,7 @@ public interface Generador {
     }
 
     static String generarID(String identificadorDeClase) {
+
         int longitudId = 15;
         String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         Random random = new Random();
@@ -81,6 +84,7 @@ public interface Generador {
     }
 
     static String generarNombreBanco() {
+
         Random random = new Random();
         NombresBancos[] nombreBancos = NombresBancos.values();
         NombresBancos nombreBanco = nombreBancos[random.nextInt(nombreBancos.length)];
@@ -98,6 +102,7 @@ public interface Generador {
         int hombreOMujer = random.nextInt(0, 2);
 
         int unoODosNombres = random.nextInt(1, 3);
+
         int unoODosApellidos = random.nextInt(1, 3);
 
         if ( hombreOMujer == 0 ) {
@@ -107,14 +112,35 @@ public interface Generador {
             NombresVarones nombreVaron2 = nombresVarones[random.nextInt(nombresVarones.length)];
 
             if ( unoODosNombres == 1 )
-                //nombreYApellido = nombreVaron1;
+                nombreYApellido = formatearDeEnumAString(nombreVaron1.name()) + " ";
 
+            else if( unoODosNombres == 2 )
+                nombreYApellido = formatearDeEnumAString(nombreVaron1.name()) + " " +  formatearDeEnumAString(nombreVaron2.name()) + " ";
         }
         else if ( hombreOMujer == 1 ) {
 
             NombresMujeres[] nombresMujeres = NombresMujeres.values();
             NombresMujeres nombreMujer1 = nombresMujeres[random.nextInt(nombresMujeres.length)];
             NombresMujeres nombreMujer2 = nombresMujeres[random.nextInt(nombresMujeres.length)];
+
+            if ( unoODosNombres == 1 )
+                nombreYApellido = formatearDeEnumAString(nombreMujer1.name()) + " ";
+
+            else if( unoODosNombres == 2 )
+                nombreYApellido = formatearDeEnumAString(nombreMujer2.name()) + " " + formatearDeEnumAString(nombreMujer2.name()) + " ";
+
+        }
+
+        Apellidos[] apellidos = Apellidos.values();
+        Apellidos apellido1 = apellidos[random.nextInt(apellidos.length)];
+
+        if ( unoODosApellidos == 1 )
+            nombreYApellido = nombreYApellido + formatearDeEnumAString(apellido1.name());
+
+        else if ( unoODosApellidos == 2 ) {
+
+            Apellidos apellido2 = apellidos[random.nextInt(apellidos.length)];
+            nombreYApellido = nombreYApellido + formatearDeEnumAString(apellido1.name())  + " " +  formatearDeEnumAString(apellido2.name());
 
         }
 

@@ -11,7 +11,6 @@ public class Validaciones {
 
     public Validaciones() {}
 
-    //Verificamos si una cadena de texto está vacía
     public static boolean invalidFileIsEmpty(String rutaAlArchivo) throws InvalidFileIsEmpty {
         if(rutaAlArchivo == null || rutaAlArchivo.isEmpty())
             throw new InvalidFileIsEmpty("No hay usuarios registrados");
@@ -23,7 +22,6 @@ public class Validaciones {
         return true;
     }
 
-    //Verificamos que la contraseña tenga 8 dígitos, al menos una mayúscula, un número y un caracter especial
     public static boolean invalidWrongPasswordFormat(String password) throws InvalidWrongPasswordFormat {
         if (password.length() >= 8 &&
                 password.matches(".*[A-Z].*") &&
@@ -35,13 +33,11 @@ public class Validaciones {
         }
     }
 
-    //Verificamos que el nombre de usuario solo contenga letras minúsculas y mayúsculas
     public static boolean invalidWrongUserFormat(String nombreUsuario) throws InvalidWrongUserFormat {
         if(nombreUsuario.matches(".*[a-zA-Z].*")) return true;
         else throw new InvalidWrongUserFormat("El nombre del usuario no es válido");
     }
 
-    //Verificamos que el nombre de usuario no se repita
     public static boolean invalidUserAlreadyExists(String nombreUsuario) throws InvalidUserAlreadyExists {
 
         HashMap<String, Usuario> repositorio = ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo();
@@ -50,14 +46,12 @@ public class Validaciones {
         else return true;
     }
 
-    //Verificamos si existe un usuario
     public static boolean invalidUserDoesntExists(String nombreUsuario, HashMap<String, Usuario> mapaUsuariosRegistrados) throws InvalidUserDoesntExists {
 
         if(mapaUsuariosRegistrados.containsKey(nombreUsuario)) return true;
         else throw new InvalidUserDoesntExists("El usuario no existe");
     }
 
-    //Verificamos que el cvu sea único
     public static boolean invalidCVUAlreadyExists(String cvu, HashMap<String, Usuario> mapaUsuariosRegistrados) throws InvalidCVUAlreadyExists, InvalidNonExistentVirtualWallet {
 
             for(Map.Entry<String, Usuario> entry : mapaUsuariosRegistrados.entrySet())
@@ -91,5 +85,12 @@ public class Validaciones {
         }
 
         return false;
+    }
+
+    public static boolean invalidCuilFormat(String cuil) throws InvalidCuilFormat {
+
+        if(cuil.matches("^\\d{2}-\\d{8}-\\d$")) return true;
+
+        else throw new InvalidCuilFormat("Formato de cuil inválido");
     }
 }
