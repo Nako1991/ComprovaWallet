@@ -1,5 +1,4 @@
 package Controlador;
-import Exceptions.*;
 import Modelo.Usuario;
 
 import java.util.HashMap;
@@ -10,7 +9,7 @@ public class ControladorLogueoUsuarios {
 
         if(ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo() == null)
             ControladorArchivoUsuarios.crearArchivoUsuariosDummy();
-        ControladorArchivoUsuarios.mostrarArchivo();
+        //ControladorArchivoUsuarios.mostrarArchivo();
     }
 
     public Usuario loguearUsuario(String nombreUsuario, String contraseña) {

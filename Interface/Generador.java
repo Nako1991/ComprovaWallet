@@ -1,5 +1,6 @@
 package Interface;
 
+import Controlador.ControladorArchivoUsuarios;
 import Exceptions.Validaciones;
 import Modelo.*;
 
@@ -44,8 +45,8 @@ public interface Generador {
         return api;
     }
 
-    static String generarCVU(HashMap<String, Usuario> repositorio) {
-
+    static String generarCVU() {
+        HashMap<String, Usuario> repositorio = ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo();
         String digitos = "0123456789";
         int longuitudCVU = 22;
         StringBuilder cvuBuffer = new StringBuilder();
@@ -111,11 +112,10 @@ public interface Generador {
             NombresVarones nombreVaron1 = nombresVarones[random.nextInt(nombresVarones.length)];
             NombresVarones nombreVaron2 = nombresVarones[random.nextInt(nombresVarones.length)];
 
-            if ( unoODosNombres == 1 )
-                nombreYApellido = formatearDeEnumAString(nombreVaron1.name()) + " ";
-
-            else if( unoODosNombres == 2 )
+            if ( unoODosNombres == 2 && !nombreVaron1.equals(nombreVaron2) )
                 nombreYApellido = formatearDeEnumAString(nombreVaron1.name()) + " " +  formatearDeEnumAString(nombreVaron2.name()) + " ";
+            else
+                nombreYApellido = formatearDeEnumAString(nombreVaron1.name()) + " ";
         }
         else if ( hombreOMujer == 1 ) {
 
@@ -123,11 +123,10 @@ public interface Generador {
             NombresMujeres nombreMujer1 = nombresMujeres[random.nextInt(nombresMujeres.length)];
             NombresMujeres nombreMujer2 = nombresMujeres[random.nextInt(nombresMujeres.length)];
 
-            if ( unoODosNombres == 1 )
+            if ( unoODosNombres == 2 && !nombreMujer1.equals(nombreMujer2) )
+                nombreYApellido = formatearDeEnumAString(nombreMujer1.name()) + " " + formatearDeEnumAString(nombreMujer2.name()) + " ";
+            else
                 nombreYApellido = formatearDeEnumAString(nombreMujer1.name()) + " ";
-
-            else if( unoODosNombres == 2 )
-                nombreYApellido = formatearDeEnumAString(nombreMujer2.name()) + " " + formatearDeEnumAString(nombreMujer2.name()) + " ";
 
         }
 
