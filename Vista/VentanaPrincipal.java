@@ -1,4 +1,5 @@
 package Vista;
+import Controlador.ControladorArchivoUsuarios;
 import Controlador.ControladorBilleteraVirtual;
 import Controlador.ControladorLogueoUsuarios;
 import Controlador.JSONUtilities;
@@ -69,10 +70,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private JButton botonBilletera2;
     private JButton botonBilletera3;
     private JButton botonBilletera4;
-    private int contadorBotones = 0;
     JLabel cartelLimiteDeBilleteras;
-
-
 
     private Usuario usuarioLogueado;
 
@@ -88,6 +86,17 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         inicializarPanelLateralBilleteras();
         inicializarPanelVentanaPrincipal();
         inicializarFrameVentanaPrincipal();
+        inicializarTesteos();
+    }
+
+    ///TEST
+    private void inicializarTesteos() {
+
+        campoUsuario.setText("Rouse");
+        campoContraseña.setText("Rouse484848@@");
+        loguearUsuario();
+        mostrarBilleterasExistentes();
+
     }
 
     ///INICIALIZACION CONTROLADORES8
@@ -536,13 +545,13 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         panelLateralBilleteras.add(botonSalirPanelBilleteras, new AbsoluteConstraints(50, 960, 190, 60));
         panelLateralBilleteras.add(botonCerrarSesion, new AbsoluteConstraints(50, 870, 190, 60));
         panelLateralBilleteras.add(botonAgregarBilletera, new AbsoluteConstraints(50, 780, 190, 60));
-        panelLateralBilleteras.add(botonBilletera1, new AbsoluteConstraints(50, 290, 190, 60));
-        panelLateralBilleteras.add(botonBilletera2, new AbsoluteConstraints(50, 390, 190, 60));
-        panelLateralBilleteras.add(botonBilletera3, new AbsoluteConstraints(50, 490, 190, 60));
-        panelLateralBilleteras.add(botonBilletera4, new AbsoluteConstraints(50, 590, 190, 60));
-        panelLateralBilleteras.add(iconoUsuario, new AbsoluteConstraints(20, 5, 250, 250));
-        panelLateralBilleteras.add(textoUsuarioLogueado, new AbsoluteConstraints(20, 245, 250, 50));
-        panelLateralBilleteras.add(cartelLimiteDeBilleteras, new AbsoluteConstraints(50, 700, 190, 60));
+        panelLateralBilleteras.add(botonBilletera1, new AbsoluteConstraints(20, 390, 250, 60));
+        panelLateralBilleteras.add(botonBilletera2, new AbsoluteConstraints(20, 470, 250, 60));
+        panelLateralBilleteras.add(botonBilletera3, new AbsoluteConstraints(20, 550, 250, 60));
+        panelLateralBilleteras.add(botonBilletera4, new AbsoluteConstraints(20, 630, 250, 60));
+        panelLateralBilleteras.add(iconoUsuario, new AbsoluteConstraints(20, 30, 250, 250));
+        panelLateralBilleteras.add(textoUsuarioLogueado, new AbsoluteConstraints(20, 310, 250, 50));
+        panelLateralBilleteras.add(cartelLimiteDeBilleteras, new AbsoluteConstraints(20, 700, 250, 60));
 
         panelLateralBilleteras.add(fondoPanelLateral2, new AbsoluteConstraints(0, 0, -1, -1));
         panelLateralBilleteras.setVisible(false);
@@ -687,13 +696,11 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void agregarBilletaraVirtual() {
-        System.out.println(Generador.generarNombreBanco());
-        System.out.println(Generador.generarNombreYApellido());
         ArrayList<BilleteraVirtual> bufferBilletera = usuarioLogueado.getBilleterasVirtuales();
 
-        System.out.println(contadorBotones);
-        System.out.println(bufferBilletera.size());
-        if ( contadorBotones < 5 && bufferBilletera.size() < 5 ) {
+        int contadorBotones = bufferBilletera.toArray().length;
+
+        if ( contadorBotones < 5 ) {
 
             ControladorBilleteraVirtual.agregarBilleteraVirtual(usuarioLogueado,Generador.generarBilleteraVirtual());
             contadorBotones++;
