@@ -4,6 +4,9 @@ import Controlador.ControladorArchivoUsuarios;
 import Exceptions.Validaciones;
 import Modelo.*;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.*;
 
 public interface Generador {
@@ -191,96 +194,65 @@ public interface Generador {
         return new BilleteraVirtual(persona,banco);
     }
 
-//    Del arreglo de billeteras virtuales, el usuarioLogueado tendrá una abierta a la cual le llegarán comprobantes
-//    Por el momento, bancoOrigen va a tener la primer billetera virtual del usuario logueado. Completar la parte lógica para que funcione correctamente
-//    static Comprobante generarComprobanteAleatorio(Usuario usuarioLogueado) {
-//
-//        String[] nombreBancos = {
-//                "Mercado Pago",
-//                "Ualá",
-//                "Cuenta DNI",
-//                "BNA+",
-//                "Modo",
-//                "Banco Patagonia",
-//                "Brubank",
-//                "Naranja x",
-//                "Banco Francés",
-//                "Prex",
-//                "Banco Supervielle",
-//                "Personal Pay"
-//        };
-//
-//        String[] estadosTransferencia = {
-//                "Enviada",
-//                "Pendiente",
-//                "Rechazada"
-//        };
-//
-//        Random random = new Random();
-//
-//        String codigoTransferencia = generarCodigoTransferencia(random);
-//        String fechaTransderencia = generarFecha();
-//        double montoTransferencia = generarMonto(random);
-//        Banco bancoOrigen = generarBancoOrigenAleatorio(usuarioLogueado, random);
-//        Banco bancoDestino = generarBancoDestinoAleatorio(random, nombreBancos);
-//        String estadoTransferencia = generarEstadoTransferencia(estadosTransferencia, random);
-//
-//        return new Comprobante(codigoTransferencia, fechaTransderencia, montoTransferencia, bancoOrigen, bancoDestino, estadoTransferencia);
-//    }
-//
-//    static String generarCodigoTransferencia(Random random) {
-//
-//        String digitos = "0123456789";
-//        int longuitudCodigoTransferencia = 11;
-//        StringBuilder codigoTransferenciaBuffer = new StringBuilder();
-//
-//        for(int i = 0; i < longuitudCodigoTransferencia; i++)
-//            codigoTransferenciaBuffer.append(digitos.charAt(random.nextInt(digitos.length())));
-//
-//        String codigoTransferencia = String.valueOf(codigoTransferenciaBuffer);
-//        return codigoTransferencia;
-//    }
-//
-//    static String generarFecha() {
-//
-//        // Fecha inicial: 24 de junio de 2023
-//        long minimoDia = new GregorianCalendar(2023, Calendar.JUNE, 24).getTimeInMillis();
-//        // Fecha final: fecha actual
-//        long maximoDia = System.currentTimeMillis();
-//        long diaRandom = ThreadLocalRandom.current().nextLong(minimoDia, maximoDia);
-//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-//
-//        return formatter.format(new Date(diaRandom));
-//    }
-//
-//    static double generarMonto(Random random) {
-//        return 1000.0 + (5000.0 - 1000.0) * random.nextDouble();
-//    }
-//
-//    //Revisar este método por completo
-//    static Banco generarBancoOrigenAleatorio(Usuario usuarioLogueado, Random random) {
-//
-//        ArrayList<BilleteraVirtual> billeterasVirtualesBuffer = usuarioLogueado.getBilleterasVirtuales();
-//
-//        if(billeterasVirtualesBuffer != null || !(billeterasVirtualesBuffer.isEmpty())) {
-//
-//            int indexAleatorio = random.nextInt(billeterasVirtualesBuffer.size());
-//            return billeterasVirtualesBuffer.get(indexAleatorio).getUnBanco();
-//        }
-//        return null;
-//    }
-//
-//    static Banco generarBancoDestinoAleatorio(Random random, String[] nombreBancos) {
-//
-//        String nombreBanco = nombreBancos[random.nextInt(nombreBancos.length)];
-//        String alias = "Pepita123"; //Aquí habria que implementar la interfaz que genera el alias aleatorio
-//
-//        return new Banco(nombreBanco, alias);
-//    }
-//
-//    static String generarEstadoTransferencia(String[] estadosTransferencia, Random random) {
-//
-//        int indexAleatorio = random.nextInt(estadosTransferencia.length);
-//        return estadosTransferencia[indexAleatorio];
-//    }
+    static String generarCodigoDeTransferencia() {
+        StringBuilder codigo = new StringBuilder(11);
+        Random random = new Random();
+        for (int i = 0; i < 12; i++) {
+            int digito = random.nextInt(10);
+            codigo.append(digito);
+        }
+        return codigo.toString();
+    }
+
+    static String generadorDeFecha() {
+        Random random = new Random();
+
+        int año = 2000 + random.nextInt(55);
+        int mes = random.nextInt(12) + 1;
+        int diaMaximo = diaMaximoDeEseMes(año,mes);
+        int dia = random.nextInt(diaMaximo) + 1;
+
+        Calendar calendario = Calendar.getInstance();
+        calendario.set(año, mes -1, dia);
+
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaFormateada = formatoFecha.format(calendario.getTime());
+
+        return fechaFormateada;
+    }
+    static int diaMaximoDeEseMes(int año, int mes) {
+        Calendar calendarario = Calendar.getInstance();
+        calendarario.set(año,mes - 1, 1);
+        return calendarario.get(Calendar.DAY_OF_MONTH);
+    }
+
+    static double generarMonto() {
+        Random random = new Random();
+        double monto = random.nextDouble() * 9000000.0;
+
+        DecimalFormat decimalFormat = new DecimalFormat("###,###.##");
+        String montoFormateado = decimalFormat.format(monto);
+
+        double numeroMonto = Double.parseDouble(montoFormateado);
+
+        return numeroMonto;
+    }
+
+    static String generarEstado() {
+        String[] estados = {"Enviado", "Pendiente", "Rechazado"};
+        Random random = new Random();
+        int estado = random.nextInt(estados.length);
+        return estados[estado];
+    }
+
+    static Banco generarBanco() {
+        String nombreBanco = generarNombreBanco();
+        return new Banco(nombreBanco);
+    }
+
+    static Comprobante generarComprobante(Banco bancoOrigen) {
+
+        return new Comprobante(bancoOrigen);
+    }
+    
 }

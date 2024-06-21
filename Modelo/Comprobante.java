@@ -6,20 +6,20 @@ public class Comprobante {
 
     private String id;
     private String codigoTransferencia;
-    private String fecha; //Se tiene que modificar a tipo DATE. Lo modificamos por el fromJSON
+    private String fecha;
     private double monto;
     private Banco bancoOrigen;
     private Banco bancoDestino;
     private String estado;
 
-    public Comprobante(String codigoTransferencia, String fecha, double monto, Banco bancoOrigen, Banco bancoDestino, String estado) {
+    public Comprobante(Banco bancoOrigen) {
         this.id = Generador.generarID("CP");
-        this.codigoTransferencia = codigoTransferencia;
-        this.fecha = fecha;
-        this.monto = monto;
+        this.codigoTransferencia = Generador.generarCodigoDeTransferencia();
+        this.fecha = Generador.generadorDeFecha();
+        this.monto = Generador.generarMonto();
         this.bancoOrigen = bancoOrigen;
-        this.bancoDestino = bancoDestino;
-        this.estado = estado;
+        this.bancoDestino = Generador.generarBanco();
+        this.estado = Generador.generarEstado();
     }
 
     public Comprobante(String id, String codigoTransferencia, String fecha, double monto, Banco bancoOrigen, Banco bancoDestino, String estado) {
