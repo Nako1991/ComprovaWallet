@@ -702,25 +702,25 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
                 cartelBilleteraAgregada.setVisible(true);
                 botonBilletera1.setVisible(true);
-                botonBilletera1.setText(bufferBilletera.get(0).getUnBanco().getBanco());
+                botonBilletera1.setText(bufferBilletera.get(0).getBanco().getBanco());
             }
             else if ( contadorBotones == 2 ) {
 
                 cartelBilleteraAgregada.setVisible(true);
                 botonBilletera2.setVisible(true);
-                botonBilletera2.setText(bufferBilletera.get(1).getUnBanco().getBanco());
+                botonBilletera2.setText(bufferBilletera.get(1).getBanco().getBanco());
             }
             else if (contadorBotones == 3) {
 
                 cartelBilleteraAgregada.setVisible(true);
                 botonBilletera3.setVisible(true);
-                botonBilletera3.setText(bufferBilletera.get(2).getUnBanco().getBanco());
+                botonBilletera3.setText(bufferBilletera.get(2).getBanco().getBanco());
             }
             else if (contadorBotones == 4) {
 
                 cartelBilleteraAgregada.setVisible(true);
                 botonBilletera4.setVisible(true);
-                botonBilletera4.setText(bufferBilletera.get(3).getUnBanco().getBanco());
+                botonBilletera4.setText(bufferBilletera.get(3).getBanco().getBanco());
             }
         }
         else {
@@ -744,21 +744,21 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
             int numBilleteras = billeterasVirtuales.size();
             botonBilletera1.setVisible(true);
-            botonBilletera1.setText(billeterasVirtuales.get(0).getUnBanco().getBanco());
+            botonBilletera1.setText(billeterasVirtuales.get(0).getBanco().getBanco());
 
             if (numBilleteras > 1) {
                 botonBilletera2.setVisible(true);
-                botonBilletera2.setText(billeterasVirtuales.get(1).getUnBanco().getBanco());
+                botonBilletera2.setText(billeterasVirtuales.get(1).getBanco().getBanco());
             }
 
             if (numBilleteras > 2) {
                 botonBilletera3.setVisible(true);
-                botonBilletera3.setText(billeterasVirtuales.get(2).getUnBanco().getBanco());
+                botonBilletera3.setText(billeterasVirtuales.get(2).getBanco().getBanco());
             }
 
             if (numBilleteras > 3) {
                 botonBilletera4.setVisible(true);
-                botonBilletera4.setText(billeterasVirtuales.get(3).getUnBanco().getBanco());
+                botonBilletera4.setText(billeterasVirtuales.get(3).getBanco().getBanco());
             }
         }
     }
