@@ -698,15 +698,18 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
     private void botonBilletera2ActionPerformed(ActionEvent evt) {}
     private void botonEliminarBilletera2ActionPerformed(ActionEvent evt) {
-
+        eliminarBilleteraVirtual(1);
+        mostrarBilleterasExistentes();
     }
     private void botonBilletera3ActionPerformed(ActionEvent evt) {}
     private void botonEliminarBilletera3ActionPerformed(ActionEvent evt) {
-
+        eliminarBilleteraVirtual(2);
+        mostrarBilleterasExistentes();
     }
     private void botonBilletera4ActionPerformed(ActionEvent evt) {}
     private void botonEliminarBilletera4ActionPerformed(ActionEvent evt) {
-
+        eliminarBilleteraVirtual(3);
+        mostrarBilleterasExistentes();
     }
     private void registrarUsuario() {
 
