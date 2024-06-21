@@ -7,9 +7,11 @@ public class ControladorLogueoUsuarios {
 
     public ControladorLogueoUsuarios() {
 
-        if(ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo() == null)
+        if (ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo().isEmpty()) {
+
             ControladorArchivoUsuarios.crearArchivoUsuariosDummy();
-        //ControladorArchivoUsuarios.mostrarArchivo();
+        }
+            //ControladorArchivoUsuarios.mostrarArchivo();
     }
 
     public Usuario loguearUsuario(String nombreUsuario, String contraseña) {
