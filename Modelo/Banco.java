@@ -1,8 +1,6 @@
 package Modelo;
-import Controlador.ControladorArchivoUsuarios;
 import Interface.Generador;
 import org.json.JSONObject;
-import java.util.HashMap;
 
 public class Banco {
 
@@ -38,7 +36,7 @@ public class Banco {
     public void setAlias(String alias) { this.alias = alias; }
     public String getCvu() { return cvu; }
     public void setCvu(String cvu) { this.cvu = cvu; }
-    public String getBanco() { return nombreBanco; } //
+    public String getNombreBanco() { return nombreBanco; } //
     public void setBanco(String banco) {  this.nombreBanco = banco; }
 
     @Override
