@@ -56,7 +56,7 @@ public class Validaciones {
 
             for(Map.Entry<String, Usuario> entry : mapaUsuariosRegistrados.entrySet())
                 for(BilleteraVirtual billeteraVirtualBuffer : entry.getValue().getBilleterasVirtuales())
-                    if((billeteraVirtualBuffer.getUnBanco().getCvu().equals(cvu))) throw new InvalidCVUAlreadyExists("El cvu ya existe");
+                    if((billeteraVirtualBuffer.getBanco().getCvu().equals(cvu))) throw new InvalidCVUAlreadyExists("El cvu ya existe");
 
         return true;
     }

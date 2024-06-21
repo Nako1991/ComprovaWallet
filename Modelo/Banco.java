@@ -6,7 +6,6 @@ import java.util.HashMap;
 
 public class Banco {
 
-    private static HashMap<String, Usuario> mapaBuffer = ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo();
     protected String nombreBanco;
     protected String alias;
     protected String cvu;
@@ -14,19 +13,19 @@ public class Banco {
     public Banco() {
         this.nombreBanco = "";
         this.alias = Generador.generarAlias();
-        this.cvu = Generador.generarCVU(mapaBuffer);
+        this.cvu = Generador.generarCVU();
     }
 
     public Banco(String banco) {
         this.nombreBanco = banco;
         this.alias = Generador.generarAlias();
-        this.cvu = Generador.generarCVU(mapaBuffer);
+        this.cvu = Generador.generarCVU();
     }
 
     public Banco(String banco, String alias) {
         this.nombreBanco = banco;
         this.alias = alias;
-        this.cvu = Generador.generarCVU(mapaBuffer);
+        this.cvu = Generador.generarCVU();
     }
 
     public Banco(String banco, String alias, String cvu) {

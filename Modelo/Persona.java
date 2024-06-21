@@ -31,7 +31,7 @@ public class Persona {
     public String toString() {
         return "PERSONA" + '\n' +
                 " Nombre y Apellido: " + nombreApellido + "\n" +
-                " ID UNICO TEST: " + id + "\n" +
+                " ID: " + id + "\n" +
                 " Cuil: " + cuil + "\n";
     }
 

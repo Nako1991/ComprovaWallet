@@ -58,7 +58,7 @@ public abstract class ControladorArchivoUsuarios {
             Validaciones.invalidFileIsEmpty(Config.getCarpetaRaiz() + "usuariosRegistrados.json");
             JSONArray usuariosJSONArray = new JSONArray(JSONUtilities.downloadJSON(Config.getCarpetaRaiz() + "usuariosRegistrados.json"));
 
-            for(int i = 0 ; i < usuariosJSONArray.length() ; i++) {
+            for( int i = 0 ; i < usuariosJSONArray.length() ; i++ ) {
                 JSONObject usuarioJSON = usuariosJSONArray.getJSONObject(i);
                 Usuario usuarioAAgregar = Usuario.fromJSON(usuarioJSON);
                 repositorio.put(usuarioAAgregar.getUsuario(), usuarioAAgregar);
@@ -68,7 +68,7 @@ public abstract class ControladorArchivoUsuarios {
         catch(InvalidFileIsEmpty | JSONException exception) {
             System.out.println("\nError: " + exception.getMessage());
         }
-        return null;
+        return repositorio;
     }
 
     //Grabamos el repositorio en el archivo

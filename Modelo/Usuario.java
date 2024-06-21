@@ -50,7 +50,7 @@ public class Usuario {
         return  "CUENTA" + "\n" +
                 " Usuario: " + usuario + "\n" +
                 " Contraseña: " + contraseña + "\n" +
-                " Billetera Virtuales: " + billeterasVirtuales + "\n" +
+                " Billeteras Virtuales: " + billeterasVirtuales + "\n" +
                 " Comprobantes: " + billeterasVirtuales + "\n";
     }
 
