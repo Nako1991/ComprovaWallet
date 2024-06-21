@@ -42,7 +42,6 @@ public class Cliente {
     }
 
     public JSONObject toJSON() {
-
         JSONObject jsonCliente = new JSONObject();
         jsonCliente.put("ID:", this.id);
         jsonCliente.put("Persona:", this.persona);

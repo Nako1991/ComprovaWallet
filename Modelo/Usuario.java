@@ -55,7 +55,6 @@ public class Usuario {
     }
 
     public JSONObject toJSON() {
-
         JSONObject jsonUsuario = new JSONObject();
         jsonUsuario.put("ID", this.id);
         jsonUsuario.put("Usuario", this.usuario);
@@ -77,7 +76,6 @@ public class Usuario {
     }
 
     public static Usuario fromJSON(JSONObject usuarioJSON) {
-
         String id = usuarioJSON.getString("ID");
         String usuario = usuarioJSON.getString("Usuario");
         String contraseña = usuarioJSON.getString("Contraseña");

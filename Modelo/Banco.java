@@ -51,7 +51,6 @@ public class Banco {
     }
 
     public JSONObject toJSON() {
-
         JSONObject jsonBanco = new JSONObject();
         jsonBanco.put("Banco", this.nombreBanco);
         jsonBanco.put("Alias", this.alias);
@@ -61,7 +60,6 @@ public class Banco {
     }
 
     public static Banco fromJSON(JSONObject bancoJSON) {
-
         return new Banco(
                 bancoJSON.getString("Banco"),
                 bancoJSON.getString("Alias"),

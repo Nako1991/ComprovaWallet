@@ -69,8 +69,8 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private JButton botonBilletera2;
     private JButton botonBilletera3;
     private JButton botonBilletera4;
-    private JButton botonBilletera5;
     private int contadorBotones = 0;
+    JLabel cartelLimiteDeBilleteras;
 
 
 
@@ -224,7 +224,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         cartelUsuarioLogueo.setForeground(new Color(204, 204, 255));
         cartelUsuarioLogueo.setHorizontalAlignment(SwingConstants.CENTER);
         cartelUsuarioLogueo.setBorder(BorderFactory.createMatteBorder(8, 8, 8, 8, new Color(046,139,87)));
-        cartelUsuarioLogueo.setText("Iniciando Sesion");
+        cartelUsuarioLogueo.setText("Iniciando sesión");
         cartelUsuarioLogueo.setVisible(false);
     }
 
@@ -260,7 +260,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         cartelUsuarioRegistrado.setForeground(new Color(204, 204, 255));
         cartelUsuarioRegistrado.setHorizontalAlignment(SwingConstants.CENTER);
         cartelUsuarioRegistrado.setBorder(BorderFactory.createMatteBorder(8, 8, 8, 8, new Color(046,139,87)));
-        cartelUsuarioRegistrado.setText("Usuario Registrado");
+        cartelUsuarioRegistrado.setText("Usuario registrado");
         cartelUsuarioRegistrado.setVisible(false);
     }
 
@@ -271,7 +271,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         cartelFormatoUsuarioIncorrecto.setFont(new Font("Segoe UI", 0, 24));
         cartelFormatoUsuarioIncorrecto.setForeground(new Color(204, 204, 255));
         cartelFormatoUsuarioIncorrecto.setHorizontalAlignment(SwingConstants.CENTER);
-        cartelFormatoUsuarioIncorrecto.setText("Formato Usuario Invalido");
+        cartelFormatoUsuarioIncorrecto.setText("Formato usuario inválido");
         cartelFormatoUsuarioIncorrecto.setBorder(BorderFactory.createMatteBorder(8, 8, 8, 8, new Color(139,000,000)));
         cartelFormatoUsuarioIncorrecto.setVisible(false);
     }
@@ -283,7 +283,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         cartelFormatoContraseñaIncorrecto.setFont(new Font("Segoe UI", 0, 24));
         cartelFormatoContraseñaIncorrecto.setForeground(new Color(204, 204, 255));
         cartelFormatoContraseñaIncorrecto.setHorizontalAlignment(SwingConstants.CENTER);
-        cartelFormatoContraseñaIncorrecto.setText("Formato contraseña invalido");
+        cartelFormatoContraseñaIncorrecto.setText("Formato contraseña inválido");
         cartelFormatoContraseñaIncorrecto.setBorder(BorderFactory.createMatteBorder(8, 8, 8, 8, new Color(139,000,000)));
         cartelFormatoContraseñaIncorrecto.setVisible(false);
     }
@@ -296,7 +296,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         cartelUsuarioExistente.setForeground(new Color(204, 204, 255));
         cartelUsuarioExistente.setHorizontalAlignment(SwingConstants.CENTER);
         cartelUsuarioExistente.setBorder(BorderFactory.createMatteBorder(8, 8, 8, 8, new Color(139,000,000)));
-        cartelUsuarioExistente.setText("El usuario ya existe");
+        cartelUsuarioExistente.setText("Usuario existente");
         cartelUsuarioExistente.setVisible(false);
     }
 
@@ -371,6 +371,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         inicializarImagenPanelLateralBilleteras();
         inicializarCamposPanelLateralBilleteras();
         inicializarBotonesPanelLateralBilleteras();
+        inicializarCartelesPanelLateralBilleteras();
         inicializarComponentesPanelLateralBilleteras();
     }
 
@@ -402,7 +403,6 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         inicializarBotonBilletera2();
         inicializarBotonBilletera3();
         inicializarBotonBilletera4();
-        inicializarBotonBilletera5();
     }
 
     private void inicializarBotonAgregarBilletera() {
@@ -423,7 +423,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         botonCerrarSesion.setBackground(new Color(0, 51, 102));
         botonCerrarSesion.setFont(new Font("Segoe UI", 1, 24));
         botonCerrarSesion.setForeground(new Color(204, 204, 255));
-        botonCerrarSesion.setText("Cerrar Sesion");
+        botonCerrarSesion.setText("Cerrar sesión");
         botonCerrarSesion.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 botonCerrarSesionActionPerformed(evt);
@@ -436,25 +436,12 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         botonSalirPanelBilleteras.setBackground(new Color(0, 51, 102));
         botonSalirPanelBilleteras.setFont(new Font("Segoe UI", 1, 24));
         botonSalirPanelBilleteras.setForeground(new Color(204, 204, 255));
-        botonSalirPanelBilleteras.setText("Salir");
+        botonSalirPanelBilleteras.setText("SALIR");
         botonSalirPanelBilleteras.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 botonSalirActionPerformed(evt);
             }
         });
-    }
-
-    private void inicializarCartelBilleteraAgregada(){
-        cartelBilleteraAgregada = new JLabel();
-        cartelBilleteraAgregada.setBackground(new Color(0, 51, 153));
-        cartelBilleteraAgregada.setOpaque(true);
-        cartelBilleteraAgregada.setFont(new Font("Segoe UI", 0, 24));
-        cartelBilleteraAgregada.setForeground(new Color(204, 204, 255));
-        cartelBilleteraAgregada.setHorizontalAlignment(SwingConstants.CENTER);
-        ///Configurar para que se vea todo el texto del cartel
-        cartelBilleteraAgregada.setBorder(BorderFactory.createMatteBorder(8, 8, 8, 8, new Color(046,139,87)));
-        cartelBilleteraAgregada.setText("Billetera Agregada");
-        cartelBilleteraAgregada.setVisible(false);
     }
 
     private void inicializarBotonBilletera1() {
@@ -513,18 +500,34 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         });
     }
 
-    private void inicializarBotonBilletera5() {
-        botonBilletera5 = new JButton();
-        botonBilletera5.setBackground(new Color(0, 170, 228));
-        botonBilletera5.setFont(new Font("Segoe UI", 1, 24));
-        botonBilletera5.setForeground(new Color(204, 204, 255));
-        botonBilletera5.setText("");
-        botonBilletera5.setVisible(false);
-        botonBilletera5.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                botonBilletera5ActionPerformed(evt);
-            }
-        });
+    private void inicializarCartelesPanelLateralBilleteras() {
+        inicializarCartelBilleteraAgregada();
+        inicializarCartelLimiteBilletera();
+    }
+
+    private void inicializarCartelBilleteraAgregada(){
+        cartelBilleteraAgregada = new JLabel();
+        cartelBilleteraAgregada.setBackground(new Color(0, 51, 153));
+        cartelBilleteraAgregada.setOpaque(true);
+        cartelBilleteraAgregada.setFont(new Font("Segoe UI", 0, 24));
+        cartelBilleteraAgregada.setForeground(new Color(204, 204, 255));
+        cartelBilleteraAgregada.setHorizontalAlignment(SwingConstants.CENTER);
+        ///Configurar para que se vea todo el texto del cartel
+        cartelBilleteraAgregada.setBorder(BorderFactory.createMatteBorder(8, 8, 8, 8, new Color(046,139,87)));
+        cartelBilleteraAgregada.setText("Billetera agregada");
+        cartelBilleteraAgregada.setVisible(false);
+    }
+
+    private void inicializarCartelLimiteBilletera() {
+        cartelLimiteDeBilleteras = new JLabel();
+        cartelLimiteDeBilleteras.setBackground(new Color(0, 51, 153));
+        cartelLimiteDeBilleteras.setOpaque(true);
+        cartelLimiteDeBilleteras.setFont(new Font("Segoe UI", 0, 24));
+        cartelLimiteDeBilleteras.setForeground(new Color(204, 204, 255));
+        cartelLimiteDeBilleteras.setHorizontalAlignment(SwingConstants.CENTER);
+        cartelLimiteDeBilleteras.setBorder(BorderFactory.createMatteBorder(8, 8, 8, 8, new Color(139,000,000)));
+        cartelLimiteDeBilleteras.setText("Límite de billeteras");
+        cartelLimiteDeBilleteras.setVisible(false);
     }
 
     private void inicializarComponentesPanelLateralBilleteras() {
@@ -537,10 +540,10 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         panelLateralBilleteras.add(botonBilletera2, new AbsoluteConstraints(50, 390, 190, 60));
         panelLateralBilleteras.add(botonBilletera3, new AbsoluteConstraints(50, 490, 190, 60));
         panelLateralBilleteras.add(botonBilletera4, new AbsoluteConstraints(50, 590, 190, 60));
-        panelLateralBilleteras.add(botonBilletera5, new AbsoluteConstraints(50, 690, 190, 60));
         panelLateralBilleteras.add(iconoUsuario, new AbsoluteConstraints(20, 5, 250, 250));
-        panelLateralBilleteras.add(cartelBilleteraAgregada, new AbsoluteConstraints(50, 700, 190, 60));
         panelLateralBilleteras.add(textoUsuarioLogueado, new AbsoluteConstraints(20, 245, 250, 50));
+        panelLateralBilleteras.add(cartelLimiteDeBilleteras, new AbsoluteConstraints(50, 700, 190, 60));
+
         panelLateralBilleteras.add(fondoPanelLateral2, new AbsoluteConstraints(0, 0, -1, -1));
         panelLateralBilleteras.setVisible(false);
     }
@@ -583,6 +586,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     private void botonLogueoActionPerformed(ActionEvent evt) {
         loguearUsuario();
+        mostrarBilleterasExistentes();
     }
 
     private void botonCerrarSesionActionPerformed(ActionEvent evt) {
@@ -641,7 +645,6 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
 
     private void loguearUsuario() {
-
         char[] contraseñaArray = campoContraseña.getPassword();
         String contraseña = new String(contraseñaArray);
 
@@ -683,21 +686,25 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     }
 
-    private void agregarBilletaraVirtual() { //TODO continuar aca
+    private void agregarBilletaraVirtual() {
         System.out.println(Generador.generarNombreBanco());
         System.out.println(Generador.generarNombreYApellido());
-        ControladorBilleteraVirtual.agregarBilleteraVirtual(usuarioLogueado,Generador.generarBilleteraVirtual());
         ArrayList<BilleteraVirtual> bufferBilletera = usuarioLogueado.getBilleterasVirtuales();
-        contadorBotones++;
+
         System.out.println(contadorBotones);
-        if (contadorBotones < 6) {
+        System.out.println(bufferBilletera.size());
+        if ( contadorBotones < 5 && bufferBilletera.size() < 5 ) {
+
+            ControladorBilleteraVirtual.agregarBilleteraVirtual(usuarioLogueado,Generador.generarBilleteraVirtual());
+            contadorBotones++;
+
             if (contadorBotones == 1) {
 
                 cartelBilleteraAgregada.setVisible(true);
                 botonBilletera1.setVisible(true);
                 botonBilletera1.setText(bufferBilletera.get(0).getUnBanco().getBanco());
             }
-            else if (contadorBotones == 2) {
+            else if ( contadorBotones == 2 ) {
 
                 cartelBilleteraAgregada.setVisible(true);
                 botonBilletera2.setVisible(true);
@@ -715,21 +722,45 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
                 botonBilletera4.setVisible(true);
                 botonBilletera4.setText(bufferBilletera.get(3).getUnBanco().getBanco());
             }
-            else if (contadorBotones == 5) {
-
-                cartelBilleteraAgregada.setVisible(true);
-                botonBilletera5.setVisible(true);
-                botonBilletera5.setText(bufferBilletera.get(4).getUnBanco().getBanco());
-            }
+        }
+        else {
+            cartelLimiteDeBilleteras.setVisible(true);
         }
         Timer temporizadorLogueado = new Timer(2000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                cartelBilleteraAgregada.setVisible(false);
+               cartelLimiteDeBilleteras.setVisible(false);
             }
         });
         temporizadorLogueado.setRepeats(false);
         temporizadorLogueado.start();
+    }
+
+    private void mostrarBilleterasExistentes() {
+        ArrayList<BilleteraVirtual> billeterasVirtuales = usuarioLogueado.getBilleterasVirtuales();
+
+        if(billeterasVirtuales != null && !(billeterasVirtuales.isEmpty())) {
+
+            int numBilleteras = billeterasVirtuales.size();
+            botonBilletera1.setVisible(true);
+            botonBilletera1.setText(billeterasVirtuales.get(0).getUnBanco().getBanco());
+
+            if (numBilleteras > 1) {
+                botonBilletera2.setVisible(true);
+                botonBilletera2.setText(billeterasVirtuales.get(1).getUnBanco().getBanco());
+            }
+
+            if (numBilleteras > 2) {
+                botonBilletera3.setVisible(true);
+                botonBilletera3.setText(billeterasVirtuales.get(2).getUnBanco().getBanco());
+            }
+
+            if (numBilleteras > 3) {
+                botonBilletera4.setVisible(true);
+                botonBilletera4.setText(billeterasVirtuales.get(3).getUnBanco().getBanco());
+            }
+        }
     }
 
     private void ocultarCarteles() {
@@ -768,8 +799,5 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     }
 
-    private void botonBilletera5ActionPerformed(ActionEvent evt) {
-
-    }
 
 }

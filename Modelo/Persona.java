@@ -1,5 +1,4 @@
 package Modelo;
-
 import Interface.Generador;
 import org.json.JSONObject;
 
@@ -36,7 +35,6 @@ public class Persona {
     }
 
     public JSONObject toJSON() {
-
         JSONObject jsonPersona = new JSONObject();
         jsonPersona.put("ID", this.id);
         jsonPersona.put("Nombre", this.nombreApellido);

@@ -59,7 +59,6 @@ public class Comprobante {
     }
 
     public JSONObject toJSON() {
-
         JSONObject jsonComprobante = new JSONObject();
         jsonComprobante.put("ID", this.id);
         jsonComprobante.put("CodigoTransferencia", this.codigoTransferencia);
@@ -73,7 +72,6 @@ public class Comprobante {
     }
 
     public static Comprobante fromJSON(JSONObject bancoJSON) {
-
         Banco bancoOrigen = Banco.fromJSON(bancoJSON.getJSONObject("Banco Origen"));
         Banco bancoDestino = Banco.fromJSON(bancoJSON.getJSONObject("Banco Destino"));
 

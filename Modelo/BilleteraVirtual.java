@@ -39,7 +39,6 @@ public class BilleteraVirtual {
     }
 
     public JSONObject toJSON() {
-
         JSONObject jsonBilleteraVirtual = new JSONObject();
         jsonBilleteraVirtual.put("ID", this.id);
         jsonBilleteraVirtual.put("Persona", this.unaPersona.toJSON());
@@ -52,7 +51,7 @@ public class BilleteraVirtual {
     public static BilleteraVirtual fromJSON(JSONObject billeteraVirtual) {
 
         String id = billeteraVirtual.getString("ID");
-        Persona persona = Persona.fromJSON(billeteraVirtual.getJSONObject("Banco"));
+        Persona persona = Persona.fromJSON(billeteraVirtual.getJSONObject("Persona"));
         Banco banco = Banco.fromJSON(billeteraVirtual.getJSONObject("Banco"));
         String api = billeteraVirtual.getString("API");
 
