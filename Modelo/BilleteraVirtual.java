@@ -16,10 +16,10 @@ public class BilleteraVirtual {
         this.id = id;
     }
 
-    public BilleteraVirtual(Persona unaPersona, Banco unBanco, String api) {
+    public BilleteraVirtual(Persona unaPersona, Banco unBanco) {
         this.unaPersona = unaPersona;
         this.unBanco = unBanco;
-        this.api = api;
+        this.api = Generador.generarAPI();
         this.id = Generador.generarID("BV");
     }
 

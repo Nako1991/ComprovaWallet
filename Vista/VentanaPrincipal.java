@@ -5,6 +5,7 @@ import Controlador.JSONUtilities;
 import Exceptions.*;
 import Interface.DimensionPantalla;
 import Interface.Generador;
+import Modelo.BilleteraVirtual;
 import Modelo.Config;
 import Modelo.Usuario;
 import org.json.JSONArray;
@@ -20,6 +21,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class VentanaPrincipal extends JFrame implements DimensionPantalla {
@@ -62,6 +64,15 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private JButton botonAgregarBilletera;
     private JButton botonCerrarSesion;
     private JButton botonSalirPanelBilleteras;
+    private JLabel cartelBilleteraAgregada;
+    private JButton botonBilletera1;
+    private JButton botonBilletera2;
+    private JButton botonBilletera3;
+    private JButton botonBilletera4;
+    private JButton botonBilletera5;
+    private int contadorBotones = 0;
+
+
 
     private Usuario usuarioLogueado;
 
@@ -202,6 +213,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         inicializarCartelFormatoUsuarioIncorrecto();
         inicializarCartelFormatoContraseñaIncorrecto();
         inicializarCartelUsuarioExistente();
+        inicializarCartelBilleteraAgregada();
     }
 
     private void inicializarCartelLogueoUsuario() {
@@ -343,7 +355,6 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         panelLateralLogueo.add(campoUsuario, new AbsoluteConstraints(20, 370, 250, 40));
         panelLateralLogueo.add(textoUsuario, new AbsoluteConstraints(20, 310, 250, 50));
         panelLateralLogueo.add(iconoLogueo, new AbsoluteConstraints(20, 30, 250, 250));
-        ///TODO ver el tamaño correcto de los carteles
         panelLateralLogueo.add(cartelUsuarioLogueo,new AbsoluteConstraints(20, 800, 250, 50));
         panelLateralLogueo.add(cartelUsuarioInvalido,new AbsoluteConstraints(20, 800, 250, 50));
         panelLateralLogueo.add(cartelContraseñaInvalida,new AbsoluteConstraints(20, 800, 250, 50));
@@ -387,6 +398,11 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         inicializarBotonAgregarBilletera();
         inicializarBotonCerrarSesion();
         inicializarBotonSalirPanelBilleteras();
+        inicializarBotonBilletera1();
+        inicializarBotonBilletera2();
+        inicializarBotonBilletera3();
+        inicializarBotonBilletera4();
+        inicializarBotonBilletera5();
     }
 
     private void inicializarBotonAgregarBilletera() {
@@ -428,14 +444,103 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         });
     }
 
+    private void inicializarCartelBilleteraAgregada(){
+        cartelBilleteraAgregada = new JLabel();
+        cartelBilleteraAgregada.setBackground(new Color(0, 51, 153));
+        cartelBilleteraAgregada.setOpaque(true);
+        cartelBilleteraAgregada.setFont(new Font("Segoe UI", 0, 24));
+        cartelBilleteraAgregada.setForeground(new Color(204, 204, 255));
+        cartelBilleteraAgregada.setHorizontalAlignment(SwingConstants.CENTER);
+        ///Configurar para que se vea todo el texto del cartel
+        cartelBilleteraAgregada.setBorder(BorderFactory.createMatteBorder(8, 8, 8, 8, new Color(046,139,87)));
+        cartelBilleteraAgregada.setText("Billetera Agregada");
+        cartelBilleteraAgregada.setVisible(false);
+    }
+
+    private void inicializarBotonBilletera1() {
+        botonBilletera1 = new JButton();
+        botonBilletera1.setBackground(new Color(0, 170, 228));
+        botonBilletera1.setFont(new Font("Segoe UI", 1, 24));
+        botonBilletera1.setForeground(new Color(204, 204, 255));
+        botonBilletera1.setText("");
+        botonBilletera1.setVisible(false);
+        botonBilletera1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                botonBilletera1ActionPerformed(evt);
+            }
+        });
+    }
+
+    private void inicializarBotonBilletera2() {
+        botonBilletera2 = new JButton();
+        botonBilletera2.setBackground(new Color(0, 170, 228));
+        botonBilletera2.setFont(new Font("Segoe UI", 1, 24));
+        botonBilletera2.setForeground(new Color(204, 204, 255));
+        botonBilletera2.setText("");
+        botonBilletera2.setVisible(false);
+        botonBilletera2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                botonBilletera2ActionPerformed(evt);
+            }
+        });
+    }
+
+    private void inicializarBotonBilletera3() {
+        botonBilletera3 = new JButton();
+        botonBilletera3.setBackground(new Color(0, 170, 228));
+        botonBilletera3.setFont(new Font("Segoe UI", 1, 24));
+        botonBilletera3.setForeground(new Color(204, 204, 255));
+        botonBilletera3.setText("");
+        botonBilletera3.setVisible(false);
+        botonBilletera3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                botonBilletera3ActionPerformed(evt);
+            }
+        });
+    }
+
+    private void inicializarBotonBilletera4() {
+        botonBilletera4 = new JButton();
+        botonBilletera4.setBackground(new Color(0, 170, 228));
+        botonBilletera4.setFont(new Font("Segoe UI", 1, 24));
+        botonBilletera4.setForeground(new Color(204, 204, 255));
+        botonBilletera4.setText("");
+        botonBilletera4.setVisible(false);
+        botonBilletera4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                botonBilletera4ActionPerformed(evt);
+            }
+        });
+    }
+
+    private void inicializarBotonBilletera5() {
+        botonBilletera5 = new JButton();
+        botonBilletera5.setBackground(new Color(0, 170, 228));
+        botonBilletera5.setFont(new Font("Segoe UI", 1, 24));
+        botonBilletera5.setForeground(new Color(204, 204, 255));
+        botonBilletera5.setText("");
+        botonBilletera5.setVisible(false);
+        botonBilletera5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                botonBilletera5ActionPerformed(evt);
+            }
+        });
+    }
+
     private void inicializarComponentesPanelLateralBilleteras() {
         panelLateralBilleteras = new JPanel();
         panelLateralBilleteras.setLayout(new AbsoluteLayout());
         panelLateralBilleteras.add(botonSalirPanelBilleteras, new AbsoluteConstraints(50, 960, 190, 60));
         panelLateralBilleteras.add(botonCerrarSesion, new AbsoluteConstraints(50, 870, 190, 60));
         panelLateralBilleteras.add(botonAgregarBilletera, new AbsoluteConstraints(50, 780, 190, 60));
-        panelLateralBilleteras.add(iconoUsuario, new AbsoluteConstraints(20, 30, 250, 250));
-        panelLateralBilleteras.add(textoUsuarioLogueado, new AbsoluteConstraints(20, 310, 250, 50));
+        panelLateralBilleteras.add(botonBilletera1, new AbsoluteConstraints(50, 290, 190, 60));
+        panelLateralBilleteras.add(botonBilletera2, new AbsoluteConstraints(50, 390, 190, 60));
+        panelLateralBilleteras.add(botonBilletera3, new AbsoluteConstraints(50, 490, 190, 60));
+        panelLateralBilleteras.add(botonBilletera4, new AbsoluteConstraints(50, 590, 190, 60));
+        panelLateralBilleteras.add(botonBilletera5, new AbsoluteConstraints(50, 690, 190, 60));
+        panelLateralBilleteras.add(iconoUsuario, new AbsoluteConstraints(20, 5, 250, 250));
+        panelLateralBilleteras.add(cartelBilleteraAgregada, new AbsoluteConstraints(50, 700, 190, 60));
+        panelLateralBilleteras.add(textoUsuarioLogueado, new AbsoluteConstraints(20, 245, 250, 50));
         panelLateralBilleteras.add(fondoPanelLateral2, new AbsoluteConstraints(0, 0, -1, -1));
         panelLateralBilleteras.setVisible(false);
     }
@@ -581,6 +686,50 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private void agregarBilletaraVirtual() { //TODO continuar aca
         System.out.println(Generador.generarNombreBanco());
         System.out.println(Generador.generarNombreYApellido());
+        ControladorBilleteraVirtual.agregarBilleteraVirtual(usuarioLogueado,Generador.generarBilleteraVirtual());
+        ArrayList<BilleteraVirtual> bufferBilletera = usuarioLogueado.getBilleterasVirtuales();
+        contadorBotones++;
+        System.out.println(contadorBotones);
+        if (contadorBotones < 6) {
+            if (contadorBotones == 1) {
+
+                cartelBilleteraAgregada.setVisible(true);
+                botonBilletera1.setVisible(true);
+                botonBilletera1.setText(bufferBilletera.get(0).getUnBanco().getBanco());
+            }
+            else if (contadorBotones == 2) {
+
+                cartelBilleteraAgregada.setVisible(true);
+                botonBilletera2.setVisible(true);
+                botonBilletera2.setText(bufferBilletera.get(1).getUnBanco().getBanco());
+            }
+            else if (contadorBotones == 3) {
+
+                cartelBilleteraAgregada.setVisible(true);
+                botonBilletera3.setVisible(true);
+                botonBilletera3.setText(bufferBilletera.get(2).getUnBanco().getBanco());
+            }
+            else if (contadorBotones == 4) {
+
+                cartelBilleteraAgregada.setVisible(true);
+                botonBilletera4.setVisible(true);
+                botonBilletera4.setText(bufferBilletera.get(3).getUnBanco().getBanco());
+            }
+            else if (contadorBotones == 5) {
+
+                cartelBilleteraAgregada.setVisible(true);
+                botonBilletera5.setVisible(true);
+                botonBilletera5.setText(bufferBilletera.get(4).getUnBanco().getBanco());
+            }
+        }
+        Timer temporizadorLogueado = new Timer(2000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               cartelBilleteraAgregada.setVisible(false);
+            }
+        });
+        temporizadorLogueado.setRepeats(false);
+        temporizadorLogueado.start();
     }
 
     private void ocultarCarteles() {
@@ -601,6 +750,26 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private void botonPanelBilleterasActionPerformed(ActionEvent evt) { ///TEST
         panelLateralLogueo.setVisible(false);
         panelLateralBilleteras.setVisible(true);
+    }
+
+    private void botonBilletera1ActionPerformed(ActionEvent evt) {
+
+    }
+
+    private void botonBilletera2ActionPerformed(ActionEvent evt) {
+
+    }
+
+    private void botonBilletera3ActionPerformed(ActionEvent evt) {
+
+    }
+
+    private void botonBilletera4ActionPerformed(ActionEvent evt) {
+
+    }
+
+    private void botonBilletera5ActionPerformed(ActionEvent evt) {
+
     }
 
 }

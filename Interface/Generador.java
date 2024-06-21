@@ -155,6 +155,43 @@ public interface Generador {
         return stringFormateado;
     }
 
+    static String generarCuil() {
+        Random random = new Random();
+
+        int primerDigito = random.nextInt(10);
+        int segundoDigito = random.nextInt(10);
+
+        String cuil = String.format("%d%d-", primerDigito, segundoDigito);
+
+        for (int i = 0; i < 8; i++) {
+
+            cuil += random.nextInt(10);
+
+        }
+        cuil += "-";
+        int ultimoDigito = random.nextInt(10);
+        cuil += ultimoDigito;
+
+        return cuil;
+    }
+
+    static Persona generarPersona() {
+
+        String nombreYApellido = generarNombreYApellido();
+
+        return new Persona(nombreYApellido);
+
+    }
+
+    static BilleteraVirtual generarBilleteraVirtual() {
+
+        Persona persona = generarPersona();
+        String nombreBanco = generarNombreBanco();
+        Banco banco = new Banco(nombreBanco);
+
+        return new BilleteraVirtual(persona,banco);
+    }
+
 //    Del arreglo de billeteras virtuales, el usuarioLogueado tendrá una abierta a la cual le llegarán comprobantes
 //    Por el momento, bancoOrigen va a tener la primer billetera virtual del usuario logueado. Completar la parte lógica para que funcione correctamente
 //    static Comprobante generarComprobanteAleatorio(Usuario usuarioLogueado) {

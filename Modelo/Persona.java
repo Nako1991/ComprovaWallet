@@ -9,9 +9,9 @@ public class Persona {
     private String nombreApellido;
     private String cuil;
 
-    public Persona(String nombreApellido, String cuil) {
+    public Persona(String nombreApellido) {
         this.nombreApellido = nombreApellido;
-        this.cuil = cuil;
+        this.cuil = Generador.generarCuil();
         this.id = Generador.generarID("PS");
     }
 
