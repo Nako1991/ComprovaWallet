@@ -6,6 +6,7 @@ import Controlador.JSONUtilities;
 import Exceptions.*;
 import Interface.DimensionPantalla;
 import Interface.Generador;
+import Interface.MessageListener;
 import Modelo.BilleteraVirtual;
 import Modelo.Comprobante;
 import Modelo.Config;
@@ -23,18 +24,20 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class VentanaPrincipal extends JFrame implements DimensionPantalla {
+public class VentanaPrincipal extends JFrame implements DimensionPantalla, MessageListener {
 
     private ControladorLogueoUsuarios controladorLogueoUsuarios;
     private ControladorBilleteraVirtual controladorBilleteraVirtual;
 
     private JLayeredPane panelVentanaPrincipal;
 
-    private JPanel panelFondo;
-    private JLabel fondoVentanaPrincipal;
+    private PanelFondoVentanaPrincipal panelFondo;
 
+    ///TODO modularizar todos los paneles como este, implementar interfaz mensaje y escucha
+    private PanelLateralLogueo panelLateralLogueoTest;
+
+    ///dejo la version vieja para tenerla funcionando
     private JPanel panelLateralLogueo;
     private JLabel fondoPanelLateral1;
     private JLabel iconoLogueo;
@@ -152,19 +155,18 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         inicializarPanelFondo();
         inicializarPanelComprobantes();
         inicializarPanelLateralLogueo();
+        //inicializarPanelLateralLogueoTest();
         inicializarPanelLateralBilleteras();
         inicializarPanelVentanaPrincipal();
         inicializarFrameVentanaPrincipal();
-        inicializarTesteos();
+        //inicializarTesteos();
     }
 
     ///TEST
     private void inicializarTesteos() {
-
         campoUsuario.setText("Rouse");
         campoContraseña.setText("Rouse484848@@");
         loguearUsuario();
-
     }
 
     ///INICIALIZACION CONTROLADORES8
@@ -175,20 +177,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     ///INICIALIZACION PANEL FONDO
     private void inicializarPanelFondo() {
-        inicializarFondoVentanaPrincipal();
-        inicializarComponentesPanelFondo();
-    }
-
-    private void inicializarFondoVentanaPrincipal() {
-        fondoVentanaPrincipal = new JLabel();
-        fondoVentanaPrincipal.setIcon(new ImageIcon(Config.getCarpetaImagenes() + "background.jpg")); ///TODO comprobacion de null
-        fondoVentanaPrincipal.setOpaque(true);
-    }
-
-    private void inicializarComponentesPanelFondo() {
-        panelFondo = new JPanel();
-        panelFondo.setLayout(new AbsoluteLayout());
-        panelFondo.add(fondoVentanaPrincipal, new AbsoluteConstraints(0, 0, -1, -1));
+        panelFondo = new PanelFondoVentanaPrincipal();
     }
 
     ///INICIALIZAR PANEL COMPROBANTES
@@ -1213,6 +1202,11 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         panelLateralLogueo.add(fondoPanelLateral1, new AbsoluteConstraints(0, 0, -1, -1));
     }
 
+    private void inicializarPanelLateralLogueoTest() {
+        panelLateralLogueoTest = new PanelLateralLogueo();
+        panelLateralLogueoTest.agregarEscuchas(this);
+    }
+
     ///INICIALIZACION PANEL LATERAL BILLETERAS
     private void  inicializarPanelLateralBilleteras() {
         inicializarFondoPanelLateralBilleteras();
@@ -1469,6 +1463,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         panelVentanaPrincipal.setLayout(new AbsoluteLayout());
         panelVentanaPrincipal.add(panelComprobantes, new AbsoluteConstraints(320, 0, 1600, 1080));
         panelVentanaPrincipal.add(panelLateralLogueo, new AbsoluteConstraints(0, 0, 320, -1));
+        //panelVentanaPrincipal.add(panelLateralLogueoTest, new AbsoluteConstraints(0, 0, 320, -1));
         panelVentanaPrincipal.add(panelLateralBilleteras, new AbsoluteConstraints(0, 0, -1, -1));
         panelVentanaPrincipal.add(panelFondo, new AbsoluteConstraints(0, 0, -1, -1));
     }
@@ -1618,7 +1613,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         char[] contraseñaArray = campoContraseña.getPassword();
         String contraseña = new String(contraseñaArray);
 
-        usuarioLogueado = controladorLogueoUsuarios.loguearUsuario(campoUsuario.getText(), contraseña);
+        usuarioLogueado = controladorLogueoUsuarios.loguearUsuario(campoUsuario.getText());
 
         if ( usuarioLogueado == null ) {
             cartelUsuarioInvalido.setVisible(true);
@@ -1773,9 +1768,8 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     ///METODOS PANEL COMPROBANTES
-
     ///TERMINAR DE RESOLVER COMO SETEAR LOS VALORES DE CADA PANEL DE COMPROBANTE
-private void completarCamposComprobantesUsuarioLogueado(Usuario usuarioLogueado) {
+    private void completarCamposComprobantesUsuarioLogueado(Usuario usuarioLogueado) {
     ArrayList<Comprobante> comprobantes = usuarioLogueado.getComprobantes();
     ArrayList<JPanel> panelesComprobantes = new ArrayList<>();
 
@@ -1907,4 +1901,12 @@ private void completarCamposComprobantesUsuarioLogueado(Usuario usuarioLogueado)
         comprobante8.setVisible(false);
     }
 
+    @Override
+    public void mensajeRecibido(String message) {
+        if( message.equals("BotonLogueoPresionado") ) {
+            //loguearUsuario();
+        }
+
+
+    }
 }

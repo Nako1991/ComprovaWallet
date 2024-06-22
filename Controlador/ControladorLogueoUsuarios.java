@@ -1,6 +1,10 @@
 package Controlador;
+import Exceptions.Validaciones;
 import Modelo.Usuario;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 
 public class ControladorLogueoUsuarios {
@@ -14,11 +18,11 @@ public class ControladorLogueoUsuarios {
             //ControladorArchivoUsuarios.mostrarArchivo();
     }
 
-    public Usuario loguearUsuario(String nombreUsuario, String contraseña) {
+    public Usuario loguearUsuario(String nombreUsuario) {
 
         HashMap<String, Usuario> repositorio = ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo();
-        Usuario usuarioALoguear = repositorio.get(nombreUsuario);
+        Usuario usuarioLogueado = repositorio.get(nombreUsuario);
 
-        return usuarioALoguear;
+        return usuarioLogueado;
     }
 }
