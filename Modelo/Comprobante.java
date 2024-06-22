@@ -81,8 +81,8 @@ public class Comprobante {
         jsonComprobante.put("CodigoTransferencia", this.codigoTransferencia);
         jsonComprobante.put("Fecha", this.fecha);
         jsonComprobante.put("Monto", this.monto);
-        jsonComprobante.put("Banco Origen", this.bancoOrigen);
-        jsonComprobante.put("Banco Destino", this.bancoDestino);
+        jsonComprobante.put("Banco Origen", this.bancoOrigen.toJSON());
+        jsonComprobante.put("Banco Destino", this.bancoDestino.toJSON());
         jsonComprobante.put("EstadoTransferencia", this.estadoDeTransferencia);
         jsonComprobante.put("EstadoComprobante", this.estadoDeComprobante);
 

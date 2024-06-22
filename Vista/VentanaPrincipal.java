@@ -1800,7 +1800,6 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
                     System.out.println(montoString);
                     panelesComprobantes.get(i).setToolTipText(montoString);
                 }
-
             }
         }
 
@@ -1814,6 +1813,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         comprobante8 = panelesComprobantes.get(7);
 
     }
+
 
     private String convertirDoubleAMonto(double monto) {
         String montoString = new String(String.valueOf(monto));
@@ -1833,24 +1833,52 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
                     comprobante1.setVisible(true);
                     break;
                 case 2:
+                    comprobante1.setVisible(true);
                     comprobante2.setVisible(true);
                     break;
                 case 3:
+                    comprobante1.setVisible(true);
+                    comprobante2.setVisible(true);
                     comprobante3.setVisible(true);
                     break;
                 case 4:
+                    comprobante1.setVisible(true);
+                    comprobante2.setVisible(true);
+                    comprobante3.setVisible(true);
                     comprobante4.setVisible(true);
                     break;
                 case 5:
+                    comprobante1.setVisible(true);
+                    comprobante2.setVisible(true);
+                    comprobante3.setVisible(true);
+                    comprobante4.setVisible(true);
                     comprobante5.setVisible(true);
                     break;
                 case 6:
+                    comprobante1.setVisible(true);
+                    comprobante2.setVisible(true);
+                    comprobante3.setVisible(true);
+                    comprobante4.setVisible(true);
+                    comprobante5.setVisible(true);
                     comprobante6.setVisible(true);
                     break;
                 case 7:
+                    comprobante1.setVisible(true);
+                    comprobante2.setVisible(true);
+                    comprobante3.setVisible(true);
+                    comprobante4.setVisible(true);
+                    comprobante5.setVisible(true);
+                    comprobante6.setVisible(true);
                     comprobante7.setVisible(true);
                     break;
                 case 8:
+                    comprobante1.setVisible(true);
+                    comprobante2.setVisible(true);
+                    comprobante3.setVisible(true);
+                    comprobante4.setVisible(true);
+                    comprobante5.setVisible(true);
+                    comprobante6.setVisible(true);
+                    comprobante7.setVisible(true);
                     comprobante8.setVisible(true);
                     break;
             }
