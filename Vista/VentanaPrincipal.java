@@ -27,7 +27,6 @@ import java.util.Scanner;
 
 public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
-    private Scanner scanner = new Scanner(System.in);
     private ControladorLogueoUsuarios controladorLogueoUsuarios;
     private ControladorBilleteraVirtual controladorBilleteraVirtual;
 
