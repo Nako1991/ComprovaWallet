@@ -10,7 +10,6 @@ import Modelo.BilleteraVirtual;
 import Modelo.Comprobante;
 import Modelo.Config;
 import Modelo.Usuario;
-import com.sun.source.tree.SwitchTree;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
@@ -82,65 +81,65 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private JLabel iconoBancoComprobante1;
     private JButton botonConfirmarComprobante1;
     private JButton botonArchivarComprobante1;
-    private JLabel montoCoprobante1;
+    private JLabel montoComprobante1;
     private JLabel datosComprobante1;
-    private JLabel barraEstadoCoprobante1;
+    private JLabel barraEstadoComprobante1;
 
     private JPanel comprobante2;
     private JLabel iconoBancoComprobante2;
     private JButton botonConfirmarComprobante2;
     private JButton botonArchivarComprobante2;
-    private JLabel montoCoprobante2;
+    private JLabel montoComprobante2;
     private JLabel datosComprobante2;
-    private JLabel barraEstadoCoprobante2;
+    private JLabel barraEstadoComprobante2;
 
     private JPanel comprobante3;
     private JLabel iconoBancoComprobante3;
     private JButton botonConfirmarComprobante3;
     private JButton botonArchivarComprobante3;
-    private JLabel montoCoprobante3;
+    private JLabel montoComprobante3;
     private JLabel datosComprobante3;
-    private JLabel barraEstadoCoprobante3;
+    private JLabel barraEstadoComprobante3;
 
     private JPanel comprobante4;
     private JLabel iconoBancoComprobante4;
     private JButton botonConfirmarComprobante4;
     private JButton botonArchivarComprobante4;
-    private JLabel montoCoprobante4;
+    private JLabel montoComprobante4;
     private JLabel datosComprobante4;
-    private JLabel barraEstadoCoprobante4;
+    private JLabel barraEstadoComprobante4;
 
     private JPanel comprobante5;
     private JLabel iconoBancoComprobante5;
     private JButton botonConfirmarComprobante5;
     private JButton botonArchivarComprobante5;
-    private JLabel montoCoprobante5;
+    private JLabel montoComprobante5;
     private JLabel datosComprobante5;
-    private JLabel barraEstadoCoprobante5;
+    private JLabel barraEstadoComprobante5;
 
     private JPanel comprobante6;
     private JLabel iconoBancoComprobante6;
     private JButton botonConfirmarComprobante6;
     private JButton botonArchivarComprobante6;
-    private JLabel montoCoprobante6;
+    private JLabel montoComprobante6;
     private JLabel datosComprobante6;
-    private JLabel barraEstadoCoprobante6;
+    private JLabel barraEstadoComprobante6;
 
     private JPanel comprobante7;
     private JLabel iconoBancoComprobante7;
     private JButton botonConfirmarComprobante7;
     private JButton botonArchivarComprobante7;
-    private JLabel montoCoprobante7;
+    private JLabel montoComprobante7;
     private JLabel datosComprobante7;
-    private JLabel barraEstadoCoprobante7;
+    private JLabel barraEstadoComprobante7;
 
     private JPanel comprobante8;
     private JLabel iconoBancoComprobante8;
     private JButton botonConfirmarComprobante8;
     private JButton botonArchivarComprobante8;
-    private JLabel montoCoprobante8;
+    private JLabel montoComprobante8;
     private JLabel datosComprobante8;
-    private JLabel barraEstadoCoprobante8;
+    private JLabel barraEstadoComprobante8;
 
     private Usuario usuarioLogueado;
 
@@ -266,13 +265,13 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarMontoComprobante1() {
-        montoCoprobante1 = new JLabel();
-        montoCoprobante1.setBackground(new Color(0, 102, 204));
-        montoCoprobante1.setFont(new Font("Segoe UI Black", 0, 48));
-        montoCoprobante1.setForeground(new Color(255, 255, 255));
-        montoCoprobante1.setHorizontalAlignment(SwingConstants.RIGHT);
-        montoCoprobante1.setText("$3.315.151 ");
-        montoCoprobante1.setOpaque(true);
+        montoComprobante1 = new JLabel();
+        montoComprobante1.setBackground(new Color(0, 102, 204));
+        montoComprobante1.setFont(new Font("Segoe UI Black", 0, 48));
+        montoComprobante1.setForeground(new Color(255, 255, 255));
+        montoComprobante1.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoComprobante1.setText("$3.315.151 ");
+        montoComprobante1.setOpaque(true);
     }
 
     private void inicializarDatosComprobante1() {
@@ -286,9 +285,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarBarraEstadoComprobante1() {
-        barraEstadoCoprobante1 = new JLabel();
-        barraEstadoCoprobante1.setBackground(new Color(0, 153, 51));
-        barraEstadoCoprobante1.setOpaque(true);
+        barraEstadoComprobante1 = new JLabel();
+        barraEstadoComprobante1.setBackground(new Color(0, 153, 51));
+        barraEstadoComprobante1.setOpaque(true);
     }
 
     private void inicializarComponentesComprobante1() {
@@ -299,9 +298,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         comprobante1.add(iconoBancoComprobante1, new AbsoluteConstraints(20, 10, 90, 80));
         comprobante1.add(botonConfirmarComprobante1, new AbsoluteConstraints(130, 20, 160, 30));
         comprobante1.add(botonArchivarComprobante1, new AbsoluteConstraints(130, 60, 160, 30));
-        comprobante1.add(montoCoprobante1, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante1.add(montoComprobante1, new AbsoluteConstraints(20, 100, 270, 80));
         comprobante1.add(datosComprobante1, new AbsoluteConstraints(20, 190, 270, 170));
-        comprobante1.add(barraEstadoCoprobante1, new AbsoluteConstraints(20, 370, 270, 20));
+        comprobante1.add(barraEstadoComprobante1, new AbsoluteConstraints(20, 370, 270, 20));
     }
 
     private void inicializarComprobante2() {
@@ -360,13 +359,13 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarMontoComprobante2() {
-        montoCoprobante2 = new JLabel();
-        montoCoprobante2.setBackground(new Color(0, 102, 204));
-        montoCoprobante2.setFont(new Font("Segoe UI Black", 0, 48));
-        montoCoprobante2.setForeground(new Color(255, 255, 255));
-        montoCoprobante2.setHorizontalAlignment(SwingConstants.RIGHT);
-        montoCoprobante2.setText("$3.315.151 ");
-        montoCoprobante2.setOpaque(true);
+        montoComprobante2 = new JLabel();
+        montoComprobante2.setBackground(new Color(0, 102, 204));
+        montoComprobante2.setFont(new Font("Segoe UI Black", 0, 48));
+        montoComprobante2.setForeground(new Color(255, 255, 255));
+        montoComprobante2.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoComprobante2.setText("$3.315.151 ");
+        montoComprobante2.setOpaque(true);
     }
 
     private void inicializarDatosComprobante2() {
@@ -380,9 +379,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarBarraEstadoComprobante2() {
-        barraEstadoCoprobante2 = new JLabel();
-        barraEstadoCoprobante2.setBackground(new Color(0, 153, 51));
-        barraEstadoCoprobante2.setOpaque(true);
+        barraEstadoComprobante2 = new JLabel();
+        barraEstadoComprobante2.setBackground(new Color(0, 153, 51));
+        barraEstadoComprobante2.setOpaque(true);
     }
 
     private void inicializarComponentesComprobante2() {
@@ -393,9 +392,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         comprobante2.add(iconoBancoComprobante2, new AbsoluteConstraints(20, 10, 90, 80));
         comprobante2.add(botonConfirmarComprobante2, new AbsoluteConstraints(130, 20, 160, 30));
         comprobante2.add(botonArchivarComprobante2, new AbsoluteConstraints(130, 60, 160, 30));
-        comprobante2.add(montoCoprobante2, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante2.add(montoComprobante2, new AbsoluteConstraints(20, 100, 270, 80));
         comprobante2.add(datosComprobante2, new AbsoluteConstraints(20, 190, 270, 170));
-        comprobante2.add(barraEstadoCoprobante2, new AbsoluteConstraints(20, 370, 270, 20));
+        comprobante2.add(barraEstadoComprobante2, new AbsoluteConstraints(20, 370, 270, 20));
     }
 
     private void inicializarComprobante3() {
@@ -453,13 +452,13 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarMontoComprobante3() {
-        montoCoprobante3 = new JLabel();
-        montoCoprobante3.setBackground(new Color(0, 102, 204));
-        montoCoprobante3.setFont(new Font("Segoe UI Black", 0, 48));
-        montoCoprobante3.setForeground(new Color(255, 255, 255));
-        montoCoprobante3.setHorizontalAlignment(SwingConstants.RIGHT);
-        montoCoprobante3.setText("$3.315.151 ");
-        montoCoprobante3.setOpaque(true);
+        montoComprobante3 = new JLabel();
+        montoComprobante3.setBackground(new Color(0, 102, 204));
+        montoComprobante3.setFont(new Font("Segoe UI Black", 0, 48));
+        montoComprobante3.setForeground(new Color(255, 255, 255));
+        montoComprobante3.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoComprobante3.setText("$3.315.151 ");
+        montoComprobante3.setOpaque(true);
     }
 
     private void inicializarDatosComprobante3() {
@@ -473,9 +472,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarBarraEstadoComprobante3() {
-        barraEstadoCoprobante3 = new JLabel();
-        barraEstadoCoprobante3.setBackground(new Color(0, 153, 51));
-        barraEstadoCoprobante3.setOpaque(true);
+        barraEstadoComprobante3 = new JLabel();
+        barraEstadoComprobante3.setBackground(new Color(0, 153, 51));
+        barraEstadoComprobante3.setOpaque(true);
     }
 
     private void inicializarComponentesComprobante3() {
@@ -486,9 +485,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         comprobante3.add(iconoBancoComprobante3, new AbsoluteConstraints(20, 10, 90, 80));
         comprobante3.add(botonConfirmarComprobante3, new AbsoluteConstraints(130, 20, 160, 30));
         comprobante3.add(botonArchivarComprobante3, new AbsoluteConstraints(130, 60, 160, 30));
-        comprobante3.add(montoCoprobante3, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante3.add(montoComprobante3, new AbsoluteConstraints(20, 100, 270, 80));
         comprobante3.add(datosComprobante3, new AbsoluteConstraints(20, 190, 270, 170));
-        comprobante3.add(barraEstadoCoprobante3, new AbsoluteConstraints(20, 370, 270, 20));
+        comprobante3.add(barraEstadoComprobante3, new AbsoluteConstraints(20, 370, 270, 20));
     }
 
     private void inicializarComprobante4() {
@@ -547,13 +546,13 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarMontoComprobante4() {
-        montoCoprobante4 = new JLabel();
-        montoCoprobante4.setBackground(new Color(0, 102, 204));
-        montoCoprobante4.setFont(new Font("Segoe UI Black", 0, 48));
-        montoCoprobante4.setForeground(new Color(255, 255, 255));
-        montoCoprobante4.setHorizontalAlignment(SwingConstants.RIGHT);
-        montoCoprobante4.setText("$3.315.151 ");
-        montoCoprobante4.setOpaque(true);
+        montoComprobante4 = new JLabel();
+        montoComprobante4.setBackground(new Color(0, 102, 204));
+        montoComprobante4.setFont(new Font("Segoe UI Black", 0, 48));
+        montoComprobante4.setForeground(new Color(255, 255, 255));
+        montoComprobante4.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoComprobante4.setText("$3.315.151 ");
+        montoComprobante4.setOpaque(true);
     }
 
     private void inicializarDatosComprobante4() {
@@ -567,9 +566,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarBarraEstadoComprobante4() {
-        barraEstadoCoprobante4 = new JLabel();
-        barraEstadoCoprobante4.setBackground(new Color(0, 153, 51));
-        barraEstadoCoprobante4.setOpaque(true);
+        barraEstadoComprobante4 = new JLabel();
+        barraEstadoComprobante4.setBackground(new Color(0, 153, 51));
+        barraEstadoComprobante4.setOpaque(true);
     }
 
     private void inicializarComponentesComprobante4() {
@@ -580,9 +579,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         comprobante4.add(iconoBancoComprobante4, new AbsoluteConstraints(20, 10, 90, 80));
         comprobante4.add(botonConfirmarComprobante4, new AbsoluteConstraints(130, 20, 160, 30));
         comprobante4.add(botonArchivarComprobante4, new AbsoluteConstraints(130, 60, 160, 30));
-        comprobante4.add(montoCoprobante4, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante4.add(montoComprobante4, new AbsoluteConstraints(20, 100, 270, 80));
         comprobante4.add(datosComprobante4, new AbsoluteConstraints(20, 190, 270, 170));
-        comprobante4.add(barraEstadoCoprobante4, new AbsoluteConstraints(20, 370, 270, 20));
+        comprobante4.add(barraEstadoComprobante4, new AbsoluteConstraints(20, 370, 270, 20));
     }
 
     private void inicializarComprobante5() {
@@ -641,13 +640,13 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarMontoComprobante5() {
-        montoCoprobante5 = new JLabel();
-        montoCoprobante5.setBackground(new Color(0, 102, 204));
-        montoCoprobante5.setFont(new Font("Segoe UI Black", 0, 48));
-        montoCoprobante5.setForeground(new Color(255, 255, 255));
-        montoCoprobante5.setHorizontalAlignment(SwingConstants.RIGHT);
-        montoCoprobante5.setText("$3.315.151 ");
-        montoCoprobante5.setOpaque(true);
+        montoComprobante5 = new JLabel();
+        montoComprobante5.setBackground(new Color(0, 102, 204));
+        montoComprobante5.setFont(new Font("Segoe UI Black", 0, 48));
+        montoComprobante5.setForeground(new Color(255, 255, 255));
+        montoComprobante5.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoComprobante5.setText("$3.315.151 ");
+        montoComprobante5.setOpaque(true);
     }
 
     private void inicializarDatosComprobante5() {
@@ -661,9 +660,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarBarraEstadoComprobante5() {
-        barraEstadoCoprobante5 = new JLabel();
-        barraEstadoCoprobante5.setBackground(new Color(0, 153, 51));
-        barraEstadoCoprobante5.setOpaque(true);
+        barraEstadoComprobante5 = new JLabel();
+        barraEstadoComprobante5.setBackground(new Color(0, 153, 51));
+        barraEstadoComprobante5.setOpaque(true);
     }
 
     private void inicializarComponentesComprobante5() {
@@ -674,9 +673,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         comprobante5.add(iconoBancoComprobante5, new AbsoluteConstraints(20, 10, 90, 80));
         comprobante5.add(botonConfirmarComprobante5, new AbsoluteConstraints(130, 20, 160, 30));
         comprobante5.add(botonArchivarComprobante5, new AbsoluteConstraints(130, 60, 160, 30));
-        comprobante5.add(montoCoprobante5, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante5.add(montoComprobante5, new AbsoluteConstraints(20, 100, 270, 80));
         comprobante5.add(datosComprobante5, new AbsoluteConstraints(20, 190, 270, 170));
-        comprobante5.add(barraEstadoCoprobante5, new AbsoluteConstraints(20, 370, 270, 20));
+        comprobante5.add(barraEstadoComprobante5, new AbsoluteConstraints(20, 370, 270, 20));
     }
 
     private void inicializarComprobante6() {
@@ -735,13 +734,13 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarMontoComprobante6() {
-        montoCoprobante6 = new JLabel();
-        montoCoprobante6.setBackground(new Color(0, 102, 204));
-        montoCoprobante6.setFont(new Font("Segoe UI Black", 0, 48));
-        montoCoprobante6.setForeground(new Color(255, 255, 255));
-        montoCoprobante6.setHorizontalAlignment(SwingConstants.RIGHT);
-        montoCoprobante6.setText("$3.315.151 ");
-        montoCoprobante6.setOpaque(true);
+        montoComprobante6 = new JLabel();
+        montoComprobante6.setBackground(new Color(0, 102, 204));
+        montoComprobante6.setFont(new Font("Segoe UI Black", 0, 48));
+        montoComprobante6.setForeground(new Color(255, 255, 255));
+        montoComprobante6.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoComprobante6.setText("$3.315.151 ");
+        montoComprobante6.setOpaque(true);
     }
 
     private void inicializarDatosComprobante6() {
@@ -755,9 +754,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarBarraEstadoComprobante6() {
-        barraEstadoCoprobante6 = new JLabel();
-        barraEstadoCoprobante6.setBackground(new Color(0, 153, 51));
-        barraEstadoCoprobante6.setOpaque(true);
+        barraEstadoComprobante6 = new JLabel();
+        barraEstadoComprobante6.setBackground(new Color(0, 153, 51));
+        barraEstadoComprobante6.setOpaque(true);
     }
 
     private void inicializarComponentesComprobante6() {
@@ -768,9 +767,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         comprobante6.add(iconoBancoComprobante6, new AbsoluteConstraints(20, 10, 90, 80));
         comprobante6.add(botonConfirmarComprobante6, new AbsoluteConstraints(130, 20, 160, 30));
         comprobante6.add(botonArchivarComprobante6, new AbsoluteConstraints(130, 60, 160, 30));
-        comprobante6.add(montoCoprobante6, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante6.add(montoComprobante6, new AbsoluteConstraints(20, 100, 270, 80));
         comprobante6.add(datosComprobante6, new AbsoluteConstraints(20, 190, 270, 170));
-        comprobante6.add(barraEstadoCoprobante6, new AbsoluteConstraints(20, 370, 270, 20));
+        comprobante6.add(barraEstadoComprobante6, new AbsoluteConstraints(20, 370, 270, 20));
     }
 
     private void inicializarComprobante7() {
@@ -829,13 +828,13 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarMontoComprobante7() {
-        montoCoprobante7 = new JLabel();
-        montoCoprobante7.setBackground(new Color(0, 102, 204));
-        montoCoprobante7.setFont(new Font("Segoe UI Black", 0, 48));
-        montoCoprobante7.setForeground(new Color(255, 255, 255));
-        montoCoprobante7.setHorizontalAlignment(SwingConstants.RIGHT);
-        montoCoprobante7.setText("$3.315.151 ");
-        montoCoprobante7.setOpaque(true);
+        montoComprobante7 = new JLabel();
+        montoComprobante7.setBackground(new Color(0, 102, 204));
+        montoComprobante7.setFont(new Font("Segoe UI Black", 0, 48));
+        montoComprobante7.setForeground(new Color(255, 255, 255));
+        montoComprobante7.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoComprobante7.setText("$3.315.151 ");
+        montoComprobante7.setOpaque(true);
     }
 
     private void inicializarDatosComprobante7() {
@@ -849,9 +848,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarBarraEstadoComprobante7() {
-        barraEstadoCoprobante7 = new JLabel();
-        barraEstadoCoprobante7.setBackground(new Color(0, 153, 51));
-        barraEstadoCoprobante7.setOpaque(true);
+        barraEstadoComprobante7 = new JLabel();
+        barraEstadoComprobante7.setBackground(new Color(0, 153, 51));
+        barraEstadoComprobante7.setOpaque(true);
     }
 
     private void inicializarComponentesComprobante7() {
@@ -862,9 +861,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         comprobante7.add(iconoBancoComprobante7, new AbsoluteConstraints(20, 10, 90, 80));
         comprobante7.add(botonConfirmarComprobante7, new AbsoluteConstraints(130, 20, 160, 30));
         comprobante7.add(botonArchivarComprobante7, new AbsoluteConstraints(130, 60, 160, 30));
-        comprobante7.add(montoCoprobante7, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante7.add(montoComprobante7, new AbsoluteConstraints(20, 100, 270, 80));
         comprobante7.add(datosComprobante7, new AbsoluteConstraints(20, 190, 270, 170));
-        comprobante7.add(barraEstadoCoprobante7, new AbsoluteConstraints(20, 370, 270, 20));
+        comprobante7.add(barraEstadoComprobante7, new AbsoluteConstraints(20, 370, 270, 20));
     }
 
     private void inicializarComprobante8() {
@@ -923,13 +922,13 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarMontoComprobante8() {
-        montoCoprobante8 = new JLabel();
-        montoCoprobante8.setBackground(new Color(0, 102, 204));
-        montoCoprobante8.setFont(new Font("Segoe UI Black", 0, 48));
-        montoCoprobante8.setForeground(new Color(255, 255, 255));
-        montoCoprobante8.setHorizontalAlignment(SwingConstants.RIGHT);
-        montoCoprobante8.setText("$3.315.151 ");
-        montoCoprobante8.setOpaque(true);
+        montoComprobante8 = new JLabel();
+        montoComprobante8.setBackground(new Color(0, 102, 204));
+        montoComprobante8.setFont(new Font("Segoe UI Black", 0, 48));
+        montoComprobante8.setForeground(new Color(255, 255, 255));
+        montoComprobante8.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoComprobante8.setText("$3.315.151 ");
+        montoComprobante8.setOpaque(true);
     }
 
     private void inicializarDatosComprobante8() {
@@ -943,9 +942,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarBarraEstadoComprobante8() {
-        barraEstadoCoprobante8 = new JLabel();
-        barraEstadoCoprobante8.setBackground(new Color(0, 153, 51));
-        barraEstadoCoprobante8.setOpaque(true);
+        barraEstadoComprobante8 = new JLabel();
+        barraEstadoComprobante8.setBackground(new Color(0, 153, 51));
+        barraEstadoComprobante8.setOpaque(true);
     }
 
     private void inicializarComponentesComprobante8() {
@@ -956,9 +955,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         comprobante8.add(iconoBancoComprobante8, new AbsoluteConstraints(20, 10, 90, 80));
         comprobante8.add(botonConfirmarComprobante8, new AbsoluteConstraints(130, 20, 160, 30));
         comprobante8.add(botonArchivarComprobante8, new AbsoluteConstraints(130, 60, 160, 30));
-        comprobante8.add(montoCoprobante8, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante8.add(montoComprobante8, new AbsoluteConstraints(20, 100, 270, 80));
         comprobante8.add(datosComprobante8, new AbsoluteConstraints(20, 190, 270, 170));
-        comprobante8.add(barraEstadoCoprobante8, new AbsoluteConstraints(20, 370, 270, 20));
+        comprobante8.add(barraEstadoComprobante8, new AbsoluteConstraints(20, 370, 270, 20));
     }
 
     private void inicializarComponentesPanelComprobantes() {
@@ -1775,79 +1774,47 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     ///METODOS PANEL COMPROBANTES
-    private void completarCamposComprobantesUsuarioLogueado(Usuario usuarioLogueado) {
 
-        ArrayList<Comprobante> comprobantes = usuarioLogueado.getComprobantes();
-        ArrayList<JPanel> panelesComprobantes = new ArrayList<>();
+    ///TERMINAR DE RESOLVER COMO SETEAR LOS VALORES DE CADA PANEL DE COMPROBANTE
+private void completarCamposComprobantesUsuarioLogueado(Usuario usuarioLogueado) {
+    ArrayList<Comprobante> comprobantes = usuarioLogueado.getComprobantes();
+    ArrayList<JPanel> panelesComprobantes = new ArrayList<>();
 
-        panelesComprobantes.add(comprobante1);
-        panelesComprobantes.add(comprobante2);
-        panelesComprobantes.add(comprobante3);
-        panelesComprobantes.add(comprobante4);
-        panelesComprobantes.add(comprobante5);
-        panelesComprobantes.add(comprobante6);
-        panelesComprobantes.add(comprobante7);
-        panelesComprobantes.add(comprobante8);
+    panelesComprobantes.add(comprobante1);
+    panelesComprobantes.add(comprobante2);
+    panelesComprobantes.add(comprobante3);
+    panelesComprobantes.add(comprobante4);
+    panelesComprobantes.add(comprobante5);
+    panelesComprobantes.add(comprobante6);
+    panelesComprobantes.add(comprobante7);
+    panelesComprobantes.add(comprobante8);
 
-        for (int i = 0; i < 8; i++) {
-            Component[] arregloComponentes = panelesComprobantes.get(i).getComponents();
-            for (int j = 0; j < arregloComponentes.length; j++) {
-                Component componente = arregloComponentes[j];
-                if (componente instanceof JLabel) {
-                    String indice = String.valueOf(i + 1);
-                    if (componente.getName() != null && componente.getName().equals("iconoBancoComprobante" + indice)) {
-                        String nombreBanco = comprobantes.get(i).getBancoOrigen().getNombreBanco();
-                        ((JLabel) componente).setText(nombreBanco);
-                        // Aquí estamos asegurándonos de que el arreglo también se actualice
-                        arregloComponentes[j] = componente;
-                        panelesComprobantes.set(j,  componente);
-                    }
+    for (int i = 0; i < panelesComprobantes.size(); i++) {
+        JPanel panel = panelesComprobantes.get(i);
+        Component[] arregloComponentes = panel.getComponents();
+        for (int j = 0; j < arregloComponentes.length; j++) {
+            Component componente = arregloComponentes[j];
+            if (componente instanceof JLabel) {
+                String indice = String.valueOf(i + 1);
+                if (componente.getName() != null && componente.getName().equals("iconoBancoComprobante" + indice)) {
+                    String nombreBanco = comprobantes.get(i).getBancoOrigen().getNombreBanco();
+                    ((JLabel) componente).setText(nombreBanco);
+                }
+                if (componente.getName() != null && componente.getName().equals("montoComprobante" + indice)) {
+                    double monto = comprobantes.get(i).getMonto();
+                    String montoString = String.valueOf(monto);
+                    ((JLabel) componente).setText(montoString);
+                }
+                if (componente.getName() != null && componente.getName().equals("barraEstadoComprobante" + indice)) {
+                    String datosComprobante = comprobantes.get(i).getEstadoDeComprobante();
+                    ((JLabel) componente).setText(datosComprobante);
                 }
             }
         }
-
-//        comprobante1.revalidate();
-//        comprobante1.repaint();
-//        comprobante2.revalidate();
-//        comprobante2.repaint();
-//        comprobante3.revalidate();
-//        comprobante3.repaint();
-//        comprobante4.revalidate();
-//        comprobante4.repaint();
-//        comprobante5.revalidate();
-//        comprobante5.repaint();
-//        comprobante6.revalidate();
-//        comprobante6.repaint();
-//        comprobante7.revalidate();
-//        comprobante7.repaint();
-//        comprobante8.revalidate();
-//        comprobante8.repaint();
-
-
-//        for ( int i = 0 ; i < 8 ; i++ ) {
-//            Component[] arregloComponentes = panelesComprobantes.get(i).getComponents();
-//            for ( Component componente : arregloComponentes ) {
-//                if (componente instanceof JLabel) {
-//                    String indice = String.valueOf(i + 1);
-//                    if ( componente.getName() != null && componente.getName().equals("iconoBancoComprobante" + indice ) ) {
-//                        ((JLabel) componente).setText(comprobantes.get(i).getBancoOrigen().getNombreBanco());
-//                        arregloComponentes[i].setText(comprobantes.get(i).getBancoOrigen().getNombreBanco());
-//                    }
-//                }
-//            }
-//        }
-
-        comprobante1 = panelesComprobantes.get(0);
-        comprobante2 = panelesComprobantes.get(1);
-        comprobante3 = panelesComprobantes.get(2);
-        comprobante4 = panelesComprobantes.get(3);
-        comprobante5 = panelesComprobantes.get(4);
-        comprobante6 = panelesComprobantes.get(5);
-        comprobante7 = panelesComprobantes.get(6);
-        comprobante8 = panelesComprobantes.get(7);
-
+        // Después de actualizar los componentes en el panel, asignamos el panel actualizado de vuelta al ArrayList
+        panelesComprobantes.set(i, panel);
     }
-
+}
 
     private String convertirDoubleAMonto(double monto) {
         String montoString = new String(String.valueOf(monto));
