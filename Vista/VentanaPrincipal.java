@@ -1789,19 +1789,53 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         panelesComprobantes.add(comprobante7);
         panelesComprobantes.add(comprobante8);
 
-        for ( int i = 0 ; i < 8 ; i++ ) {
+        for (int i = 0; i < 8; i++) {
             Component[] arregloComponentes = panelesComprobantes.get(i).getComponents();
-            for ( Component componente : arregloComponentes ) {
-                if ( componente.getName() != null && componente.getName().equals("iconoBancoComprobante" + i + 1) ) {
-                    panelesComprobantes.get(i).setToolTipText(comprobantes.get(i).getBancoOrigen().getNombreBanco());
-                }
-                if ( componente.getName() != null && componente.getName().equals("montoComprobante" + i + 1) ) {
-                    String montoString = convertirDoubleAMonto(comprobantes.get(i).getMonto());
-                    System.out.println(montoString);
-                    panelesComprobantes.get(i).setToolTipText(montoString);
+            for (int j = 0; j < arregloComponentes.length; j++) {
+                Component componente = arregloComponentes[j];
+                if (componente instanceof JLabel) {
+                    String indice = String.valueOf(i + 1);
+                    if (componente.getName() != null && componente.getName().equals("iconoBancoComprobante" + indice)) {
+                        String nombreBanco = comprobantes.get(i).getBancoOrigen().getNombreBanco();
+                        ((JLabel) componente).setText(nombreBanco);
+                        // Aquí estamos asegurándonos de que el arreglo también se actualice
+                        arregloComponentes[j] = componente;
+                        panelesComprobantes.set(j,  componente);
+                    }
                 }
             }
         }
+
+//        comprobante1.revalidate();
+//        comprobante1.repaint();
+//        comprobante2.revalidate();
+//        comprobante2.repaint();
+//        comprobante3.revalidate();
+//        comprobante3.repaint();
+//        comprobante4.revalidate();
+//        comprobante4.repaint();
+//        comprobante5.revalidate();
+//        comprobante5.repaint();
+//        comprobante6.revalidate();
+//        comprobante6.repaint();
+//        comprobante7.revalidate();
+//        comprobante7.repaint();
+//        comprobante8.revalidate();
+//        comprobante8.repaint();
+
+
+//        for ( int i = 0 ; i < 8 ; i++ ) {
+//            Component[] arregloComponentes = panelesComprobantes.get(i).getComponents();
+//            for ( Component componente : arregloComponentes ) {
+//                if (componente instanceof JLabel) {
+//                    String indice = String.valueOf(i + 1);
+//                    if ( componente.getName() != null && componente.getName().equals("iconoBancoComprobante" + indice ) ) {
+//                        ((JLabel) componente).setText(comprobantes.get(i).getBancoOrigen().getNombreBanco());
+//                        arregloComponentes[i].setText(comprobantes.get(i).getBancoOrigen().getNombreBanco());
+//                    }
+//                }
+//            }
+//        }
 
         comprobante1 = panelesComprobantes.get(0);
         comprobante2 = panelesComprobantes.get(1);
