@@ -10,19 +10,7 @@ public class Comprobante {
     private double monto;
     private Banco bancoOrigen;
     private Banco bancoDestino;
-    private String estadoDeTransferencia;
-    private String estadoDeComprobante;
-
-    public Comprobante() {
-        this.id = Generador.generarID("CP");
-        this.codigoTransferencia = Generador.generarCodigoDeTransferencia();
-        this.fecha = Generador.generadorDeFecha();
-        this.monto = Generador.generarMonto();
-        this.bancoOrigen = Generador.generarBanco();
-        this.bancoDestino = Generador.generarBanco();
-        this.estadoDeTransferencia = Generador.generarEstadoDeTransferencia();
-        this.estadoDeComprobante = Generador.generarEstadoDeComprobante();
-    }
+    private String estado;
 
     public Comprobante(Banco bancoOrigen) {
         this.id = Generador.generarID("CP");
@@ -31,19 +19,17 @@ public class Comprobante {
         this.monto = Generador.generarMonto();
         this.bancoOrigen = bancoOrigen;
         this.bancoDestino = Generador.generarBanco();
-        this.estadoDeTransferencia = Generador.generarEstadoDeTransferencia();
-        this.estadoDeComprobante = Generador.generarEstadoDeComprobante();
+        this.estado = Generador.generarEstado();
     }
 
-    public Comprobante(String id, String codigoTransferencia, String fecha, double monto, Banco bancoOrigen, Banco bancoDestino, String estadoDeTransferencia, String estadoDeComprobante) {
+    public Comprobante(String id, String codigoTransferencia, String fecha, double monto, Banco bancoOrigen, Banco bancoDestino, String estado) {
         this.id = id;
         this.codigoTransferencia = codigoTransferencia;
         this.fecha = fecha;
         this.monto = monto;
         this.bancoOrigen = bancoOrigen;
         this.bancoDestino = bancoDestino;
-        this.estadoDeTransferencia = estadoDeTransferencia;
-        this.estadoDeComprobante = estadoDeComprobante;
+        this.estado = estado;
     }
 
     public String getId() { return id; }
@@ -58,10 +44,8 @@ public class Comprobante {
     public void setBancoOrigen(Banco bancoOrigen) { this.bancoOrigen = bancoOrigen; }
     public Banco getBancoDestino() { return bancoDestino; }
     public void setBancoDestino(Banco bancoDestino) { this.bancoDestino = bancoDestino; }
-    public String getEstadoDeTransferencia() { return estadoDeTransferencia; }
-    public void setEstadoDeTransferencia(String estadoDeTransferencia) { this.estadoDeTransferencia = estadoDeTransferencia; }
-    public String getEstadoDeComprobante() { return estadoDeComprobante; }
-    public void setEstadoDeComprobante(String estadoDeComprobante) { this.estadoDeComprobante = estadoDeComprobante; }
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
 
     @Override
     public String toString() {
@@ -69,10 +53,9 @@ public class Comprobante {
                 " Codigo de Transferencia: " + codigoTransferencia + "\n" +
                 " Fecha: " + fecha + "\n" +
                 " Monto: " + monto + "\n" +
-                " Origen: " + bancoOrigen + "\n" +
-                " Destino: " + bancoDestino + "\n" +
-                " Estado De Transferencia: " + estadoDeTransferencia + "\n" +
-                " Estado De Comprobante: " + estadoDeComprobante;
+                " Model.Banco Origen: " + bancoOrigen + "\n" +
+                " Model.Banco Destino: " + bancoDestino + "\n" +
+                " Estado: " + estado + "\n";
     }
 
     public JSONObject toJSON() {
@@ -81,10 +64,9 @@ public class Comprobante {
         jsonComprobante.put("CodigoTransferencia", this.codigoTransferencia);
         jsonComprobante.put("Fecha", this.fecha);
         jsonComprobante.put("Monto", this.monto);
-        jsonComprobante.put("Banco Origen", this.bancoOrigen.toJSON());
-        jsonComprobante.put("Banco Destino", this.bancoDestino.toJSON());
-        jsonComprobante.put("EstadoTransferencia", this.estadoDeTransferencia);
-        jsonComprobante.put("EstadoComprobante", this.estadoDeComprobante);
+        jsonComprobante.put("Banco Origen", this.bancoOrigen);
+        jsonComprobante.put("Banco Destino", this.bancoDestino);
+        jsonComprobante.put("Estado", this.estado);
 
         return jsonComprobante;
     }
@@ -100,7 +82,6 @@ public class Comprobante {
                 bancoJSON.getDouble("Monto"),
                 bancoOrigen,
                 bancoDestino,
-                bancoJSON.getString("EstadoTransferencia"),
-                bancoJSON.getString("EstadoComprobante"));
+                bancoJSON.getString("Estado"));
     }
 }

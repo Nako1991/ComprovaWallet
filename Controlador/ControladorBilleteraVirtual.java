@@ -11,22 +11,22 @@ public class ControladorBilleteraVirtual {
 
     public static void agregarBilleteraVirtual(Usuario usuarioLogueado, BilleteraVirtual nuevaBilleteraVirtual) {
 
-        ArrayList<BilleteraVirtual> billeteras = usuarioLogueado.getBilleterasVirtuales();
-        billeteras.add(nuevaBilleteraVirtual);
-        usuarioLogueado.setBilleterasVirtuales(billeteras);
+        ArrayList<BilleteraVirtual> billeterasVirtualesBuffer = usuarioLogueado.getBilleterasVirtuales();
+        billeterasVirtualesBuffer.add(nuevaBilleteraVirtual);
+        usuarioLogueado.setBilleterasVirtuales(billeterasVirtualesBuffer);
         guardarCambiosUsuario(usuarioLogueado);
 
     }
 
     public static boolean eliminarBilleteraVirtual(Usuario usuarioLogueado, String nombreBanco) throws InvalidNonExistentVirtualWallet {
 
-        ArrayList<BilleteraVirtual> billeteras = usuarioLogueado.getBilleterasVirtuales();
+        ArrayList<BilleteraVirtual> billeterasVirtualesBuffer = usuarioLogueado.getBilleterasVirtuales();
 
-        for(BilleteraVirtual billetera : billeteras) {
+        for(BilleteraVirtual billeteraVirtualBuffer : billeterasVirtualesBuffer) {
 
-            if(billetera.getBanco().getNombreBanco().equals(nombreBanco)) {
-                billeteras.remove(billetera);
-                usuarioLogueado.setBilleterasVirtuales(billeteras);
+            if(billeteraVirtualBuffer.getBanco().getNombreBanco().equals(nombreBanco)) {
+                billeterasVirtualesBuffer.remove(billeteraVirtualBuffer);
+                usuarioLogueado.setBilleterasVirtuales(billeterasVirtualesBuffer);
                 guardarCambiosUsuario(usuarioLogueado);
                 return true;
             }
@@ -50,21 +50,21 @@ public class ControladorBilleteraVirtual {
 
     public static void mostrarBilleterasVirtuales(Usuario usuario) {
 
-        ArrayList<BilleteraVirtual> billeteras = usuario.getBilleterasVirtuales();
+        ArrayList<BilleteraVirtual> billeterasVirtuales = usuario.getBilleterasVirtuales();
 
-        if( billeteras.isEmpty() )
+        if( billeterasVirtuales.isEmpty() )
             System.out.println("\nNo hay ninguna billetera virtual registrada");
         else
-            for( BilleteraVirtual billetera : billeteras )
+            for( BilleteraVirtual billetera : billeterasVirtuales )
                 System.out.println("\n " + billetera.toString());
     }
 
     public static BilleteraVirtual getBilleteraVirtual(Usuario usuarioLogueado, String nombreBanco) throws InvalidNonExistentVirtualWallet {
 
-        ArrayList<BilleteraVirtual> billeteras = usuarioLogueado.getBilleterasVirtuales();
+        ArrayList<BilleteraVirtual> billeterasVirtualesBuffer = usuarioLogueado.getBilleterasVirtuales();
 
-        for( BilleteraVirtual billetera : billeteras )
-            if( billetera.getBanco().getNombreBanco().equals(nombreBanco) ) return billetera;
+        for( BilleteraVirtual billeteraVirtual : billeterasVirtualesBuffer )
+            if( billeteraVirtual.getBanco().getNombreBanco().equals(nombreBanco) ) return billeteraVirtual;
 
         throw new InvalidNonExistentVirtualWallet("La billetera virtual no existe");
     }
