@@ -102,7 +102,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     }
 
-    ///INICIALIZACION CONTROLADORES
+    ///INICIALIZACION CONTROLADORES8
     private void inicializarControladores() {
         controladorLogueoUsuarios = new ControladorLogueoUsuarios();
         controladorBilleteraVirtual = new ControladorBilleteraVirtual();

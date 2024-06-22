@@ -150,7 +150,6 @@ public interface Generador {
     }
 
     static String formatearDeEnumAString(String stringSinFormato) {
-
         stringSinFormato = stringSinFormato.replace('_', ' ');
         stringSinFormato = stringSinFormato.toLowerCase();
         String stringFormateado = stringSinFormato.substring(0, 1).toUpperCase() + stringSinFormato.substring(1);
@@ -159,7 +158,6 @@ public interface Generador {
     }
 
     static String generarCuil() {
-
         Random random = new Random();
 
         int primerDigito = random.nextInt(10);
@@ -197,7 +195,6 @@ public interface Generador {
     }
 
     static String generarCodigoDeTransferencia() {
-
         StringBuilder codigo = new StringBuilder(11);
         Random random = new Random();
         for (int i = 0; i < 12; i++) {
@@ -208,7 +205,6 @@ public interface Generador {
     }
 
     static String generadorDeFecha() {
-
         Random random = new Random();
 
         int año = 2000 + random.nextInt(55);
@@ -225,15 +221,12 @@ public interface Generador {
         return fechaFormateada;
     }
     static int diaMaximoDeEseMes(int año, int mes) {
-
         Calendar calendarario = Calendar.getInstance();
         calendarario.set(año,mes - 1, 1);
-
         return calendarario.get(Calendar.DAY_OF_MONTH);
     }
 
     static double generarMonto() {
-
         Random random = new Random();
         double monto = random.nextDouble() * 9000000.0;
 
@@ -246,24 +239,20 @@ public interface Generador {
     }
 
     static String generarEstado() {
-
         String[] estados = {"Enviado", "Pendiente", "Rechazado"};
         Random random = new Random();
         int estado = random.nextInt(estados.length);
-
         return estados[estado];
     }
 
     static Banco generarBanco() {
-
         String nombreBanco = generarNombreBanco();
-
         return new Banco(nombreBanco);
     }
 
-    static Comprobante generarComprobante(Banco bancoOrigen) { ///El banco origen va a ser del usuario logeado. Creo ?
+    static Comprobante generarComprobante(Banco bancoOrigen) {
 
         return new Comprobante(bancoOrigen);
     }
-
+    
 }
