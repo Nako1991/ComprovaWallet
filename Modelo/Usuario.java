@@ -10,14 +10,14 @@ public class Usuario {
     private String usuario;
     private String contraseña;
     private ArrayList<BilleteraVirtual> billeterasVirtuales;
-    private ArrayList<Comprobante> historialDeComprobantes;
+    private ArrayList<Comprobante> comprobantes;
 
     public Usuario() {
         this.id = Generador.generarID("US");
         this.usuario = "";
         this.contraseña = "";
         this.billeterasVirtuales = new ArrayList<>();
-        this.historialDeComprobantes = new ArrayList<>();
+        this.comprobantes = new ArrayList<>();
     }
 
     public Usuario(String usuario, String contraseña) {
@@ -25,7 +25,7 @@ public class Usuario {
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.billeterasVirtuales = new ArrayList<>();
-        this.historialDeComprobantes = new ArrayList<>();
+        this.comprobantes = new ArrayList<>();
     }
 
     public Usuario(String id, String usuario, String contraseña, ArrayList<BilleteraVirtual> billeterasVirtuales, ArrayList<Comprobante> historialDeComprobantes) {
@@ -33,7 +33,7 @@ public class Usuario {
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.billeterasVirtuales = billeterasVirtuales;
-        this.historialDeComprobantes = historialDeComprobantes;
+        this.comprobantes = historialDeComprobantes;
     }
 
     public String getUsuario() { return usuario; }
@@ -44,6 +44,8 @@ public class Usuario {
     public void setId(String id) { this.id = id; }
     public ArrayList<BilleteraVirtual> getBilleterasVirtuales() { return billeterasVirtuales; }
     public void setBilleterasVirtuales(ArrayList<BilleteraVirtual> billeterasVirtuales) { this.billeterasVirtuales = billeterasVirtuales; }
+    public ArrayList<Comprobante> getComprobantes() { return comprobantes; }
+    public void setComprobantes(ArrayList<Comprobante> comprobantes) { this.comprobantes = comprobantes; }
 
     @Override
     public String toString() {
@@ -67,7 +69,7 @@ public class Usuario {
         jsonUsuario.put("Billeteras", jsonBilleteras);
 
         JSONArray jsonHistorialDeComprobantes = new JSONArray();
-        for(Comprobante comprobanteBuffer : this.historialDeComprobantes) {
+        for(Comprobante comprobanteBuffer : this.comprobantes) {
             jsonHistorialDeComprobantes.put(comprobanteBuffer.toJSON());
         }
         jsonUsuario.put("Comprobantes", jsonHistorialDeComprobantes);

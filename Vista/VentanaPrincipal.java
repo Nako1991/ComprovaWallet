@@ -1,13 +1,16 @@
 package Vista;
 import Controlador.ControladorBilleteraVirtual;
+import Controlador.ControladorComprobantes;
 import Controlador.ControladorLogueoUsuarios;
 import Controlador.JSONUtilities;
 import Exceptions.*;
 import Interface.DimensionPantalla;
 import Interface.Generador;
 import Modelo.BilleteraVirtual;
+import Modelo.Comprobante;
 import Modelo.Config;
 import Modelo.Usuario;
+import com.sun.source.tree.SwitchTree;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
@@ -73,6 +76,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private JButton botonSalirPanelBilleteras;
 
     private JPanel panelComprobantes;
+    private JButton botonGenerarComprobante;
 
     private JPanel comprobante1;
     private JLabel iconoBancoComprobante1;
@@ -162,8 +166,6 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         campoUsuario.setText("Rouse");
         campoContraseña.setText("Rouse484848@@");
         loguearUsuario();
-        mostrarBilleterasExistentes();
-        
 
     }
 
@@ -240,7 +242,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         botonConfirmarComprobante1.setText("CONFIRMAR");
         botonConfirmarComprobante1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+                botonConfirmarComprobante1ActionPerformed(evt);
             }
         });
     }
@@ -253,7 +255,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         botonArchivarComprobante1.setText("ARCHIVAR");
         botonArchivarComprobante1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonArchivarComprobante1ActionPerformed(evt);
+                botonArchivarComprobante1ActionPerformed(evt);
             }
         });
     }
@@ -960,9 +962,11 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     }
 
     private void inicializarComponentesPanelComprobantes() {
+        inicializarBotonGenerarComprobantes();
         panelComprobantes = new JPanel();
         panelComprobantes.setOpaque(false);
         panelComprobantes.setLayout(new AbsoluteLayout());
+        panelComprobantes.add(botonGenerarComprobante, new AbsoluteConstraints(370, 20, 740, 110));
         panelComprobantes.add(comprobante1, new AbsoluteConstraints(50, 180, 310, 400));
         panelComprobantes.add(comprobante2, new AbsoluteConstraints(410, 180, 310, 400));
         panelComprobantes.add(comprobante3, new AbsoluteConstraints(770, 180, 310, 400));
@@ -971,6 +975,22 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         panelComprobantes.add(comprobante6, new AbsoluteConstraints(410, 640, 310, 400));
         panelComprobantes.add(comprobante7, new AbsoluteConstraints(770, 640, 310, 400));
         panelComprobantes.add(comprobante8, new AbsoluteConstraints(1130, 640, 310, 400));
+        panelComprobantes.setVisible(true);
+        ocultarComprobantes();
+    }
+
+    private void inicializarBotonGenerarComprobantes() {
+        botonGenerarComprobante = new JButton();
+        botonGenerarComprobante.setBackground(new Color(0, 51, 102));
+        botonGenerarComprobante.setFont(new Font("Segoe UI", 1, 48)); // NOI18N
+        botonGenerarComprobante.setForeground(new Color(204, 204, 255));
+        botonGenerarComprobante.setText("GENERAR COMPROBANTE");
+        botonGenerarComprobante.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                botonGenerarComprobanteActionPerformed(evt);
+            }
+        });
+        botonGenerarComprobante.setVisible(false);
     }
 
     ///INICIALIZACION PANEL LATERAL LOGUEO
@@ -1473,7 +1493,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         this.pack();
     }
 
-    ///FUNCIONALIDADES BOTONES
+    ///BOTONES PANEL LOGUEO
     private void botonSalirActionPerformed(ActionEvent evt) {
         System.exit(0);
     }
@@ -1484,18 +1504,19 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     private void botonLogueoActionPerformed(ActionEvent evt) {
         loguearUsuario();
-        mostrarBilleterasExistentes();
     }
 
+    ///BOTONES PANEL BILLETERAS
     private void botonCerrarSesionActionPerformed(ActionEvent evt) {
         usuarioLogueado = null;
         panelLateralLogueo.setVisible(true);
         panelLateralBilleteras.setVisible(false);
+        botonGenerarComprobante.setVisible(false);
         textoUsuarioLogueado.setText("");
         ocultarCarteles();
         ocultarBilleteras();
+        ocultarComprobantes();
     }
-
     private void botonAgregarBilleteraActionPerformed(ActionEvent evt) {
         agregarBilletaraVirtual();
     }
@@ -1521,6 +1542,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private void botonBilletera3ActionPerformed(ActionEvent evt) {
         ///TODO filtro para ver comprobantes de solo esa billetera
     }
+
     private void botonEliminarBilletera3ActionPerformed(ActionEvent evt) {
         eliminarBilleteraVirtual(2);
         mostrarBilleterasExistentes();
@@ -1535,6 +1557,23 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         mostrarBilleterasExistentes();
     }
 
+    ///BOTONES PANEL COMPROBANTES
+    private void botonGenerarComprobanteActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.agregarComprobante(usuarioLogueado, Generador.generarComprobante());
+        System.out.println(usuarioLogueado.getComprobantes());
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado);
+    }
+
+    private void botonConfirmarComprobante1ActionPerformed(ActionEvent evt) {
+
+    }
+
+    private void botonArchivarComprobante1ActionPerformed(ActionEvent evt) {
+
+    }
+
+    ///METODOS PANEL LOGUEO
     private void registrarUsuario() {
 
         char[] contraseñaArray = campoContraseña.getPassword();
@@ -1597,7 +1636,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
                     textoUsuarioLogueado.setText(usuarioLogueado.getUsuario());
                     panelLateralLogueo.setVisible(false);
                     panelLateralBilleteras.setVisible(true);
-
+                    botonGenerarComprobante.setVisible(true); //TEST
+                    mostrarComprobantesUsuarioLogueado(usuarioLogueado);
+                    mostrarBilleterasExistentes();
                 }
             });
             temporizadorLogueado.setRepeats(false);
@@ -1615,6 +1656,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     }
 
+    ///METODOS PANEL BILLETERAS
     private void agregarBilletaraVirtual() {
         ArrayList<BilleteraVirtual> billeteras = usuarioLogueado.getBilleterasVirtuales();
 
@@ -1730,6 +1772,89 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         botonEliminarBilletera3.setVisible(false);
         botonBilletera4.setVisible(false);
         botonEliminarBilletera4.setVisible(false);
+    }
+
+    ///METODOS PANEL COMPROBANTES
+    private void completarCamposComprobantesUsuarioLogueado(Usuario usuarioLogueado) {
+
+        ArrayList<Comprobante> comprobantes = usuarioLogueado.getComprobantes();
+        ArrayList<JPanel> panelesComprobantes = new ArrayList<>();
+
+        panelesComprobantes.add(comprobante1);
+        panelesComprobantes.add(comprobante2);
+        panelesComprobantes.add(comprobante3);
+        panelesComprobantes.add(comprobante4);
+        panelesComprobantes.add(comprobante5);
+        panelesComprobantes.add(comprobante6);
+        panelesComprobantes.add(comprobante7);
+        panelesComprobantes.add(comprobante8);
+
+        for ( int i = 0 ; i < 8 ; i++ ) {
+            Component[] arregloComponentes = panelesComprobantes.get(i).getComponents();
+            for ( Component componente : arregloComponentes ) {
+                if ( componente.getName() != null && componente.getName().equals("iconoBancoComprobante" + i + 1) ) {
+                    panelesComprobantes.get(i).setToolTipText(comprobantes.get(i).getBancoOrigen().getNombreBanco());
+                }
+                if ( componente.getName() != null && componente.getName().equals("montoComprobante" + i + 1) ) {
+                    String montoString = convertirDoubleAMonto(comprobantes.get(i).getMonto());
+                    System.out.println(montoString);
+                    panelesComprobantes.get(i).setToolTipText(montoString);
+                }
+
+            }
+        }
+
+        comprobante1 = panelesComprobantes.get(0);
+        comprobante2 = panelesComprobantes.get(1);
+        comprobante3 = panelesComprobantes.get(2);
+        comprobante4 = panelesComprobantes.get(3);
+        comprobante5 = panelesComprobantes.get(4);
+        comprobante6 = panelesComprobantes.get(5);
+        comprobante7 = panelesComprobantes.get(6);
+        comprobante8 = panelesComprobantes.get(7);
+
+    }
+
+    private String convertirDoubleAMonto(double monto) {
+        String montoString = new String(String.valueOf(monto));
+        return "$" + montoString + " ";
+    }
+
+    private void mostrarComprobantesUsuarioLogueado(Usuario usuarioLogueado){
+        ArrayList<Comprobante> comprobantes = usuarioLogueado.getComprobantes();
+
+        ocultarComprobantes();
+
+        if(comprobantes != null && !(comprobantes.isEmpty())) {
+
+            int numComprobantes = comprobantes.size();
+            switch ( numComprobantes ) {
+                case 1:
+                    comprobante1.setVisible(true);
+                    break;
+                case 2:
+                    comprobante2.setVisible(true);
+                    break;
+                case 3:
+                    comprobante3.setVisible(true);
+                    break;
+                case 4:
+                    comprobante4.setVisible(true);
+                    break;
+                case 5:
+                    comprobante5.setVisible(true);
+                    break;
+                case 6:
+                    comprobante6.setVisible(true);
+                    break;
+                case 7:
+                    comprobante7.setVisible(true);
+                    break;
+                case 8:
+                    comprobante8.setVisible(true);
+                    break;
+            }
+        }
     }
 
     private void mostrarComprobantes() {

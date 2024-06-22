@@ -207,7 +207,7 @@ public interface Generador {
     static String generadorDeFecha() {
         Random random = new Random();
 
-        int año = 2000 + random.nextInt(55);
+        int año = 1970 + random.nextInt(55);
         int mes = random.nextInt(12) + 1;
         int diaMaximo = diaMaximoDeEseMes(año,mes);
         int dia = random.nextInt(diaMaximo) + 1;
@@ -230,16 +230,23 @@ public interface Generador {
         Random random = new Random();
         double monto = random.nextDouble() * 9000000.0;
 
-        DecimalFormat decimalFormat = new DecimalFormat("###,###.##");
-        String montoFormateado = decimalFormat.format(monto);
+//        DecimalFormat decimalFormat = new DecimalFormat("###,###.##");
+//        String montoFormateado = decimalFormat.format(monto);
+//
+//        double numeroMonto = Double.parseDouble(montoFormateado);
 
-        double numeroMonto = Double.parseDouble(montoFormateado);
-
-        return numeroMonto;
+        return monto;
     }
 
-    static String generarEstado() {
+    static String generarEstadoDeTransferencia() {
         String[] estados = {"Enviado", "Pendiente", "Rechazado"};
+        Random random = new Random();
+        int estado = random.nextInt(estados.length);
+        return estados[estado];
+    }
+
+    static String generarEstadoDeComprobante() {
+        String[] estados = {"Recibido", "Confirmado", "Archivado"};
         Random random = new Random();
         int estado = random.nextInt(estados.length);
         return estados[estado];
@@ -250,9 +257,8 @@ public interface Generador {
         return new Banco(nombreBanco);
     }
 
-    static Comprobante generarComprobante(Banco bancoOrigen) {
-
-        return new Comprobante(bancoOrigen);
+    static Comprobante generarComprobante() {
+        return new Comprobante();
     }
     
 }
