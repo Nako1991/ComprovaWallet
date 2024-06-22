@@ -33,8 +33,6 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     private JPanel panelFondo;
     private JLabel fondoVentanaPrincipal;
-    private JButton botonPanelLogueo; //TEST
-    private JButton botonPanelBilleteras; //TEST
 
     private JPanel panelLateralLogueo;
     private JLabel fondoPanelLateral1;
@@ -74,6 +72,71 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private JButton botonCerrarSesion;
     private JButton botonSalirPanelBilleteras;
 
+    private JPanel panelComprobantes;
+
+    private JPanel comprobante1;
+    private JLabel iconoBancoComprobante1;
+    private JButton botonConfirmarComprobante1;
+    private JButton botonArchivarComprobante1;
+    private JLabel montoCoprobante1;
+    private JLabel datosComprobante1;
+    private JLabel barraEstadoCoprobante1;
+
+    private JPanel comprobante2;
+    private JLabel iconoBancoComprobante2;
+    private JButton botonConfirmarComprobante2;
+    private JButton botonArchivarComprobante2;
+    private JLabel montoCoprobante2;
+    private JLabel datosComprobante2;
+    private JLabel barraEstadoCoprobante2;
+
+    private JPanel comprobante3;
+    private JLabel iconoBancoComprobante3;
+    private JButton botonConfirmarComprobante3;
+    private JButton botonArchivarComprobante3;
+    private JLabel montoCoprobante3;
+    private JLabel datosComprobante3;
+    private JLabel barraEstadoCoprobante3;
+
+    private JPanel comprobante4;
+    private JLabel iconoBancoComprobante4;
+    private JButton botonConfirmarComprobante4;
+    private JButton botonArchivarComprobante4;
+    private JLabel montoCoprobante4;
+    private JLabel datosComprobante4;
+    private JLabel barraEstadoCoprobante4;
+
+    private JPanel comprobante5;
+    private JLabel iconoBancoComprobante5;
+    private JButton botonConfirmarComprobante5;
+    private JButton botonArchivarComprobante5;
+    private JLabel montoCoprobante5;
+    private JLabel datosComprobante5;
+    private JLabel barraEstadoCoprobante5;
+
+    private JPanel comprobante6;
+    private JLabel iconoBancoComprobante6;
+    private JButton botonConfirmarComprobante6;
+    private JButton botonArchivarComprobante6;
+    private JLabel montoCoprobante6;
+    private JLabel datosComprobante6;
+    private JLabel barraEstadoCoprobante6;
+
+    private JPanel comprobante7;
+    private JLabel iconoBancoComprobante7;
+    private JButton botonConfirmarComprobante7;
+    private JButton botonArchivarComprobante7;
+    private JLabel montoCoprobante7;
+    private JLabel datosComprobante7;
+    private JLabel barraEstadoCoprobante7;
+
+    private JPanel comprobante8;
+    private JLabel iconoBancoComprobante8;
+    private JButton botonConfirmarComprobante8;
+    private JButton botonArchivarComprobante8;
+    private JLabel montoCoprobante8;
+    private JLabel datosComprobante8;
+    private JLabel barraEstadoCoprobante8;
 
     private Usuario usuarioLogueado;
 
@@ -85,6 +148,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private void inicializarVentanaPrincipal() {
         inicializarControladores();
         inicializarPanelFondo();
+        inicializarPanelComprobantes();
         inicializarPanelLateralLogueo();
         inicializarPanelLateralBilleteras();
         inicializarPanelVentanaPrincipal();
@@ -99,6 +163,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         campoContraseña.setText("Rouse484848@@");
         loguearUsuario();
         mostrarBilleterasExistentes();
+        
 
     }
 
@@ -111,7 +176,6 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     ///INICIALIZACION PANEL FONDO
     private void inicializarPanelFondo() {
         inicializarFondoVentanaPrincipal();
-        inicializarBotonesPanelFondo(); //TEST
         inicializarComponentesPanelFondo();
     }
 
@@ -121,37 +185,792 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         fondoVentanaPrincipal.setOpaque(true);
     }
 
-    private void inicializarBotonesPanelFondo() { //TEST
-        inicializarBotonPanelLogueo();
-        inicializarBotonPanelBilleteras();
-    }
-
-    private void inicializarBotonPanelLogueo() { //TEST
-        botonPanelLogueo = new JButton();
-        botonPanelLogueo.setText("PanelLogueo");
-        botonPanelLogueo.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                botonPanelLogueoActionPerformed(evt);
-            }
-        });
-    }
-
-    private void inicializarBotonPanelBilleteras() { //TEST
-        botonPanelBilleteras = new JButton();
-        botonPanelBilleteras.setText("PanelBilleteras");
-        botonPanelBilleteras.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                botonPanelBilleterasActionPerformed(evt);
-            }
-        });
-    }
-
     private void inicializarComponentesPanelFondo() {
         panelFondo = new JPanel();
         panelFondo.setLayout(new AbsoluteLayout());
-        panelFondo.add(botonPanelBilleteras, new AbsoluteConstraints(700, 260, 110, -1));
-        panelFondo.add(botonPanelLogueo, new AbsoluteConstraints(700, 210, 110, -1));
         panelFondo.add(fondoVentanaPrincipal, new AbsoluteConstraints(0, 0, -1, -1));
+    }
+
+    ///INICIALIZAR PANEL COMPROBANTES
+    private void inicializarPanelComprobantes() {
+        inicializarComprobantes();
+        inicializarComponentesPanelComprobantes();
+    }
+
+    private void inicializarComprobantes() {
+        inicializarComprobante1();
+        inicializarComprobante2();
+        inicializarComprobante3();
+        inicializarComprobante4();
+        inicializarComprobante5();
+        inicializarComprobante6();
+        inicializarComprobante7();
+        inicializarComprobante8();
+    }
+
+    private void inicializarComprobante1() {
+        inicializarIconoBancoComprobante1();
+        inicializarBotonesComprobante1();
+        inicializarCamposComprobante1();
+        inicializarBarraEstadoComprobante1();
+        inicializarComponentesComprobante1();
+    }
+
+    private void inicializarIconoBancoComprobante1() {
+        iconoBancoComprobante1 = new JLabel();
+        iconoBancoComprobante1.setBackground(new Color(0, 102, 153));
+        iconoBancoComprobante1.setFont(new Font("Segoe UI", 0, 36));
+        iconoBancoComprobante1.setForeground(new Color(255, 255, 255));
+        iconoBancoComprobante1.setHorizontalAlignment(SwingConstants.CENTER);
+        iconoBancoComprobante1.setText("MP");
+        iconoBancoComprobante1.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255)));
+        iconoBancoComprobante1.setOpaque(true);
+    }
+
+    private void inicializarBotonesComprobante1() {
+        inicializarBotonConfirmarComprobante1();
+        inicializarBotonArchivarComprobante1();
+    }
+
+    private void inicializarBotonConfirmarComprobante1() {
+        botonConfirmarComprobante1 = new JButton();
+        botonConfirmarComprobante1.setBackground(new Color(0, 51, 102));
+        botonConfirmarComprobante1.setFont(new Font("Segoe UI", 1, 20));
+        botonConfirmarComprobante1.setForeground(new Color(204, 204, 255));
+        botonConfirmarComprobante1.setText("CONFIRMAR");
+        botonConfirmarComprobante1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+            }
+        });
+    }
+
+    private void inicializarBotonArchivarComprobante1() {
+        botonArchivarComprobante1 = new JButton();
+        botonArchivarComprobante1.setBackground(new Color(0, 51, 102));
+        botonArchivarComprobante1.setFont(new Font("Segoe UI", 1, 20));
+        botonArchivarComprobante1.setForeground(new Color(204, 204, 255));
+        botonArchivarComprobante1.setText("ARCHIVAR");
+        botonArchivarComprobante1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonArchivarComprobante1ActionPerformed(evt);
+            }
+        });
+    }
+
+    private void inicializarCamposComprobante1() {
+        inicializarMontoComprobante1();
+        inicializarDatosComprobante1();
+    }
+
+    private void inicializarMontoComprobante1() {
+        montoCoprobante1 = new JLabel();
+        montoCoprobante1.setBackground(new Color(0, 102, 204));
+        montoCoprobante1.setFont(new Font("Segoe UI Black", 0, 48));
+        montoCoprobante1.setForeground(new Color(255, 255, 255));
+        montoCoprobante1.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoCoprobante1.setText("$3.315.151 ");
+        montoCoprobante1.setOpaque(true);
+    }
+
+    private void inicializarDatosComprobante1() {
+        datosComprobante1 = new JLabel();
+        datosComprobante1.setBackground(new Color(0, 102, 204));
+        datosComprobante1.setFont(new Font("Segoe UI", 1, 20));
+        datosComprobante1.setForeground(new Color(255, 255, 255));
+        datosComprobante1.setText("<html>Nombre: <br><br>Fecha: <br><br>Codigo de transferencia: </html>");
+        datosComprobante1.setVerticalAlignment(SwingConstants.TOP);
+        datosComprobante1.setOpaque(true);
+    }
+
+    private void inicializarBarraEstadoComprobante1() {
+        barraEstadoCoprobante1 = new JLabel();
+        barraEstadoCoprobante1.setBackground(new Color(0, 153, 51));
+        barraEstadoCoprobante1.setOpaque(true);
+    }
+
+    private void inicializarComponentesComprobante1() {
+        comprobante1 = new JPanel();
+        comprobante1.setBackground(new Color(0, 51, 153));
+        comprobante1.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255), 2));
+        comprobante1.setLayout(new AbsoluteLayout());
+        comprobante1.add(iconoBancoComprobante1, new AbsoluteConstraints(20, 10, 90, 80));
+        comprobante1.add(botonConfirmarComprobante1, new AbsoluteConstraints(130, 20, 160, 30));
+        comprobante1.add(botonArchivarComprobante1, new AbsoluteConstraints(130, 60, 160, 30));
+        comprobante1.add(montoCoprobante1, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante1.add(datosComprobante1, new AbsoluteConstraints(20, 190, 270, 170));
+        comprobante1.add(barraEstadoCoprobante1, new AbsoluteConstraints(20, 370, 270, 20));
+    }
+
+    private void inicializarComprobante2() {
+        inicializarIconoBancoComprobante2();
+        inicializarBotonesComprobante2();
+        inicializarCamposComprobante2();
+        inicializarBarraEstadoComprobante2();
+        inicializarComponentesComprobante2();
+    }
+
+    private void inicializarIconoBancoComprobante2() {
+        iconoBancoComprobante2 = new JLabel();
+        iconoBancoComprobante2.setBackground(new Color(0, 102, 153));
+        iconoBancoComprobante2.setFont(new Font("Segoe UI", 0, 36));
+        iconoBancoComprobante2.setForeground(new Color(255, 255, 255));
+        iconoBancoComprobante2.setHorizontalAlignment(SwingConstants.CENTER);
+        iconoBancoComprobante2.setText("MP");
+        iconoBancoComprobante2.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255)));
+        iconoBancoComprobante2.setOpaque(true);
+    }
+
+    private void inicializarBotonesComprobante2() {
+        inicializarBotonConfirmarComprobante2();
+        inicializarBotonArchivarComprobante2();
+    }
+
+    private void inicializarBotonConfirmarComprobante2() {
+        botonConfirmarComprobante2 = new JButton();
+        botonConfirmarComprobante2.setBackground(new Color(0, 51, 102));
+        botonConfirmarComprobante2.setFont(new Font("Segoe UI", 1, 20));
+        botonConfirmarComprobante2.setForeground(new Color(204, 204, 255));
+        botonConfirmarComprobante2.setText("CONFIRMAR");
+        botonConfirmarComprobante2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonConfirmarComprobante1ActionPerformed(evt);
+            }
+        });
+    }
+
+    private void inicializarBotonArchivarComprobante2() {
+        botonArchivarComprobante2 = new JButton();
+        botonArchivarComprobante2.setBackground(new Color(0, 51, 102));
+        botonArchivarComprobante2.setFont(new Font("Segoe UI", 1, 20));
+        botonArchivarComprobante2.setForeground(new Color(204, 204, 255));
+        botonArchivarComprobante2.setText("ARCHIVAR");
+        botonArchivarComprobante2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonArchivarComprobante1ActionPerformed(evt);
+            }
+        });
+    }
+
+    private void inicializarCamposComprobante2() {
+        inicializarMontoComprobante2();
+        inicializarDatosComprobante2();
+    }
+
+    private void inicializarMontoComprobante2() {
+        montoCoprobante2 = new JLabel();
+        montoCoprobante2.setBackground(new Color(0, 102, 204));
+        montoCoprobante2.setFont(new Font("Segoe UI Black", 0, 48));
+        montoCoprobante2.setForeground(new Color(255, 255, 255));
+        montoCoprobante2.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoCoprobante2.setText("$3.315.151 ");
+        montoCoprobante2.setOpaque(true);
+    }
+
+    private void inicializarDatosComprobante2() {
+        datosComprobante2 = new JLabel();
+        datosComprobante2.setBackground(new Color(0, 102, 204));
+        datosComprobante2.setFont(new Font("Segoe UI", 1, 20));
+        datosComprobante2.setForeground(new Color(255, 255, 255));
+        datosComprobante2.setText("<html>Nombre: <br><br>Fecha: <br><br>Codigo de transferencia: </html>");
+        datosComprobante2.setVerticalAlignment(SwingConstants.TOP);
+        datosComprobante2.setOpaque(true);
+    }
+
+    private void inicializarBarraEstadoComprobante2() {
+        barraEstadoCoprobante2 = new JLabel();
+        barraEstadoCoprobante2.setBackground(new Color(0, 153, 51));
+        barraEstadoCoprobante2.setOpaque(true);
+    }
+
+    private void inicializarComponentesComprobante2() {
+        comprobante2 = new JPanel();
+        comprobante2.setBackground(new Color(0, 51, 153));
+        comprobante2.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255), 2));
+        comprobante2.setLayout(new AbsoluteLayout());
+        comprobante2.add(iconoBancoComprobante2, new AbsoluteConstraints(20, 10, 90, 80));
+        comprobante2.add(botonConfirmarComprobante2, new AbsoluteConstraints(130, 20, 160, 30));
+        comprobante2.add(botonArchivarComprobante2, new AbsoluteConstraints(130, 60, 160, 30));
+        comprobante2.add(montoCoprobante2, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante2.add(datosComprobante2, new AbsoluteConstraints(20, 190, 270, 170));
+        comprobante2.add(barraEstadoCoprobante2, new AbsoluteConstraints(20, 370, 270, 20));
+    }
+
+    private void inicializarComprobante3() {
+        inicializarIconoBancoComprobante3();
+        inicializarBotonesComprobante3();
+        inicializarCamposComprobante3();
+        inicializarBarraEstadoComprobante3();
+        inicializarComponentesComprobante3();
+    }
+    private void inicializarIconoBancoComprobante3() {
+        iconoBancoComprobante3 = new JLabel();
+        iconoBancoComprobante3.setBackground(new Color(0, 102, 153));
+        iconoBancoComprobante3.setFont(new Font("Segoe UI", 0, 36));
+        iconoBancoComprobante3.setForeground(new Color(255, 255, 255));
+        iconoBancoComprobante3.setHorizontalAlignment(SwingConstants.CENTER);
+        iconoBancoComprobante3.setText("MP");
+        iconoBancoComprobante3.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255)));
+        iconoBancoComprobante3.setOpaque(true);
+    }
+
+    private void inicializarBotonesComprobante3() {
+        inicializarBotonConfirmarComprobante3();
+        inicializarBotonArchivarComprobante3();
+    }
+
+    private void inicializarBotonConfirmarComprobante3() {
+        botonConfirmarComprobante3 = new JButton();
+        botonConfirmarComprobante3.setBackground(new Color(0, 51, 102));
+        botonConfirmarComprobante3.setFont(new Font("Segoe UI", 1, 20));
+        botonConfirmarComprobante3.setForeground(new Color(204, 204, 255));
+        botonConfirmarComprobante3.setText("CONFIRMAR");
+        botonConfirmarComprobante3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+            }
+        });
+    }
+
+    private void inicializarBotonArchivarComprobante3() {
+        botonArchivarComprobante3 = new JButton();
+        botonArchivarComprobante3.setBackground(new Color(0, 51, 102));
+        botonArchivarComprobante3.setFont(new Font("Segoe UI", 1, 20));
+        botonArchivarComprobante3.setForeground(new Color(204, 204, 255));
+        botonArchivarComprobante3.setText("ARCHIVAR");
+        botonArchivarComprobante3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonArchivarComprobante1ActionPerformed(evt);
+            }
+        });
+    }
+
+    private void inicializarCamposComprobante3() {
+        inicializarMontoComprobante3();
+        inicializarDatosComprobante3();
+    }
+
+    private void inicializarMontoComprobante3() {
+        montoCoprobante3 = new JLabel();
+        montoCoprobante3.setBackground(new Color(0, 102, 204));
+        montoCoprobante3.setFont(new Font("Segoe UI Black", 0, 48));
+        montoCoprobante3.setForeground(new Color(255, 255, 255));
+        montoCoprobante3.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoCoprobante3.setText("$3.315.151 ");
+        montoCoprobante3.setOpaque(true);
+    }
+
+    private void inicializarDatosComprobante3() {
+        datosComprobante3 = new JLabel();
+        datosComprobante3.setBackground(new Color(0, 102, 204));
+        datosComprobante3.setFont(new Font("Segoe UI", 1, 20));
+        datosComprobante3.setForeground(new Color(255, 255, 255));
+        datosComprobante3.setText("<html>Nombre: <br><br>Fecha: <br><br>Codigo de transferencia: </html>");
+        datosComprobante3.setVerticalAlignment(SwingConstants.TOP);
+        datosComprobante3.setOpaque(true);
+    }
+
+    private void inicializarBarraEstadoComprobante3() {
+        barraEstadoCoprobante3 = new JLabel();
+        barraEstadoCoprobante3.setBackground(new Color(0, 153, 51));
+        barraEstadoCoprobante3.setOpaque(true);
+    }
+
+    private void inicializarComponentesComprobante3() {
+        comprobante3 = new JPanel();
+        comprobante3.setBackground(new Color(0, 51, 153));
+        comprobante3.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255), 2));
+        comprobante3.setLayout(new AbsoluteLayout());
+        comprobante3.add(iconoBancoComprobante3, new AbsoluteConstraints(20, 10, 90, 80));
+        comprobante3.add(botonConfirmarComprobante3, new AbsoluteConstraints(130, 20, 160, 30));
+        comprobante3.add(botonArchivarComprobante3, new AbsoluteConstraints(130, 60, 160, 30));
+        comprobante3.add(montoCoprobante3, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante3.add(datosComprobante3, new AbsoluteConstraints(20, 190, 270, 170));
+        comprobante3.add(barraEstadoCoprobante3, new AbsoluteConstraints(20, 370, 270, 20));
+    }
+
+    private void inicializarComprobante4() {
+        inicializarIconoBancoComprobante4();
+        inicializarBotonesComprobante4();
+        inicializarCamposComprobante4();
+        inicializarBarraEstadoComprobante4();
+        inicializarComponentesComprobante4();
+    }
+
+    private void inicializarIconoBancoComprobante4() {
+        iconoBancoComprobante4 = new JLabel();
+        iconoBancoComprobante4.setBackground(new Color(0, 102, 153));
+        iconoBancoComprobante4.setFont(new Font("Segoe UI", 0, 36));
+        iconoBancoComprobante4.setForeground(new Color(255, 255, 255));
+        iconoBancoComprobante4.setHorizontalAlignment(SwingConstants.CENTER);
+        iconoBancoComprobante4.setText("MP");
+        iconoBancoComprobante4.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255)));
+        iconoBancoComprobante4.setOpaque(true);
+    }
+
+    private void inicializarBotonesComprobante4() {
+        inicializarBotonConfirmarComprobante4();
+        inicializarBotonArchivarComprobante4();
+    }
+
+    private void inicializarBotonConfirmarComprobante4() {
+        botonConfirmarComprobante4 = new JButton();
+        botonConfirmarComprobante4.setBackground(new Color(0, 51, 102));
+        botonConfirmarComprobante4.setFont(new Font("Segoe UI", 1, 20));
+        botonConfirmarComprobante4.setForeground(new Color(204, 204, 255));
+        botonConfirmarComprobante4.setText("CONFIRMAR");
+        botonConfirmarComprobante4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+            }
+        });
+    }
+
+    private void inicializarBotonArchivarComprobante4() {
+        botonArchivarComprobante4 = new JButton();
+        botonArchivarComprobante4.setBackground(new Color(0, 51, 102));
+        botonArchivarComprobante4.setFont(new Font("Segoe UI", 1, 20));
+        botonArchivarComprobante4.setForeground(new Color(204, 204, 255));
+        botonArchivarComprobante4.setText("ARCHIVAR");
+        botonArchivarComprobante4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonArchivarComprobante1ActionPerformed(evt);
+            }
+        });
+    }
+
+    private void inicializarCamposComprobante4() {
+        inicializarMontoComprobante4();
+        inicializarDatosComprobante4();
+    }
+
+    private void inicializarMontoComprobante4() {
+        montoCoprobante4 = new JLabel();
+        montoCoprobante4.setBackground(new Color(0, 102, 204));
+        montoCoprobante4.setFont(new Font("Segoe UI Black", 0, 48));
+        montoCoprobante4.setForeground(new Color(255, 255, 255));
+        montoCoprobante4.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoCoprobante4.setText("$3.315.151 ");
+        montoCoprobante4.setOpaque(true);
+    }
+
+    private void inicializarDatosComprobante4() {
+        datosComprobante4 = new JLabel();
+        datosComprobante4.setBackground(new Color(0, 102, 204));
+        datosComprobante4.setFont(new Font("Segoe UI", 1, 20));
+        datosComprobante4.setForeground(new Color(255, 255, 255));
+        datosComprobante4.setText("<html>Nombre: <br><br>Fecha: <br><br>Codigo de transferencia: </html>");
+        datosComprobante4.setVerticalAlignment(SwingConstants.TOP);
+        datosComprobante4.setOpaque(true);
+    }
+
+    private void inicializarBarraEstadoComprobante4() {
+        barraEstadoCoprobante4 = new JLabel();
+        barraEstadoCoprobante4.setBackground(new Color(0, 153, 51));
+        barraEstadoCoprobante4.setOpaque(true);
+    }
+
+    private void inicializarComponentesComprobante4() {
+        comprobante4 = new JPanel();
+        comprobante4.setBackground(new Color(0, 51, 153));
+        comprobante4.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255), 2));
+        comprobante4.setLayout(new AbsoluteLayout());
+        comprobante4.add(iconoBancoComprobante4, new AbsoluteConstraints(20, 10, 90, 80));
+        comprobante4.add(botonConfirmarComprobante4, new AbsoluteConstraints(130, 20, 160, 30));
+        comprobante4.add(botonArchivarComprobante4, new AbsoluteConstraints(130, 60, 160, 30));
+        comprobante4.add(montoCoprobante4, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante4.add(datosComprobante4, new AbsoluteConstraints(20, 190, 270, 170));
+        comprobante4.add(barraEstadoCoprobante4, new AbsoluteConstraints(20, 370, 270, 20));
+    }
+
+    private void inicializarComprobante5() {
+        inicializarIconoBancoComprobante5();
+        inicializarBotonesComprobante5();
+        inicializarCamposComprobante5();
+        inicializarBarraEstadoComprobante5();
+        inicializarComponentesComprobante5();
+    }
+
+    private void inicializarIconoBancoComprobante5() {
+        iconoBancoComprobante5 = new JLabel();
+        iconoBancoComprobante5.setBackground(new Color(0, 102, 153));
+        iconoBancoComprobante5.setFont(new Font("Segoe UI", 0, 36));
+        iconoBancoComprobante5.setForeground(new Color(255, 255, 255));
+        iconoBancoComprobante5.setHorizontalAlignment(SwingConstants.CENTER);
+        iconoBancoComprobante5.setText("MP");
+        iconoBancoComprobante5.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255)));
+        iconoBancoComprobante5.setOpaque(true);
+    }
+
+    private void inicializarBotonesComprobante5() {
+        inicializarBotonConfirmarComprobante5();
+        inicializarBotonArchivarComprobante5();
+    }
+
+    private void inicializarBotonConfirmarComprobante5() {
+        botonConfirmarComprobante5 = new JButton();
+        botonConfirmarComprobante5.setBackground(new Color(0, 51, 102));
+        botonConfirmarComprobante5.setFont(new Font("Segoe UI", 1, 20));
+        botonConfirmarComprobante5.setForeground(new Color(204, 204, 255));
+        botonConfirmarComprobante5.setText("CONFIRMAR");
+        botonConfirmarComprobante5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+            }
+        });
+    }
+
+    private void inicializarBotonArchivarComprobante5() {
+        botonArchivarComprobante5 = new JButton();
+        botonArchivarComprobante5.setBackground(new Color(0, 51, 102));
+        botonArchivarComprobante5.setFont(new Font("Segoe UI", 1, 20));
+        botonArchivarComprobante5.setForeground(new Color(204, 204, 255));
+        botonArchivarComprobante5.setText("ARCHIVAR");
+        botonArchivarComprobante5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonArchivarComprobante1ActionPerformed(evt);
+            }
+        });
+    }
+
+    private void inicializarCamposComprobante5() {
+        inicializarMontoComprobante5();
+        inicializarDatosComprobante5();
+    }
+
+    private void inicializarMontoComprobante5() {
+        montoCoprobante5 = new JLabel();
+        montoCoprobante5.setBackground(new Color(0, 102, 204));
+        montoCoprobante5.setFont(new Font("Segoe UI Black", 0, 48));
+        montoCoprobante5.setForeground(new Color(255, 255, 255));
+        montoCoprobante5.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoCoprobante5.setText("$3.315.151 ");
+        montoCoprobante5.setOpaque(true);
+    }
+
+    private void inicializarDatosComprobante5() {
+        datosComprobante5 = new JLabel();
+        datosComprobante5.setBackground(new Color(0, 102, 204));
+        datosComprobante5.setFont(new Font("Segoe UI", 1, 20));
+        datosComprobante5.setForeground(new Color(255, 255, 255));
+        datosComprobante5.setText("<html>Nombre: <br><br>Fecha: <br><br>Codigo de transferencia: </html>");
+        datosComprobante5.setVerticalAlignment(SwingConstants.TOP);
+        datosComprobante5.setOpaque(true);
+    }
+
+    private void inicializarBarraEstadoComprobante5() {
+        barraEstadoCoprobante5 = new JLabel();
+        barraEstadoCoprobante5.setBackground(new Color(0, 153, 51));
+        barraEstadoCoprobante5.setOpaque(true);
+    }
+
+    private void inicializarComponentesComprobante5() {
+        comprobante5 = new JPanel();
+        comprobante5.setBackground(new Color(0, 51, 153));
+        comprobante5.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255), 2));
+        comprobante5.setLayout(new AbsoluteLayout());
+        comprobante5.add(iconoBancoComprobante5, new AbsoluteConstraints(20, 10, 90, 80));
+        comprobante5.add(botonConfirmarComprobante5, new AbsoluteConstraints(130, 20, 160, 30));
+        comprobante5.add(botonArchivarComprobante5, new AbsoluteConstraints(130, 60, 160, 30));
+        comprobante5.add(montoCoprobante5, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante5.add(datosComprobante5, new AbsoluteConstraints(20, 190, 270, 170));
+        comprobante5.add(barraEstadoCoprobante5, new AbsoluteConstraints(20, 370, 270, 20));
+    }
+
+    private void inicializarComprobante6() {
+        inicializarIconoBancoComprobante6();
+        inicializarBotonesComprobante6();
+        inicializarCamposComprobante6();
+        inicializarBarraEstadoComprobante6();
+        inicializarComponentesComprobante6();
+    }
+
+    private void inicializarIconoBancoComprobante6() {
+        iconoBancoComprobante6 = new JLabel();
+        iconoBancoComprobante6.setBackground(new Color(0, 102, 153));
+        iconoBancoComprobante6.setFont(new Font("Segoe UI", 0, 36));
+        iconoBancoComprobante6.setForeground(new Color(255, 255, 255));
+        iconoBancoComprobante6.setHorizontalAlignment(SwingConstants.CENTER);
+        iconoBancoComprobante6.setText("MP");
+        iconoBancoComprobante6.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255)));
+        iconoBancoComprobante6.setOpaque(true);
+    }
+
+    private void inicializarBotonesComprobante6() {
+        inicializarBotonConfirmarComprobante6();
+        inicializarBotonArchivarComprobante6();
+    }
+
+    private void inicializarBotonConfirmarComprobante6() {
+        botonConfirmarComprobante6 = new JButton();
+        botonConfirmarComprobante6.setBackground(new Color(0, 51, 102));
+        botonConfirmarComprobante6.setFont(new Font("Segoe UI", 1, 20));
+        botonConfirmarComprobante6.setForeground(new Color(204, 204, 255));
+        botonConfirmarComprobante6.setText("CONFIRMAR");
+        botonConfirmarComprobante6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+            }
+        });
+    }
+
+    private void inicializarBotonArchivarComprobante6() {
+        botonArchivarComprobante6 = new JButton();
+        botonArchivarComprobante6.setBackground(new Color(0, 51, 102));
+        botonArchivarComprobante6.setFont(new Font("Segoe UI", 1, 20));
+        botonArchivarComprobante6.setForeground(new Color(204, 204, 255));
+        botonArchivarComprobante6.setText("ARCHIVAR");
+        botonArchivarComprobante6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonArchivarComprobante1ActionPerformed(evt);
+            }
+        });
+    }
+
+    private void inicializarCamposComprobante6() {
+        inicializarMontoComprobante6();
+        inicializarDatosComprobante6();
+    }
+
+    private void inicializarMontoComprobante6() {
+        montoCoprobante6 = new JLabel();
+        montoCoprobante6.setBackground(new Color(0, 102, 204));
+        montoCoprobante6.setFont(new Font("Segoe UI Black", 0, 48));
+        montoCoprobante6.setForeground(new Color(255, 255, 255));
+        montoCoprobante6.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoCoprobante6.setText("$3.315.151 ");
+        montoCoprobante6.setOpaque(true);
+    }
+
+    private void inicializarDatosComprobante6() {
+        datosComprobante6 = new JLabel();
+        datosComprobante6.setBackground(new Color(0, 102, 204));
+        datosComprobante6.setFont(new Font("Segoe UI", 1, 20));
+        datosComprobante6.setForeground(new Color(255, 255, 255));
+        datosComprobante6.setText("<html>Nombre: <br><br>Fecha: <br><br>Codigo de transferencia: </html>");
+        datosComprobante6.setVerticalAlignment(SwingConstants.TOP);
+        datosComprobante6.setOpaque(true);
+    }
+
+    private void inicializarBarraEstadoComprobante6() {
+        barraEstadoCoprobante6 = new JLabel();
+        barraEstadoCoprobante6.setBackground(new Color(0, 153, 51));
+        barraEstadoCoprobante6.setOpaque(true);
+    }
+
+    private void inicializarComponentesComprobante6() {
+        comprobante6 = new JPanel();
+        comprobante6.setBackground(new Color(0, 51, 153));
+        comprobante6.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255), 2));
+        comprobante6.setLayout(new AbsoluteLayout());
+        comprobante6.add(iconoBancoComprobante6, new AbsoluteConstraints(20, 10, 90, 80));
+        comprobante6.add(botonConfirmarComprobante6, new AbsoluteConstraints(130, 20, 160, 30));
+        comprobante6.add(botonArchivarComprobante6, new AbsoluteConstraints(130, 60, 160, 30));
+        comprobante6.add(montoCoprobante6, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante6.add(datosComprobante6, new AbsoluteConstraints(20, 190, 270, 170));
+        comprobante6.add(barraEstadoCoprobante6, new AbsoluteConstraints(20, 370, 270, 20));
+    }
+
+    private void inicializarComprobante7() {
+        inicializarIconoBancoComprobante7();
+        inicializarBotonesComprobante7();
+        inicializarCamposComprobante7();
+        inicializarBarraEstadoComprobante7();
+        inicializarComponentesComprobante7();
+    }
+
+    private void inicializarIconoBancoComprobante7() {
+        iconoBancoComprobante7 = new JLabel();
+        iconoBancoComprobante7.setBackground(new Color(0, 102, 153));
+        iconoBancoComprobante7.setFont(new Font("Segoe UI", 0, 36));
+        iconoBancoComprobante7.setForeground(new Color(255, 255, 255));
+        iconoBancoComprobante7.setHorizontalAlignment(SwingConstants.CENTER);
+        iconoBancoComprobante7.setText("MP");
+        iconoBancoComprobante7.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255)));
+        iconoBancoComprobante7.setOpaque(true);
+    }
+
+    private void inicializarBotonesComprobante7() {
+        inicializarBotonConfirmarComprobante7();
+        inicializarBotonArchivarComprobante7();
+    }
+
+    private void inicializarBotonConfirmarComprobante7() {
+        botonConfirmarComprobante7 = new JButton();
+        botonConfirmarComprobante7.setBackground(new Color(0, 51, 102));
+        botonConfirmarComprobante7.setFont(new Font("Segoe UI", 1, 20));
+        botonConfirmarComprobante7.setForeground(new Color(204, 204, 255));
+        botonConfirmarComprobante7.setText("CONFIRMAR");
+        botonConfirmarComprobante7.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+            }
+        });
+    }
+
+    private void inicializarBotonArchivarComprobante7() {
+        botonArchivarComprobante7 = new JButton();
+        botonArchivarComprobante7.setBackground(new Color(0, 51, 102));
+        botonArchivarComprobante7.setFont(new Font("Segoe UI", 1, 20));
+        botonArchivarComprobante7.setForeground(new Color(204, 204, 255));
+        botonArchivarComprobante7.setText("ARCHIVAR");
+        botonArchivarComprobante7.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonArchivarComprobante1ActionPerformed(evt);
+            }
+        });
+    }
+
+    private void inicializarCamposComprobante7() {
+        inicializarMontoComprobante7();
+        inicializarDatosComprobante7();
+    }
+
+    private void inicializarMontoComprobante7() {
+        montoCoprobante7 = new JLabel();
+        montoCoprobante7.setBackground(new Color(0, 102, 204));
+        montoCoprobante7.setFont(new Font("Segoe UI Black", 0, 48));
+        montoCoprobante7.setForeground(new Color(255, 255, 255));
+        montoCoprobante7.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoCoprobante7.setText("$3.315.151 ");
+        montoCoprobante7.setOpaque(true);
+    }
+
+    private void inicializarDatosComprobante7() {
+        datosComprobante7 = new JLabel();
+        datosComprobante7.setBackground(new Color(0, 102, 204));
+        datosComprobante7.setFont(new Font("Segoe UI", 1, 20));
+        datosComprobante7.setForeground(new Color(255, 255, 255));
+        datosComprobante7.setText("<html>Nombre: <br><br>Fecha: <br><br>Codigo de transferencia: </html>");
+        datosComprobante7.setVerticalAlignment(SwingConstants.TOP);
+        datosComprobante7.setOpaque(true);
+    }
+
+    private void inicializarBarraEstadoComprobante7() {
+        barraEstadoCoprobante7 = new JLabel();
+        barraEstadoCoprobante7.setBackground(new Color(0, 153, 51));
+        barraEstadoCoprobante7.setOpaque(true);
+    }
+
+    private void inicializarComponentesComprobante7() {
+        comprobante7 = new JPanel();
+        comprobante7.setBackground(new Color(0, 51, 153));
+        comprobante7.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255), 2));
+        comprobante7.setLayout(new AbsoluteLayout());
+        comprobante7.add(iconoBancoComprobante7, new AbsoluteConstraints(20, 10, 90, 80));
+        comprobante7.add(botonConfirmarComprobante7, new AbsoluteConstraints(130, 20, 160, 30));
+        comprobante7.add(botonArchivarComprobante7, new AbsoluteConstraints(130, 60, 160, 30));
+        comprobante7.add(montoCoprobante7, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante7.add(datosComprobante7, new AbsoluteConstraints(20, 190, 270, 170));
+        comprobante7.add(barraEstadoCoprobante7, new AbsoluteConstraints(20, 370, 270, 20));
+    }
+
+    private void inicializarComprobante8() {
+        inicializarIconoBancoComprobante8();
+        inicializarBotonesComprobante8();
+        inicializarCamposComprobante8();
+        inicializarBarraEstadoComprobante8();
+        inicializarComponentesComprobante8();
+    }
+
+    private void inicializarIconoBancoComprobante8() {
+        iconoBancoComprobante8 = new JLabel();
+        iconoBancoComprobante8.setBackground(new Color(0, 102, 153));
+        iconoBancoComprobante8.setFont(new Font("Segoe UI", 0, 36));
+        iconoBancoComprobante8.setForeground(new Color(255, 255, 255));
+        iconoBancoComprobante8.setHorizontalAlignment(SwingConstants.CENTER);
+        iconoBancoComprobante8.setText("MP");
+        iconoBancoComprobante8.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255)));
+        iconoBancoComprobante8.setOpaque(true);
+    }
+
+    private void inicializarBotonesComprobante8() {
+        inicializarBotonConfirmarComprobante8();
+        inicializarBotonArchivarComprobante8();
+    }
+
+    private void inicializarBotonConfirmarComprobante8() {
+        botonConfirmarComprobante8 = new JButton();
+        botonConfirmarComprobante8.setBackground(new Color(0, 51, 102));
+        botonConfirmarComprobante8.setFont(new Font("Segoe UI", 1, 20));
+        botonConfirmarComprobante8.setForeground(new Color(204, 204, 255));
+        botonConfirmarComprobante8.setText("CONFIRMAR");
+        botonConfirmarComprobante8.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+            }
+        });
+    }
+
+    private void inicializarBotonArchivarComprobante8() {
+        botonArchivarComprobante8 = new JButton();
+        botonArchivarComprobante8.setBackground(new Color(0, 51, 102));
+        botonArchivarComprobante8.setFont(new Font("Segoe UI", 1, 20));
+        botonArchivarComprobante8.setForeground(new Color(204, 204, 255));
+        botonArchivarComprobante8.setText("ARCHIVAR");
+        botonArchivarComprobante8.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                //botonArchivarComprobante1ActionPerformed(evt);
+            }
+        });
+    }
+
+    private void inicializarCamposComprobante8() {
+        inicializarMontoComprobante8();
+        inicializarDatosComprobante8();
+    }
+
+    private void inicializarMontoComprobante8() {
+        montoCoprobante8 = new JLabel();
+        montoCoprobante8.setBackground(new Color(0, 102, 204));
+        montoCoprobante8.setFont(new Font("Segoe UI Black", 0, 48));
+        montoCoprobante8.setForeground(new Color(255, 255, 255));
+        montoCoprobante8.setHorizontalAlignment(SwingConstants.RIGHT);
+        montoCoprobante8.setText("$3.315.151 ");
+        montoCoprobante8.setOpaque(true);
+    }
+
+    private void inicializarDatosComprobante8() {
+        datosComprobante8 = new JLabel();
+        datosComprobante8.setBackground(new Color(0, 102, 204));
+        datosComprobante8.setFont(new Font("Segoe UI", 1, 20));
+        datosComprobante8.setForeground(new Color(255, 255, 255));
+        datosComprobante8.setText("<html>Nombre: <br><br>Fecha: <br><br>Codigo de transferencia: </html>");
+        datosComprobante8.setVerticalAlignment(SwingConstants.TOP);
+        datosComprobante8.setOpaque(true);
+    }
+
+    private void inicializarBarraEstadoComprobante8() {
+        barraEstadoCoprobante8 = new JLabel();
+        barraEstadoCoprobante8.setBackground(new Color(0, 153, 51));
+        barraEstadoCoprobante8.setOpaque(true);
+    }
+
+    private void inicializarComponentesComprobante8() {
+        comprobante8 = new JPanel();
+        comprobante8.setBackground(new Color(0, 51, 153));
+        comprobante8.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255), 2));
+        comprobante8.setLayout(new AbsoluteLayout());
+        comprobante8.add(iconoBancoComprobante8, new AbsoluteConstraints(20, 10, 90, 80));
+        comprobante8.add(botonConfirmarComprobante8, new AbsoluteConstraints(130, 20, 160, 30));
+        comprobante8.add(botonArchivarComprobante8, new AbsoluteConstraints(130, 60, 160, 30));
+        comprobante8.add(montoCoprobante8, new AbsoluteConstraints(20, 100, 270, 80));
+        comprobante8.add(datosComprobante8, new AbsoluteConstraints(20, 190, 270, 170));
+        comprobante8.add(barraEstadoCoprobante8, new AbsoluteConstraints(20, 370, 270, 20));
+    }
+
+    private void inicializarComponentesPanelComprobantes() {
+        panelComprobantes = new JPanel();
+        panelComprobantes.setOpaque(false);
+        panelComprobantes.setLayout(new AbsoluteLayout());
+        panelComprobantes.add(comprobante1, new AbsoluteConstraints(50, 180, 310, 400));
+        panelComprobantes.add(comprobante2, new AbsoluteConstraints(410, 180, 310, 400));
+        panelComprobantes.add(comprobante3, new AbsoluteConstraints(770, 180, 310, 400));
+        panelComprobantes.add(comprobante4, new AbsoluteConstraints(1130, 180, 310, 400));
+        panelComprobantes.add(comprobante5, new AbsoluteConstraints(50, 640, 310, 400));
+        panelComprobantes.add(comprobante6, new AbsoluteConstraints(410, 640, 310, 400));
+        panelComprobantes.add(comprobante7, new AbsoluteConstraints(770, 640, 310, 400));
+        panelComprobantes.add(comprobante8, new AbsoluteConstraints(1130, 640, 310, 400));
     }
 
     ///INICIALIZACION PANEL LATERAL LOGUEO
@@ -202,7 +1021,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private void inicializarTextoContraseña() {
         textoContraseña = new JLabel();
         textoContraseña.setBackground(new Color(0, 51, 153));
-        textoContraseña.setFont(new Font("Segoe UI", 0, 24)); // NOI18N
+        textoContraseña.setFont(new Font("Segoe UI", 0, 24));
         textoContraseña.setForeground(new Color(204, 204, 255));
         textoContraseña.setHorizontalAlignment(SwingConstants.CENTER);
         textoContraseña.setText("Contraseña");
@@ -220,7 +1039,6 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         inicializarCartelLogueoUsuario();
         inicializarCartelUsuarioInvalido();
         inicializarCartelContraseñaInvalida();
-
         inicializarCartelUsuarioRegistrado();
         inicializarCartelFormatoUsuarioIncorrecto();
         inicializarCartelFormatoContraseñaIncorrecto();
@@ -463,7 +1281,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     private void inicializarBotonBilletera1() {
         botonBilletera1 = new JButton();
-        botonBilletera1.setBackground(new Color(0, 170, 228));
+        botonBilletera1.setBackground(new Color(1, 25, 127, 255));
         botonBilletera1.setFont(new Font("Segoe UI", 1, 24));
         botonBilletera1.setForeground(new Color(204, 204, 255));
         botonBilletera1.setText("");
@@ -492,7 +1310,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     private void inicializarBotonBilletera2() {
         botonBilletera2 = new JButton();
-        botonBilletera2.setBackground(new Color(0, 170, 228));
+        botonBilletera2.setBackground(new Color(1, 25, 127, 255));
         botonBilletera2.setFont(new Font("Segoe UI", 1, 24));
         botonBilletera2.setForeground(new Color(204, 204, 255));
         botonBilletera2.setText("");
@@ -521,7 +1339,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     private void inicializarBotonBilletera3() {
         botonBilletera3 = new JButton();
-        botonBilletera3.setBackground(new Color(0, 170, 228));
+        botonBilletera3.setBackground(new Color(1, 25, 127, 255));
         botonBilletera3.setFont(new Font("Segoe UI", 1, 24));
         botonBilletera3.setForeground(new Color(204, 204, 255));
         botonBilletera3.setText("");
@@ -550,7 +1368,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
     private void inicializarBotonBilletera4() {
         botonBilletera4 = new JButton();
-        botonBilletera4.setBackground(new Color(0, 170, 228));
+        botonBilletera4.setBackground(new Color(1, 25, 127, 255));
         botonBilletera4.setFont(new Font("Segoe UI", 1, 24));
         botonBilletera4.setForeground(new Color(204, 204, 255));
         botonBilletera4.setText("");
@@ -631,6 +1449,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
     private void inicializarPanelVentanaPrincipal() {
         panelVentanaPrincipal = new JLayeredPane();
         panelVentanaPrincipal.setLayout(new AbsoluteLayout());
+        panelVentanaPrincipal.add(panelComprobantes, new AbsoluteConstraints(320, 0, 1600, 1080));
         panelVentanaPrincipal.add(panelLateralLogueo, new AbsoluteConstraints(0, 0, 320, -1));
         panelVentanaPrincipal.add(panelLateralBilleteras, new AbsoluteConstraints(0, 0, -1, -1));
         panelVentanaPrincipal.add(panelFondo, new AbsoluteConstraints(0, 0, -1, -1));
@@ -681,36 +1500,41 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         agregarBilletaraVirtual();
     }
 
-    private void botonPanelLogueoActionPerformed(ActionEvent evt) { ///TEST
-        panelLateralLogueo.setVisible(true);
-        panelLateralBilleteras.setVisible(false);
+    private void botonBilletera1ActionPerformed(ActionEvent evt) {
+        ///TODO filtro para ver comprobantes de solo esa billetera
     }
 
-    private void botonPanelBilleterasActionPerformed(ActionEvent evt) { ///TEST
-        panelLateralLogueo.setVisible(false);
-        panelLateralBilleteras.setVisible(true);
-    }
-
-    private void botonBilletera1ActionPerformed(ActionEvent evt) {}
     private void botonEliminarBilletera1ActionPerformed(ActionEvent evt) {
         eliminarBilleteraVirtual(0);
         mostrarBilleterasExistentes();
     }
-    private void botonBilletera2ActionPerformed(ActionEvent evt) {}
+
+    private void botonBilletera2ActionPerformed(ActionEvent evt) {
+        ///TODO filtro para ver comprobantes de solo esa billetera
+    }
+
     private void botonEliminarBilletera2ActionPerformed(ActionEvent evt) {
         eliminarBilleteraVirtual(1);
         mostrarBilleterasExistentes();
     }
-    private void botonBilletera3ActionPerformed(ActionEvent evt) {}
+
+    private void botonBilletera3ActionPerformed(ActionEvent evt) {
+        ///TODO filtro para ver comprobantes de solo esa billetera
+    }
     private void botonEliminarBilletera3ActionPerformed(ActionEvent evt) {
         eliminarBilleteraVirtual(2);
         mostrarBilleterasExistentes();
     }
-    private void botonBilletera4ActionPerformed(ActionEvent evt) {}
+
+    private void botonBilletera4ActionPerformed(ActionEvent evt) {
+        ///TODO filtro para ver comprobantes de solo esa billetera
+    }
+
     private void botonEliminarBilletera4ActionPerformed(ActionEvent evt) {
         eliminarBilleteraVirtual(3);
         mostrarBilleterasExistentes();
     }
+
     private void registrarUsuario() {
 
         char[] contraseñaArray = campoContraseña.getPassword();
@@ -759,10 +1583,6 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
 
         usuarioLogueado = controladorLogueoUsuarios.loguearUsuario(campoUsuario.getText(), contraseña);
 
-        System.out.println(contraseña); //TEST
-        System.out.println(usuarioLogueado); //TEST
-        System.out.println(campoUsuario.getText()); //TEST
-
         if ( usuarioLogueado == null ) {
             cartelUsuarioInvalido.setVisible(true);
         }
@@ -799,11 +1619,10 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         ArrayList<BilleteraVirtual> billeteras = usuarioLogueado.getBilleterasVirtuales();
 
         int contadorBotones = billeteras.toArray().length;
-
+        contadorBotones++;
         if ( contadorBotones < 5 ) {
 
             ControladorBilleteraVirtual.agregarBilleteraVirtual(usuarioLogueado,Generador.generarBilleteraVirtual());
-            contadorBotones++;
 
             if (contadorBotones == 1) {
 
@@ -837,7 +1656,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         else {
             cartelLimiteDeBilleteras.setVisible(true);
         }
-        Timer temporizadorLogueado = new Timer(2000, new ActionListener() {
+        Timer temporizadorLogueado = new Timer(5000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cartelBilleteraAgregada.setVisible(false);
@@ -911,6 +1730,28 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla {
         botonEliminarBilletera3.setVisible(false);
         botonBilletera4.setVisible(false);
         botonEliminarBilletera4.setVisible(false);
+    }
+
+    private void mostrarComprobantes() {
+        comprobante1.setVisible(true);
+        comprobante2.setVisible(true);
+        comprobante3.setVisible(true);
+        comprobante4.setVisible(true);
+        comprobante5.setVisible(true);
+        comprobante6.setVisible(true);
+        comprobante7.setVisible(true);
+        comprobante8.setVisible(true);
+    }
+
+    private void ocultarComprobantes() {
+        comprobante1.setVisible(false);
+        comprobante2.setVisible(false);
+        comprobante3.setVisible(false);
+        comprobante4.setVisible(false);
+        comprobante5.setVisible(false);
+        comprobante6.setVisible(false);
+        comprobante7.setVisible(false);
+        comprobante8.setVisible(false);
     }
 
 }
