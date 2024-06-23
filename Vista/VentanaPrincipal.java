@@ -170,7 +170,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         inicializarPanelLateralBilleteras();
         inicializarPanelVentanaPrincipal();
         inicializarFrameVentanaPrincipal();
-        inicializarTesteos();
+        //inicializarTesteos();
     }
 
     ///TEST
@@ -2129,6 +2129,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         codigoTransferencia = comprobante.getCodigoDeTransferencia();
         dato = "<html>Nombre: <br>" + nombre + "<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
         datosComprobante1.setText(dato);
+        if( comprobante.getEstadoDeTransferencia().equals("Enviado" )) barraEstadoComprobante1.setBackground(new Color(0, 153, 51));
+        else if ( comprobante.getEstadoDeTransferencia().equals("Pendiente") ) barraEstadoComprobante1.setBackground(new Color(255,215 ,000));
+        else if( comprobante.getEstadoDeTransferencia().equals("Rechazado") ) barraEstadoComprobante1.setBackground(new Color(139,000,000));
     }
 
     private void setearComprobante2(Comprobante comprobante) {
@@ -2151,6 +2154,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         codigoTransferencia = comprobante.getCodigoDeTransferencia();
         dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
         datosComprobante2.setText(dato);
+        if( comprobante.getEstadoDeTransferencia().equals("Enviado" )) barraEstadoComprobante2.setBackground(new Color(0, 153, 51));
+        else if ( comprobante.getEstadoDeTransferencia().equals("Pendiente") ) barraEstadoComprobante2.setBackground(new Color(255,215 ,000));
+        else if( comprobante.getEstadoDeTransferencia().equals("Rechazado") ) barraEstadoComprobante2.setBackground(new Color(139,000,000));
     }
 
     private void setearComprobante3(Comprobante comprobante) {
@@ -2173,6 +2179,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         codigoTransferencia = comprobante.getCodigoDeTransferencia();
         dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
         datosComprobante3.setText(dato);
+        if( comprobante.getEstadoDeTransferencia().equals("Enviado" )) barraEstadoComprobante3.setBackground(new Color(0, 153, 51));
+        else if ( comprobante.getEstadoDeTransferencia().equals("Pendiente") ) barraEstadoComprobante3.setBackground(new Color(255,215 ,000));
+        else if( comprobante.getEstadoDeTransferencia().equals("Rechazado") ) barraEstadoComprobante3.setBackground(new Color(139,000,000));
     }
 
     private void setearComprobante4(Comprobante comprobante) {
@@ -2195,6 +2204,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         codigoTransferencia = comprobante.getCodigoDeTransferencia();
         dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
         datosComprobante4.setText(dato);
+        if( comprobante.getEstadoDeTransferencia().equals("Enviado" )) barraEstadoComprobante4.setBackground(new Color(0, 153, 51));
+        else if ( comprobante.getEstadoDeTransferencia().equals("Pendiente") ) barraEstadoComprobante4.setBackground(new Color(255,215 ,000));
+        else if( comprobante.getEstadoDeTransferencia().equals("Rechazado") ) barraEstadoComprobante4.setBackground(new Color(139,000,000));
     }
 
     private void setearComprobante5(Comprobante comprobante) {
@@ -2217,6 +2229,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         codigoTransferencia = comprobante.getCodigoDeTransferencia();
         dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
         datosComprobante5.setText(dato);
+        if( comprobante.getEstadoDeTransferencia().equals("Enviado" )) barraEstadoComprobante5.setBackground(new Color(0, 153, 51));
+        else if ( comprobante.getEstadoDeTransferencia().equals("Pendiente") ) barraEstadoComprobante5.setBackground(new Color(255,215 ,000));
+        else if( comprobante.getEstadoDeTransferencia().equals("Rechazado") ) barraEstadoComprobante5.setBackground(new Color(139,000,000));
     }
 
     private void setearComprobante6(Comprobante comprobante) {
@@ -2239,6 +2254,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         codigoTransferencia = comprobante.getCodigoDeTransferencia();
         dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
         datosComprobante6.setText(dato);
+        if( comprobante.getEstadoDeTransferencia().equals("Enviado" )) barraEstadoComprobante6.setBackground(new Color(0, 153, 51));
+        else if ( comprobante.getEstadoDeTransferencia().equals("Pendiente") ) barraEstadoComprobante6.setBackground(new Color(255,215 ,000));
+        else if( comprobante.getEstadoDeTransferencia().equals("Rechazado") ) barraEstadoComprobante6.setBackground(new Color(139,000,000));
     }
 
     private void setearComprobante7(Comprobante comprobante) {
@@ -2261,6 +2279,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         codigoTransferencia = comprobante.getCodigoDeTransferencia();
         dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
         datosComprobante7.setText(dato);
+        if( comprobante.getEstadoDeTransferencia().equals("Enviado" )) barraEstadoComprobante7.setBackground(new Color(0, 153, 51));
+        else if ( comprobante.getEstadoDeTransferencia().equals("Pendiente") ) barraEstadoComprobante7.setBackground(new Color(255,215 ,000));
+        else if( comprobante.getEstadoDeTransferencia().equals("Rechazado") ) barraEstadoComprobante7.setBackground(new Color(139,000,000));
     }
 
     private void setearComprobante8(Comprobante comprobante) {
@@ -2283,6 +2304,9 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         codigoTransferencia = comprobante.getCodigoDeTransferencia();
         dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
         datosComprobante8.setText(dato);
+        if( comprobante.getEstadoDeTransferencia().equals("Enviado" )) barraEstadoComprobante8.setBackground(new Color(0, 153, 51));
+        else if ( comprobante.getEstadoDeTransferencia().equals("Pendiente") ) barraEstadoComprobante8.setBackground(new Color(255,215 ,000));
+        else if( comprobante.getEstadoDeTransferencia().equals("Rechazado") ) barraEstadoComprobante8.setBackground(new Color(139,000,000));
     }
 
     private String convertirDoubleAMonto(double monto) {
