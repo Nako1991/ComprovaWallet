@@ -21,7 +21,7 @@ public class Comprobante {
         this.bancoOrigen = Generador.generarBanco();
         this.bancoDestino = Generador.generarBanco();
         this.estadoDeTransferencia = Generador.generarEstadoDeTransferencia();
-        this.estadoDeComprobante = Generador.generarEstadoDeComprobante();
+        this.estadoDeComprobante = "Recibido";
     }
 
     public Comprobante(Banco bancoOrigen) {
