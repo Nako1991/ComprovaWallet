@@ -334,7 +334,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonConfirmarComprobante2.setText("CONFIRMAR");
         botonConfirmarComprobante2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                botonConfirmarComprobante1ActionPerformed(evt);
+                botonConfirmarComprobante2ActionPerformed(evt);
             }
         });
     }
@@ -347,7 +347,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonArchivarComprobante2.setText("ARCHIVAR");
         botonArchivarComprobante2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                botonArchivarComprobante1ActionPerformed(evt);
+                botonArchivarComprobante2ActionPerformed(evt);
             }
         });
     }
@@ -427,7 +427,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonConfirmarComprobante3.setText("CONFIRMAR");
         botonConfirmarComprobante3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+                botonConfirmarComprobante3ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
             }
         });
     }
@@ -440,7 +440,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonArchivarComprobante3.setText("ARCHIVAR");
         botonArchivarComprobante3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                botonArchivarComprobante1ActionPerformed(evt);
+                botonArchivarComprobante3ActionPerformed(evt);
             }
         });
     }
@@ -521,7 +521,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonConfirmarComprobante4.setText("CONFIRMAR");
         botonConfirmarComprobante4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+                botonConfirmarComprobante4ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
             }
         });
     }
@@ -534,7 +534,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonArchivarComprobante4.setText("ARCHIVAR");
         botonArchivarComprobante4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                botonArchivarComprobante1ActionPerformed(evt);
+                botonArchivarComprobante4ActionPerformed(evt);
             }
         });
     }
@@ -615,7 +615,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonConfirmarComprobante5.setText("CONFIRMAR");
         botonConfirmarComprobante5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+                botonConfirmarComprobante5ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
             }
         });
     }
@@ -628,7 +628,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonArchivarComprobante5.setText("ARCHIVAR");
         botonArchivarComprobante5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                botonArchivarComprobante1ActionPerformed(evt);
+                botonArchivarComprobante5ActionPerformed(evt);
             }
         });
     }
@@ -709,7 +709,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonConfirmarComprobante6.setText("CONFIRMAR");
         botonConfirmarComprobante6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+                botonConfirmarComprobante6ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
             }
         });
     }
@@ -722,7 +722,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonArchivarComprobante6.setText("ARCHIVAR");
         botonArchivarComprobante6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                botonArchivarComprobante1ActionPerformed(evt);
+                botonArchivarComprobante6ActionPerformed(evt);
             }
         });
     }
@@ -803,7 +803,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonConfirmarComprobante7.setText("CONFIRMAR");
         botonConfirmarComprobante7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+                botonConfirmarComprobante7ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
             }
         });
     }
@@ -816,7 +816,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonArchivarComprobante7.setText("ARCHIVAR");
         botonArchivarComprobante7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                botonArchivarComprobante1ActionPerformed(evt);
+                botonArchivarComprobante7ActionPerformed(evt);
             }
         });
     }
@@ -897,7 +897,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonConfirmarComprobante8.setText("CONFIRMAR");
         botonConfirmarComprobante8.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+                botonConfirmarComprobante8ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
             }
         });
     }
@@ -910,7 +910,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonArchivarComprobante8.setText("ARCHIVAR");
         botonArchivarComprobante8.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                botonArchivarComprobante1ActionPerformed(evt);
+                botonArchivarComprobante8ActionPerformed(evt);
             }
         });
     }
