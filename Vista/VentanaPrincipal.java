@@ -24,7 +24,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class VentanaPrincipal extends JFrame implements DimensionPantalla, MessageListener {
 
@@ -84,6 +83,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
     private JButton botonFiltrarArchivados;
 
     private JPanel comprobante1;
+    private String codigoDeTransferencia1;
     private JLabel iconoBancoComprobante1;
     private JButton botonConfirmarComprobante1;
     private JButton botonArchivarComprobante1;
@@ -92,6 +92,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
     private JLabel barraEstadoComprobante1;
 
     private JPanel comprobante2;
+    private String codigoDeTransferencia2;
     private JLabel iconoBancoComprobante2;
     private JButton botonConfirmarComprobante2;
     private JButton botonArchivarComprobante2;
@@ -100,6 +101,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
     private JLabel barraEstadoComprobante2;
 
     private JPanel comprobante3;
+    private String codigoDeTransferencia3;
     private JLabel iconoBancoComprobante3;
     private JButton botonConfirmarComprobante3;
     private JButton botonArchivarComprobante3;
@@ -108,6 +110,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
     private JLabel barraEstadoComprobante3;
 
     private JPanel comprobante4;
+    private String codigoDeTransferencia4;
     private JLabel iconoBancoComprobante4;
     private JButton botonConfirmarComprobante4;
     private JButton botonArchivarComprobante4;
@@ -116,6 +119,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
     private JLabel barraEstadoComprobante4;
 
     private JPanel comprobante5;
+    private String codigoDeTransferencia5;
     private JLabel iconoBancoComprobante5;
     private JButton botonConfirmarComprobante5;
     private JButton botonArchivarComprobante5;
@@ -124,6 +128,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
     private JLabel barraEstadoComprobante5;
 
     private JPanel comprobante6;
+    private String codigoDeTransferencia6;
     private JLabel iconoBancoComprobante6;
     private JButton botonConfirmarComprobante6;
     private JButton botonArchivarComprobante6;
@@ -132,6 +137,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
     private JLabel barraEstadoComprobante6;
 
     private JPanel comprobante7;
+    private String codigoDeTransferencia7;
     private JLabel iconoBancoComprobante7;
     private JButton botonConfirmarComprobante7;
     private JButton botonArchivarComprobante7;
@@ -140,6 +146,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
     private JLabel barraEstadoComprobante7;
 
     private JPanel comprobante8;
+    private String codigoDeTransferencia8;
     private JLabel iconoBancoComprobante8;
     private JButton botonConfirmarComprobante8;
     private JButton botonArchivarComprobante8;
@@ -327,7 +334,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonConfirmarComprobante2.setText("CONFIRMAR");
         botonConfirmarComprobante2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonConfirmarComprobante1ActionPerformed(evt);
+                botonConfirmarComprobante1ActionPerformed(evt);
             }
         });
     }
@@ -340,7 +347,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonArchivarComprobante2.setText("ARCHIVAR");
         botonArchivarComprobante2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonArchivarComprobante1ActionPerformed(evt);
+                botonArchivarComprobante1ActionPerformed(evt);
             }
         });
     }
@@ -420,7 +427,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonConfirmarComprobante3.setText("CONFIRMAR");
         botonConfirmarComprobante3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+                botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
             }
         });
     }
@@ -433,7 +440,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonArchivarComprobante3.setText("ARCHIVAR");
         botonArchivarComprobante3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonArchivarComprobante1ActionPerformed(evt);
+                botonArchivarComprobante1ActionPerformed(evt);
             }
         });
     }
@@ -514,7 +521,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonConfirmarComprobante4.setText("CONFIRMAR");
         botonConfirmarComprobante4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+                botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
             }
         });
     }
@@ -527,7 +534,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonArchivarComprobante4.setText("ARCHIVAR");
         botonArchivarComprobante4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonArchivarComprobante1ActionPerformed(evt);
+                botonArchivarComprobante1ActionPerformed(evt);
             }
         });
     }
@@ -608,7 +615,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonConfirmarComprobante5.setText("CONFIRMAR");
         botonConfirmarComprobante5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+                botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
             }
         });
     }
@@ -621,7 +628,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonArchivarComprobante5.setText("ARCHIVAR");
         botonArchivarComprobante5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonArchivarComprobante1ActionPerformed(evt);
+                botonArchivarComprobante1ActionPerformed(evt);
             }
         });
     }
@@ -702,7 +709,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonConfirmarComprobante6.setText("CONFIRMAR");
         botonConfirmarComprobante6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+                botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
             }
         });
     }
@@ -715,7 +722,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonArchivarComprobante6.setText("ARCHIVAR");
         botonArchivarComprobante6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonArchivarComprobante1ActionPerformed(evt);
+                botonArchivarComprobante1ActionPerformed(evt);
             }
         });
     }
@@ -796,7 +803,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonConfirmarComprobante7.setText("CONFIRMAR");
         botonConfirmarComprobante7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+                botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
             }
         });
     }
@@ -809,7 +816,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonArchivarComprobante7.setText("ARCHIVAR");
         botonArchivarComprobante7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonArchivarComprobante1ActionPerformed(evt);
+                botonArchivarComprobante1ActionPerformed(evt);
             }
         });
     }
@@ -890,7 +897,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonConfirmarComprobante8.setText("CONFIRMAR");
         botonConfirmarComprobante8.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
+                botonConfirmarComprobante1ActionPerformed(evt); //TODO implementacion boton confirmar comprobante 1
             }
         });
     }
@@ -903,7 +910,7 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         botonArchivarComprobante8.setText("ARCHIVAR");
         botonArchivarComprobante8.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //botonArchivarComprobante1ActionPerformed(evt);
+                botonArchivarComprobante1ActionPerformed(evt);
             }
         });
     }
@@ -1634,11 +1641,99 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
     }
 
     private void botonConfirmarComprobante1ActionPerformed(ActionEvent evt) {
-
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Confirmado", codigoDeTransferencia1);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
     }
 
     private void botonArchivarComprobante1ActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Archivado", codigoDeTransferencia1);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+    }
 
+    private void botonConfirmarComprobante2ActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Confirmado", codigoDeTransferencia2);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+    }
+
+    private void botonArchivarComprobante2ActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Archivado", codigoDeTransferencia2);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+    }
+
+    private void botonConfirmarComprobante3ActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Confirmado", codigoDeTransferencia3);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+    }
+
+    private void botonArchivarComprobante3ActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Archivado", codigoDeTransferencia3);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+    }
+
+    private void botonConfirmarComprobante4ActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Confirmado", codigoDeTransferencia4);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+    }
+
+    private void botonArchivarComprobante4ActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Archivado", codigoDeTransferencia4);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+    }
+
+    private void botonConfirmarComprobante5ActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Confirmado", codigoDeTransferencia5);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+    }
+
+    private void botonArchivarComprobante5ActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Archivado", codigoDeTransferencia5);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+    }
+
+    private void botonConfirmarComprobante6ActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Confirmado", codigoDeTransferencia6);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+    }
+
+    private void botonArchivarComprobante6ActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Archivado", codigoDeTransferencia6);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+    }
+
+    private void botonConfirmarComprobante7ActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Confirmado", codigoDeTransferencia7);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+    }
+
+    private void botonArchivarComprobante7ActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Archivado", codigoDeTransferencia7);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+    }
+
+    private void botonConfirmarComprobante8ActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Confirmado", codigoDeTransferencia8);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+    }
+
+    private void botonArchivarComprobante8ActionPerformed(ActionEvent evt) {
+        ControladorComprobantes.modificarEstadoDeComprobante(usuarioLogueado, "Archivado", codigoDeTransferencia8);
+        completarCamposComprobantesUsuarioLogueado(usuarioLogueado, filtro);
+        mostrarComprobantesUsuarioLogueado(usuarioLogueado, filtro);
     }
 
     ///METODOS PANEL LOGUEO
@@ -1864,339 +1959,15 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
         return comprobantesFiltrados;
     }
 
-    private void completarCamposComprobantesUsuarioLogueado(Usuario usuarioLogueado, String filtro) {
-        ArrayList<Comprobante> comprobantesCompleto = filtrarComprobantes(filtro);
-        ArrayList<Comprobante> comprobantes = new ArrayList<>(8);
-
-        for (int i = 0; i < 8; i++) {
-            if ( i < comprobantesCompleto.size() ) {
-                comprobantes.add(comprobantesCompleto.get(i));
-            }
-        }
-
-        switch ( comprobantes.size() ) {
-            case 0:
-                break;
-            case 1:
-                setearComprobante1();
-                break;
-            case 2:
-                setearComprobante1();
-                setearComprobante2();
-                break;
-            case 3:
-                setearComprobante1();
-                setearComprobante2();
-                setearComprobante3();
-                break;
-            case 4:
-                setearComprobante1();
-                setearComprobante2();
-                setearComprobante3();
-                setearComprobante4();
-                break;
-            case 5:
-                setearComprobante1();
-                setearComprobante2();
-                setearComprobante3();
-                setearComprobante4();
-                setearComprobante5();
-                break;
-            case 6:
-                setearComprobante1();
-                setearComprobante2();
-                setearComprobante3();
-                setearComprobante4();
-                setearComprobante5();
-                setearComprobante6();
-                break;
-            case 7:
-                setearComprobante1();
-                setearComprobante2();
-                setearComprobante3();
-                setearComprobante4();
-                setearComprobante5();
-                setearComprobante6();
-                break;
-            case 8:
-                setearComprobante1();
-                setearComprobante2();
-                setearComprobante3();
-                setearComprobante4();
-                setearComprobante5();
-                setearComprobante6();
-                setearComprobante7();
-                setearComprobante8();
-                break;
-            default:
-                setearComprobante1();
-                setearComprobante2();
-                setearComprobante3();
-                setearComprobante4();
-                setearComprobante5();
-                setearComprobante6();
-                setearComprobante7();
-                setearComprobante8();
-                break;
-        }
-
-    }
-
-    private void setearComprobante1() {
-
-        ArrayList<Comprobante> comprobantesCompleto = usuarioLogueado.getComprobantes();
-        comprobantesCompleto = filtrarComprobantes(filtro);
-
-        ArrayList<Comprobante> comprobantes = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            if ( i < comprobantesCompleto.size() ) {
-                comprobantes.add(comprobantesCompleto.get(i));
-            }
-        }
-
-        String nombreBancoComprobante;
-        Double monto;
-        String montoString;
-        String nombre;
-        String fecha;
-        String codigoTransferencia;
-        String dato;
-
-        nombreBancoComprobante = comprobantes.get(0).getBancoOrigen().getNombreBanco();
-        iconoBancoComprobante1.setText(nombreBancoComprobante);
-        monto = comprobantes.get(0).getMonto();
-        montoString = convertirDoubleAMonto(monto);
-        montoComprobante1.setText(montoString);
-        nombre = comprobantes.get(0).getBancoOrigen().getNombreBanco();
-        fecha = comprobantes.get(0).getFecha();
-        codigoTransferencia = comprobantes.get(0).getCodigoTransferencia();
-        dato = "<html>Nombre: <br>" + nombre + "<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
-        datosComprobante1.setText(dato);
-    }
-
-    private void setearComprobante2() {
-        ArrayList<Comprobante> comprobantesCompleto = usuarioLogueado.getComprobantes();
-        ArrayList<Comprobante> comprobantes = new ArrayList<>(8);
-
-        for (int i = 0; i < 8; i++) {
-            if ( i < comprobantesCompleto.size() ) {
-                comprobantes.add(comprobantesCompleto.get(i));
-            }
-        }
-
-        String nombreBancoComprobante;
-        Double monto;
-        String montoString;
-        String nombre;
-        String fecha;
-        String codigoTransferencia;
-        String dato;
-
-        nombreBancoComprobante = comprobantes.get(1).getBancoOrigen().getNombreBanco();
-        iconoBancoComprobante2.setText(nombreBancoComprobante);
-        monto = comprobantes.get(1).getMonto();
-        montoString = convertirDoubleAMonto(monto);
-        montoComprobante2.setText(montoString);
-        nombre = comprobantes.get(1).getBancoOrigen().getNombreBanco();
-        fecha = comprobantes.get(1).getFecha();
-        codigoTransferencia = comprobantes.get(1).getCodigoTransferencia();
-        dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
-        datosComprobante2.setText(dato);
-    }
-
-    private void setearComprobante3() {
-        ArrayList<Comprobante> comprobantesCompleto = usuarioLogueado.getComprobantes();
-        ArrayList<Comprobante> comprobantes = new ArrayList<>(8);
-
-        for (int i = 0; i < 8; i++) {
-            if ( i < comprobantesCompleto.size() ) {
-                comprobantes.add(comprobantesCompleto.get(i));
-            }
-        }
-
-        String nombreBancoComprobante;
-        Double monto;
-        String montoString;
-        String nombre;
-        String fecha;
-        String codigoTransferencia;
-        String dato;
-
-        nombreBancoComprobante = comprobantes.get(2).getBancoOrigen().getNombreBanco();
-        iconoBancoComprobante3.setText(nombreBancoComprobante);
-        monto = comprobantes.get(2).getMonto();
-        montoString = convertirDoubleAMonto(monto);
-        montoComprobante3.setText(montoString);
-        nombre = comprobantes.get(2).getBancoOrigen().getNombreBanco();
-        fecha = comprobantes.get(2).getFecha();
-        codigoTransferencia = comprobantes.get(2).getCodigoTransferencia();
-        dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
-        datosComprobante3.setText(dato);
-    }
-
-    private void setearComprobante4() {
-        ArrayList<Comprobante> comprobantesCompleto = usuarioLogueado.getComprobantes();
-        ArrayList<Comprobante> comprobantes = new ArrayList<>(8);
-
-        for (int i = 0; i < 8; i++) {
-            if ( i < comprobantesCompleto.size() ) {
-                comprobantes.add(comprobantesCompleto.get(i));
-            }
-        }
-
-        String nombreBancoComprobante;
-        Double monto;
-        String montoString;
-        String nombre;
-        String fecha;
-        String codigoTransferencia;
-        String dato;
-
-        nombreBancoComprobante = comprobantes.get(3).getBancoOrigen().getNombreBanco();
-        iconoBancoComprobante4.setText(nombreBancoComprobante);
-        monto = comprobantes.get(3).getMonto();
-        montoString = convertirDoubleAMonto(monto);
-        montoComprobante4.setText(montoString);
-        nombre = comprobantes.get(3).getBancoOrigen().getNombreBanco();
-        fecha = comprobantes.get(3).getFecha();
-        codigoTransferencia = comprobantes.get(3).getCodigoTransferencia();
-        dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
-        datosComprobante4.setText(dato);
-    }
-
-    private void setearComprobante5() {
-        ArrayList<Comprobante> comprobantesCompleto = usuarioLogueado.getComprobantes();
-        ArrayList<Comprobante> comprobantes = new ArrayList<>(8);
-
-        for (int i = 0; i < 8; i++) {
-            if ( i < comprobantesCompleto.size() ) {
-                comprobantes.add(comprobantesCompleto.get(i));
-            }
-        }
-
-        String nombreBancoComprobante;
-        Double monto;
-        String montoString;
-        String nombre;
-        String fecha;
-        String codigoTransferencia;
-        String dato;
-
-        nombreBancoComprobante = comprobantes.get(4).getBancoOrigen().getNombreBanco();
-        iconoBancoComprobante5.setText(nombreBancoComprobante);
-        monto = comprobantes.get(4).getMonto();
-        montoString = convertirDoubleAMonto(monto);
-        montoComprobante5.setText(montoString);
-        nombre = comprobantes.get(4).getBancoOrigen().getNombreBanco();
-        fecha = comprobantes.get(4).getFecha();
-        codigoTransferencia = comprobantes.get(4).getCodigoTransferencia();
-        dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
-        datosComprobante5.setText(dato);
-    }
-
-    private void setearComprobante6() {
-        ArrayList<Comprobante> comprobantesCompleto = usuarioLogueado.getComprobantes();
-        ArrayList<Comprobante> comprobantes = new ArrayList<>(8);
-
-        for (int i = 0; i < 8; i++) {
-            if ( i < comprobantesCompleto.size() ) {
-                comprobantes.add(comprobantesCompleto.get(i));
-            }
-        }
-
-        String nombreBancoComprobante;
-        Double monto;
-        String montoString;
-        String nombre;
-        String fecha;
-        String codigoTransferencia;
-        String dato;
-
-        nombreBancoComprobante = comprobantes.get(5).getBancoOrigen().getNombreBanco();
-        iconoBancoComprobante6.setText(nombreBancoComprobante);
-        monto = comprobantes.get(5).getMonto();
-        montoString = convertirDoubleAMonto(monto);
-        montoComprobante6.setText(montoString);
-        nombre = comprobantes.get(5).getBancoOrigen().getNombreBanco();
-        fecha = comprobantes.get(5).getFecha();
-        codigoTransferencia = comprobantes.get(5).getCodigoTransferencia();
-        dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
-        datosComprobante6.setText(dato);
-    }
-
-    private void setearComprobante7() {
-        ArrayList<Comprobante> comprobantesCompleto = usuarioLogueado.getComprobantes();
-        ArrayList<Comprobante> comprobantes = new ArrayList<>(8);
-
-        for (int i = 0; i < 8; i++) {
-            if ( i < comprobantesCompleto.size() ) {
-                comprobantes.add(comprobantesCompleto.get(i));
-            }
-        }
-
-        String nombreBancoComprobante;
-        Double monto;
-        String montoString;
-        String nombre;
-        String fecha;
-        String codigoTransferencia;
-        String dato;
-
-        nombreBancoComprobante = comprobantes.get(6).getBancoOrigen().getNombreBanco();
-        iconoBancoComprobante7.setText(nombreBancoComprobante);
-        monto = comprobantes.get(6).getMonto();
-        montoString = convertirDoubleAMonto(monto);
-        montoComprobante7.setText(montoString);
-        nombre = comprobantes.get(6).getBancoOrigen().getNombreBanco();
-        fecha = comprobantes.get(6).getFecha();
-        codigoTransferencia = comprobantes.get(6).getCodigoTransferencia();
-        dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
-        datosComprobante7.setText(dato);
-    }
-
-    private void setearComprobante8() {
-        ArrayList<Comprobante> comprobantesCompleto = usuarioLogueado.getComprobantes();
-        ArrayList<Comprobante> comprobantes = new ArrayList<>(8);
-
-        for (int i = 0; i < 8; i++) {
-            if ( i < comprobantesCompleto.size() ) {
-                comprobantes.add(comprobantesCompleto.get(i));
-            }
-        }
-
-        String nombreBancoComprobante;
-        Double monto;
-        String montoString;
-        String nombre;
-        String fecha;
-        String codigoTransferencia;
-        String dato;
-
-        nombreBancoComprobante = comprobantes.get(7).getBancoOrigen().getNombreBanco();
-        iconoBancoComprobante8.setText(nombreBancoComprobante);
-        monto = comprobantes.get(7).getMonto();
-        montoString = convertirDoubleAMonto(monto);
-        montoComprobante8.setText(montoString);
-        nombre = comprobantes.get(7).getBancoOrigen().getNombreBanco();
-        fecha = comprobantes.get(7).getFecha();
-        codigoTransferencia = comprobantes.get(7).getCodigoTransferencia();
-        dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
-        datosComprobante8.setText(dato);
-    }
-
-    private String convertirDoubleAMonto(double monto) {
-        String montoString = String.format("%.2f", monto);
-        return "$" + montoString + " ";
-    }
-
     private void mostrarComprobantesUsuarioLogueado(Usuario usuarioLogueado, String filtro){
-        ArrayList<Comprobante> comprobantes = filtrarComprobantes(filtro);
+        ArrayList<Comprobante> comprobantesFiltrados = filtrarComprobantes(filtro);
 
         ocultarComprobantes();
 
-        if(comprobantes != null && !(comprobantes.isEmpty())) {
+        if( !comprobantesFiltrados.isEmpty() ) {
 
-            int numComprobantes = comprobantes.size();
+            int numComprobantes = comprobantesFiltrados.size();
+
             switch ( numComprobantes ) {
                 case 0:
                     break;
@@ -2264,6 +2035,292 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
                     break;
             }
         }
+    }
+
+    private void completarCamposComprobantesUsuarioLogueado(Usuario usuarioLogueado, String filtro) {
+        ArrayList<Comprobante> comprobantesFiltrados = filtrarComprobantes(filtro);
+
+        switch ( comprobantesFiltrados.size() ) {
+            case 0:
+                break;
+            case 1:
+                setearComprobante1(comprobantesFiltrados.get(0));
+                break;
+            case 2:
+                setearComprobante1(comprobantesFiltrados.get(0));
+                setearComprobante2(comprobantesFiltrados.get(1));
+                break;
+            case 3:
+                setearComprobante1(comprobantesFiltrados.get(0));
+                setearComprobante2(comprobantesFiltrados.get(1));
+                setearComprobante3(comprobantesFiltrados.get(2));
+                break;
+            case 4:
+                setearComprobante1(comprobantesFiltrados.get(0));
+                setearComprobante2(comprobantesFiltrados.get(1));
+                setearComprobante3(comprobantesFiltrados.get(2));
+                setearComprobante4(comprobantesFiltrados.get(3));
+                break;
+            case 5:
+                setearComprobante1(comprobantesFiltrados.get(0));
+                setearComprobante2(comprobantesFiltrados.get(1));
+                setearComprobante3(comprobantesFiltrados.get(2));
+                setearComprobante4(comprobantesFiltrados.get(3));
+                setearComprobante5(comprobantesFiltrados.get(4));
+                break;
+            case 6:
+                setearComprobante1(comprobantesFiltrados.get(0));
+                setearComprobante2(comprobantesFiltrados.get(1));
+                setearComprobante3(comprobantesFiltrados.get(2));
+                setearComprobante4(comprobantesFiltrados.get(3));
+                setearComprobante5(comprobantesFiltrados.get(4));
+                setearComprobante6(comprobantesFiltrados.get(5));
+                break;
+            case 7:
+                setearComprobante1(comprobantesFiltrados.get(0));
+                setearComprobante2(comprobantesFiltrados.get(1));
+                setearComprobante3(comprobantesFiltrados.get(2));
+                setearComprobante4(comprobantesFiltrados.get(3));
+                setearComprobante5(comprobantesFiltrados.get(4));
+                setearComprobante6(comprobantesFiltrados.get(5));
+                setearComprobante7(comprobantesFiltrados.get(6));
+                break;
+            case 8:
+                setearComprobante1(comprobantesFiltrados.get(0));
+                setearComprobante2(comprobantesFiltrados.get(1));
+                setearComprobante3(comprobantesFiltrados.get(2));
+                setearComprobante4(comprobantesFiltrados.get(3));
+                setearComprobante5(comprobantesFiltrados.get(4));
+                setearComprobante6(comprobantesFiltrados.get(5));
+                setearComprobante7(comprobantesFiltrados.get(6));
+                setearComprobante8(comprobantesFiltrados.get(7));
+                break;
+            default:
+                setearComprobante1(comprobantesFiltrados.get(0));
+                setearComprobante2(comprobantesFiltrados.get(1));
+                setearComprobante3(comprobantesFiltrados.get(2));
+                setearComprobante4(comprobantesFiltrados.get(3));
+                setearComprobante5(comprobantesFiltrados.get(4));
+                setearComprobante6(comprobantesFiltrados.get(5));
+                setearComprobante7(comprobantesFiltrados.get(6));
+                setearComprobante8(comprobantesFiltrados.get(7));
+                break;
+        }
+
+    }
+
+    private void setearComprobante1(Comprobante comprobante) {
+        String nombreBancoComprobante;
+        Double monto;
+        String montoString;
+        String nombre;
+        String fecha;
+        String codigoTransferencia;
+        String dato;
+
+        codigoDeTransferencia1 = comprobante.getCodigoDeTransferencia();
+        nombreBancoComprobante = comprobante.getBancoOrigen().getNombreBanco();
+        iconoBancoComprobante1.setText(convertirNombreBancoAIcono(nombreBancoComprobante));
+        monto = comprobante.getMonto();
+        montoString = convertirDoubleAMonto(monto);
+        montoComprobante1.setText(montoString);
+        nombre = comprobante.getBancoOrigen().getNombreBanco();
+        fecha = comprobante.getFecha();
+        codigoTransferencia = comprobante.getCodigoDeTransferencia();
+        dato = "<html>Nombre: <br>" + nombre + "<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
+        datosComprobante1.setText(dato);
+    }
+
+    private void setearComprobante2(Comprobante comprobante) {
+        String nombreBancoComprobante;
+        Double monto;
+        String montoString;
+        String nombre;
+        String fecha;
+        String codigoTransferencia;
+        String dato;
+
+        codigoDeTransferencia2 = comprobante.getCodigoDeTransferencia();
+        nombreBancoComprobante = comprobante.getBancoOrigen().getNombreBanco();
+        iconoBancoComprobante2.setText(convertirNombreBancoAIcono(nombreBancoComprobante));
+        monto = comprobante.getMonto();
+        montoString = convertirDoubleAMonto(monto);
+        montoComprobante2.setText(montoString);
+        nombre = comprobante.getBancoOrigen().getNombreBanco();
+        fecha = comprobante.getFecha();
+        codigoTransferencia = comprobante.getCodigoDeTransferencia();
+        dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
+        datosComprobante2.setText(dato);
+    }
+
+    private void setearComprobante3(Comprobante comprobante) {
+        String nombreBancoComprobante;
+        Double monto;
+        String montoString;
+        String nombre;
+        String fecha;
+        String codigoTransferencia;
+        String dato;
+
+        codigoDeTransferencia3 = comprobante.getCodigoDeTransferencia();
+        nombreBancoComprobante = comprobante.getBancoOrigen().getNombreBanco();
+        iconoBancoComprobante3.setText(convertirNombreBancoAIcono(nombreBancoComprobante));
+        monto = comprobante.getMonto();
+        montoString = convertirDoubleAMonto(monto);
+        montoComprobante3.setText(montoString);
+        nombre = comprobante.getBancoOrigen().getNombreBanco();
+        fecha = comprobante.getFecha();
+        codigoTransferencia = comprobante.getCodigoDeTransferencia();
+        dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
+        datosComprobante3.setText(dato);
+    }
+
+    private void setearComprobante4(Comprobante comprobante) {
+        String nombreBancoComprobante;
+        Double monto;
+        String montoString;
+        String nombre;
+        String fecha;
+        String codigoTransferencia;
+        String dato;
+
+        codigoDeTransferencia4 = comprobante.getCodigoDeTransferencia();
+        nombreBancoComprobante = comprobante.getBancoOrigen().getNombreBanco();
+        iconoBancoComprobante4.setText(convertirNombreBancoAIcono(nombreBancoComprobante));
+        monto = comprobante.getMonto();
+        montoString = convertirDoubleAMonto(monto);
+        montoComprobante4.setText(montoString);
+        nombre = comprobante.getBancoOrigen().getNombreBanco();
+        fecha = comprobante.getFecha();
+        codigoTransferencia = comprobante.getCodigoDeTransferencia();
+        dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
+        datosComprobante4.setText(dato);
+    }
+
+    private void setearComprobante5(Comprobante comprobante) {
+        String nombreBancoComprobante;
+        Double monto;
+        String montoString;
+        String nombre;
+        String fecha;
+        String codigoTransferencia;
+        String dato;
+
+        codigoDeTransferencia5 = comprobante.getCodigoDeTransferencia();
+        nombreBancoComprobante = comprobante.getBancoOrigen().getNombreBanco();
+        iconoBancoComprobante5.setText(convertirNombreBancoAIcono(nombreBancoComprobante));
+        monto = comprobante.getMonto();
+        montoString = convertirDoubleAMonto(monto);
+        montoComprobante5.setText(montoString);
+        nombre = comprobante.getBancoOrigen().getNombreBanco();
+        fecha = comprobante.getFecha();
+        codigoTransferencia = comprobante.getCodigoDeTransferencia();
+        dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
+        datosComprobante5.setText(dato);
+    }
+
+    private void setearComprobante6(Comprobante comprobante) {
+        String nombreBancoComprobante;
+        Double monto;
+        String montoString;
+        String nombre;
+        String fecha;
+        String codigoTransferencia;
+        String dato;
+
+        codigoDeTransferencia6 = comprobante.getCodigoDeTransferencia();
+        nombreBancoComprobante = comprobante.getBancoOrigen().getNombreBanco();
+        iconoBancoComprobante6.setText(convertirNombreBancoAIcono(nombreBancoComprobante));
+        monto = comprobante.getMonto();
+        montoString = convertirDoubleAMonto(monto);
+        montoComprobante6.setText(montoString);
+        nombre = comprobante.getBancoOrigen().getNombreBanco();
+        fecha = comprobante.getFecha();
+        codigoTransferencia = comprobante.getCodigoDeTransferencia();
+        dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
+        datosComprobante6.setText(dato);
+    }
+
+    private void setearComprobante7(Comprobante comprobante) {
+        String nombreBancoComprobante;
+        Double monto;
+        String montoString;
+        String nombre;
+        String fecha;
+        String codigoTransferencia;
+        String dato;
+
+        codigoDeTransferencia7 = comprobante.getCodigoDeTransferencia();
+        nombreBancoComprobante = comprobante.getBancoOrigen().getNombreBanco();
+        iconoBancoComprobante7.setText(convertirNombreBancoAIcono(nombreBancoComprobante));
+        monto = comprobante.getMonto();
+        montoString = convertirDoubleAMonto(monto);
+        montoComprobante7.setText(montoString);
+        nombre = comprobante.getBancoOrigen().getNombreBanco();
+        fecha = comprobante.getFecha();
+        codigoTransferencia = comprobante.getCodigoDeTransferencia();
+        dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
+        datosComprobante7.setText(dato);
+    }
+
+    private void setearComprobante8(Comprobante comprobante) {
+        String nombreBancoComprobante;
+        Double monto;
+        String montoString;
+        String nombre;
+        String fecha;
+        String codigoTransferencia;
+        String dato;
+
+        codigoDeTransferencia8 = comprobante.getCodigoDeTransferencia();
+        nombreBancoComprobante = comprobante.getBancoOrigen().getNombreBanco();
+        iconoBancoComprobante8.setText(convertirNombreBancoAIcono(nombreBancoComprobante));
+        monto = comprobante.getMonto();
+        montoString = convertirDoubleAMonto(monto);
+        montoComprobante8.setText(montoString);
+        nombre = comprobante.getBancoOrigen().getNombreBanco();
+        fecha = comprobante.getFecha();
+        codigoTransferencia = comprobante.getCodigoDeTransferencia();
+        dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
+        datosComprobante8.setText(dato);
+    }
+
+    private String convertirDoubleAMonto(double monto) {
+        String montoString = String.format("%.2f", monto);
+        return "$" + montoString + " ";
+    }
+
+    private String convertirNombreBancoAIcono(String nombreBanco) {
+        String textoIcono = "";
+
+        System.out.println(nombreBanco);
+
+        if( nombreBanco.equals("Mercado pago") )
+            textoIcono = "MP";
+        if( nombreBanco.equals("Uala") )
+            textoIcono = "Ul";
+        if( nombreBanco.equals("Cuenta dni") )
+            textoIcono = "DNI";
+        if( nombreBanco.equals("Bna") )
+            textoIcono = "BNA";
+        if( nombreBanco.equals("Modo") )
+            textoIcono = "MD";
+        if( nombreBanco.equals("Banco patagonia") )
+            textoIcono = "Pat";
+        if( nombreBanco.equals("Brubank") )
+            textoIcono = "Bru";
+        if( nombreBanco.equals("Naranja x") )
+            textoIcono = "NX";
+        if( nombreBanco.equals("Banco frances") )
+            textoIcono = "Fr";
+        if( nombreBanco.equals("Prex") )
+            textoIcono = "PX";
+        if( nombreBanco.equals("Banco supervielle") )
+            textoIcono = "SV";
+        if( nombreBanco.equals("Personal pay") )
+            textoIcono = "PP";
+
+        return textoIcono;
     }
 
     private void mostrarComprobantes() {

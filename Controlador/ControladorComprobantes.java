@@ -24,7 +24,7 @@ public class ControladorComprobantes {
 
         for(Comprobante comprobante : comprobantes) {
 
-            if(comprobante.getCodigoTransferencia().equals(codigoTransferencia)) {
+            if(comprobante.getCodigoDeTransferencia().equals(codigoTransferencia)) {
                 comprobantes.remove(comprobante);
                 usuario.setComprobantes(comprobantes);
                 guardarCambiosUsuario(usuario);
@@ -32,18 +32,6 @@ public class ControladorComprobantes {
             }
         }
         throw new InvalidNonExistentReceipt("El comprobante no existe");
-    }
-
-    public static void guardarCambiosUsuario(Usuario usuarioLogueado) {
-
-        HashMap<String, Usuario> repositorio = ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo();
-        if (repositorio != null) {
-            repositorio.put(usuarioLogueado.getUsuario(), usuarioLogueado);
-            ControladorArchivoUsuarios.grabarRepositorioEnArchivo(repositorio);
-        } else {
-            System.out.println("Error: El repositorio es nulo.");
-        }
-
     }
 
     public static void mostrarComprobantes(Usuario usuario) {
@@ -57,14 +45,53 @@ public class ControladorComprobantes {
                 System.out.println("\n " + comprobante.toString());
     }
 
-    public static Comprobante getBilleteraVirtual(Usuario usuarioLogueado, String codigoTransferencia) throws InvalidNonExistentReceipt {
+    public static Comprobante getComprobantes(Usuario usuarioLogueado, String codigoTransferencia) throws InvalidNonExistentReceipt {
 
         ArrayList<Comprobante> comprobantes = usuarioLogueado.getComprobantes();
 
         for( Comprobante comprobante : comprobantes )
-            if( comprobante.getCodigoTransferencia().equals(codigoTransferencia) )
+            if( comprobante.getCodigoDeTransferencia().equals(codigoTransferencia) )
                 return comprobante;
 
         throw new InvalidNonExistentReceipt("El comprobante no existe");
+    }
+
+    public static void modificarEstadoDeComprobante(Usuario usuarioLogueado, String estado, String codigoDeTransferencia) {
+        ArrayList<Comprobante> comprobantes = usuarioLogueado.getComprobantes();
+        Comprobante comprobanteModificado = new Comprobante();
+
+        for( Comprobante comprobante : comprobantes )
+            if (comprobante.getCodigoDeTransferencia().equals(codigoDeTransferencia))
+                comprobanteModificado = comprobante;
+        comprobanteModificado.setEstadoDeComprobante(estado);
+
+        reemplazarComprobante(usuarioLogueado, comprobanteModificado);
+    }
+
+    public static void reemplazarComprobante(Usuario usuarioLogueado, Comprobante comprobanteAGuardar) {
+        ArrayList<Comprobante> comprobantes = usuarioLogueado.getComprobantes();
+        ArrayList<Comprobante> comprobantesModificado = new ArrayList<>();
+
+        for( Comprobante comprobante : comprobantes ) {
+            if ( !comprobante.getCodigoDeTransferencia().equals(comprobanteAGuardar.getCodigoDeTransferencia()) ) {
+                comprobantesModificado.add(comprobante);
+            } else {
+                comprobantesModificado.add(comprobanteAGuardar);
+            }
+        }
+        usuarioLogueado.setComprobantes(comprobantesModificado);
+        guardarCambiosUsuario(usuarioLogueado);
+    }
+
+    public static void guardarCambiosUsuario(Usuario usuarioLogueado) {
+
+        HashMap<String, Usuario> repositorio = ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo();
+        if (repositorio != null) {
+            repositorio.put(usuarioLogueado.getUsuario(), usuarioLogueado);
+            ControladorArchivoUsuarios.grabarRepositorioEnArchivo(repositorio);
+        } else {
+            System.out.println("Error: El repositorio es nulo.");
+        }
+
     }
 }

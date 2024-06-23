@@ -48,7 +48,7 @@ public class Comprobante {
 
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
-    public String getCodigoTransferencia() { return codigoTransferencia; }
+    public String getCodigoDeTransferencia() { return codigoTransferencia; }
     public void setCodigoTransferencia(String codigoTransferencia) { this.codigoTransferencia = codigoTransferencia; }
     public String getFecha() { return fecha; }
     public void setFecha(String fecha) { this.fecha = fecha; }
