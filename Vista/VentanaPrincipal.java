@@ -1771,43 +1771,73 @@ public class VentanaPrincipal extends JFrame implements DimensionPantalla, Messa
     ///TERMINAR DE RESOLVER COMO SETEAR LOS VALORES DE CADA PANEL DE COMPROBANTE
     private void completarCamposComprobantesUsuarioLogueado(Usuario usuarioLogueado) {
     ArrayList<Comprobante> comprobantes = usuarioLogueado.getComprobantes();
-    ArrayList<JPanel> panelesComprobantes = new ArrayList<>();
+    ArrayList<Comprobante> comprobantesLimitados = new ArrayList<>(20);
 
-    panelesComprobantes.add(comprobante1);
-    panelesComprobantes.add(comprobante2);
-    panelesComprobantes.add(comprobante3);
-    panelesComprobantes.add(comprobante4);
-    panelesComprobantes.add(comprobante5);
-    panelesComprobantes.add(comprobante6);
-    panelesComprobantes.add(comprobante7);
-    panelesComprobantes.add(comprobante8);
-
-    for (int i = 0; i < panelesComprobantes.size(); i++) {
-        JPanel panel = panelesComprobantes.get(i);
-        Component[] arregloComponentes = panel.getComponents();
-        for (int j = 0; j < arregloComponentes.length; j++) {
-            Component componente = arregloComponentes[j];
-            if (componente instanceof JLabel) {
-                String indice = String.valueOf(i + 1);
-                if (componente.getName() != null && componente.getName().equals("iconoBancoComprobante" + indice)) {
-                    String nombreBanco = comprobantes.get(i).getBancoOrigen().getNombreBanco();
-                    ((JLabel) componente).setText(nombreBanco);
-                }
-                if (componente.getName() != null && componente.getName().equals("montoComprobante" + indice)) {
-                    double monto = comprobantes.get(i).getMonto();
-                    String montoString = String.valueOf(monto);
-                    ((JLabel) componente).setText(montoString);
-                }
-                if (componente.getName() != null && componente.getName().equals("barraEstadoComprobante" + indice)) {
-                    String datosComprobante = comprobantes.get(i).getEstadoDeComprobante();
-                    ((JLabel) componente).setText(datosComprobante);
-                }
-            }
+    for( int i = 0; i < 8; i++ ) {
+        Comprobante comprobante = comprobantes.get(i);
+        if(comprobante != null) {
+            comprobantesLimitados.add(comprobantes.get(i));
         }
-        // Después de actualizar los componentes en el panel, asignamos el panel actualizado de vuelta al ArrayList
-        panelesComprobantes.set(i, panel);
     }
-}
+
+        String nombreBancoComprobante = comprobantesLimitados.get(0).getBancoOrigen().getNombreBanco();
+        iconoBancoComprobante1.setText(nombreBancoComprobante);
+
+        Double monto = comprobantesLimitados.get(0).getMonto();
+        String montoString = convertirDoubleAMonto(monto);
+        montoComprobante1.setText(montoString);
+
+        String nombre = comprobantesLimitados.get(0).getBancoOrigen().getNombreBanco();
+        String fecha = comprobantesLimitados.get(0).getFecha();
+        String codigoTransferencia = comprobantesLimitados.get(0).getCodigoTransferencia();
+        String dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
+        datosComprobante1.setText(dato);
+
+        if(comprobantesLimitados.size() == 2){
+            nombreBancoComprobante = comprobantesLimitados.get(1).getBancoOrigen().getNombreBanco();
+            iconoBancoComprobante2.setText(nombreBancoComprobante);
+            monto = comprobantesLimitados.get(1).getMonto();
+            montoString = convertirDoubleAMonto(monto);
+            montoComprobante2.setText(montoString);
+            nombre = comprobantesLimitados.get(1).getBancoOrigen().getNombreBanco();
+            fecha = comprobantesLimitados.get(1).getFecha();
+            codigoTransferencia = comprobantesLimitados.get(1).getCodigoTransferencia();
+            dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
+            datosComprobante2.setText(dato);
+        }
+
+        else if( comprobantesLimitados.size() == 3 ) {
+            nombreBancoComprobante = comprobantesLimitados.get(2).getBancoOrigen().getNombreBanco();
+            iconoBancoComprobante2.setText(nombreBancoComprobante);
+            monto = comprobantesLimitados.get(2).getMonto();
+            montoString = convertirDoubleAMonto(monto);
+            montoComprobante2.setText(montoString);
+            nombre = comprobantesLimitados.get(2).getBancoOrigen().getNombreBanco();
+            fecha = comprobantesLimitados.get(2).getFecha();
+            codigoTransferencia = comprobantesLimitados.get(2).getCodigoTransferencia();
+            dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
+            datosComprobante2.setText(dato);
+
+        } else if ( comprobantesLimitados.size() == 4 ) {
+            nombreBancoComprobante = comprobantesLimitados.get(3).getBancoOrigen().getNombreBanco();
+            iconoBancoComprobante3.setText(nombreBancoComprobante);
+            monto = comprobantesLimitados.get(3).getMonto();
+            montoString = convertirDoubleAMonto(monto);
+            montoComprobante3.setText(montoString);
+            nombre = comprobantesLimitados.get(3).getBancoOrigen().getNombreBanco();
+            fecha = comprobantesLimitados.get(3).getFecha();
+            codigoTransferencia = comprobantesLimitados.get(3).getCodigoTransferencia();
+            dato = "<html>Nombre: <br>"+ nombre +"<br>Fecha: <br>" + fecha + "<br>Codigo de transferencia: <br> " + codigoTransferencia + "</html>";
+            datosComprobante3.setText(dato);
+
+        }
+
+
+
+
+
+    }
+
 
     private String convertirDoubleAMonto(double monto) {
         String montoString = new String(String.valueOf(monto));
