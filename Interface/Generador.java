@@ -227,13 +227,12 @@ public interface Generador {
     }
 
     static double generarMonto() {
-        Random random = new Random();
-        double monto = random.nextDouble() * 9000000.0;
 
-//        DecimalFormat decimalFormat = new DecimalFormat("###,###.##");
-//        String montoFormateado = decimalFormat.format(monto);
-//
-//        double numeroMonto = Double.parseDouble(montoFormateado);
+        Random random = new Random();
+        double min = 500;
+        double max = 250000;
+
+        double monto = min + (max - min) * random.nextDouble();
 
         return monto;
     }
