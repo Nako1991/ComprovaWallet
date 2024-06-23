@@ -207,7 +207,7 @@ public interface Generador {
     static String generadorDeFecha() {
         Random random = new Random();
 
-        int año = 1970 + random.nextInt(55);
+        int año = 2015 + random.nextInt(10);
         int mes = random.nextInt(12) + 1;
         int diaMaximo = diaMaximoDeEseMes(año,mes);
         int dia = random.nextInt(diaMaximo) + 1;
