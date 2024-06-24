@@ -1,9 +1,7 @@
 package Interface;
-
 import Controlador.ControladorArchivoUsuarios;
 import Exceptions.Validaciones;
 import Modelo.*;
-
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -178,7 +176,6 @@ public interface Generador {
     }
 
     static Persona generarPersona() {
-
         String nombreYApellido = generarNombreYApellido();
 
         return new Persona(nombreYApellido);
@@ -186,7 +183,6 @@ public interface Generador {
     }
 
     static BilleteraVirtual generarBilleteraVirtual() {
-
         Persona persona = generarPersona();
         String nombreBanco = generarNombreBanco();
         Banco banco = new Banco(nombreBanco);

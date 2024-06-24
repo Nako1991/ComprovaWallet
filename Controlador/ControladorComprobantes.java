@@ -9,34 +9,31 @@ public class ControladorComprobantes {
 
     public ControladorComprobantes() {}
 
-    public static void agregarComprobante(Usuario usuario, Comprobante nuevoComprobante) {
-
-        ArrayList<Comprobante> comprobantes = usuario.getComprobantes();
+    public static void agregarComprobante(Usuario usuarioLogueado, Comprobante nuevoComprobante) {
+        ArrayList<Comprobante> comprobantes = usuarioLogueado.getComprobantes();
         comprobantes.add(nuevoComprobante);
-        usuario.setComprobantes(comprobantes);
-        guardarCambiosUsuario(usuario);
+        usuarioLogueado.setComprobantes(comprobantes);
+        guardarCambiosUsuario(usuarioLogueado);
 
     }
 
-    public static boolean eliminarComprobante(Usuario usuario, String codigoTransferencia) throws InvalidNonExistentReceipt {
-
-        ArrayList<Comprobante> comprobantes = usuario.getComprobantes();
+    public static boolean eliminarComprobante(Usuario usuarioLogueado, String codigoTransferencia) throws InvalidNonExistentReceipt {
+        ArrayList<Comprobante> comprobantes = usuarioLogueado.getComprobantes();
 
         for(Comprobante comprobante : comprobantes) {
 
-            if(comprobante.getCodigoDeTransferencia().equals(codigoTransferencia)) {
+            if( comprobante.getCodigoDeTransferencia().equals(codigoTransferencia) ) {
                 comprobantes.remove(comprobante);
-                usuario.setComprobantes(comprobantes);
-                guardarCambiosUsuario(usuario);
+                usuarioLogueado.setComprobantes(comprobantes);
+                guardarCambiosUsuario(usuarioLogueado);
                 return true;
             }
         }
         throw new InvalidNonExistentReceipt("El comprobante no existe");
     }
 
-    public static void mostrarComprobantes(Usuario usuario) {
-
-        ArrayList<Comprobante> comprobantes = usuario.getComprobantes();
+    public static void mostrarComprobantes(Usuario usuarioLogueado) {
+        ArrayList<Comprobante> comprobantes = usuarioLogueado.getComprobantes();
 
         if( comprobantes.isEmpty() )
             System.out.println("\nNo hay ningun comprobante registrado");
@@ -45,8 +42,7 @@ public class ControladorComprobantes {
                 System.out.println("\n " + comprobante.toString());
     }
 
-    public static Comprobante getComprobantes(Usuario usuarioLogueado, String codigoTransferencia) throws InvalidNonExistentReceipt {
-
+    public static Comprobante getComprobante(Usuario usuarioLogueado, String codigoTransferencia) throws InvalidNonExistentReceipt {
         ArrayList<Comprobante> comprobantes = usuarioLogueado.getComprobantes();
 
         for( Comprobante comprobante : comprobantes )
@@ -61,7 +57,7 @@ public class ControladorComprobantes {
         Comprobante comprobanteModificado = new Comprobante();
 
         for( Comprobante comprobante : comprobantes )
-            if (comprobante.getCodigoDeTransferencia().equals(codigoDeTransferencia))
+            if ( comprobante.getCodigoDeTransferencia().equals(codigoDeTransferencia) )
                 comprobanteModificado = comprobante;
         comprobanteModificado.setEstadoDeComprobante(estado);
 
@@ -75,23 +71,21 @@ public class ControladorComprobantes {
         for( Comprobante comprobante : comprobantes ) {
             if ( !comprobante.getCodigoDeTransferencia().equals(comprobanteAGuardar.getCodigoDeTransferencia()) ) {
                 comprobantesModificado.add(comprobante);
-            } else {
-                comprobantesModificado.add(comprobanteAGuardar);
             }
+            else
+                comprobantesModificado.add(comprobanteAGuardar);
         }
         usuarioLogueado.setComprobantes(comprobantesModificado);
         guardarCambiosUsuario(usuarioLogueado);
     }
 
     public static void guardarCambiosUsuario(Usuario usuarioLogueado) {
-
         HashMap<String, Usuario> repositorio = ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo();
-        if (repositorio != null) {
+        if ( repositorio != null ) {
             repositorio.put(usuarioLogueado.getUsuario(), usuarioLogueado);
             ControladorArchivoUsuarios.grabarRepositorioEnArchivo(repositorio);
-        } else {
-            System.out.println("Error: El repositorio es nulo.");
         }
-
+        else
+            System.out.println("\nError: El repositorio es nulo");
     }
 }

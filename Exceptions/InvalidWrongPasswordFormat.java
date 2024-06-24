@@ -2,7 +2,7 @@ package Exceptions;
 
 public class InvalidWrongPasswordFormat extends Exception {
 
-    public InvalidWrongPasswordFormat(String mesagge) {
-        super(mesagge);
+    public InvalidWrongPasswordFormat(String message) {
+        super(message);
     }
 }

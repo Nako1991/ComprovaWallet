@@ -11,13 +11,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class ControladorArchivoUsuarios {
+public class ControladorArchivoUsuarios {
 
     public ControladorArchivoUsuarios() {}
 
-    //Crear un archivo con un JSONObject vacío
     public static void crearArchivo() {
-
         JSONObject jsonObjVacio = new JSONObject();
 
         try {
@@ -26,14 +24,12 @@ public abstract class ControladorArchivoUsuarios {
             fileWriter.flush();
             fileWriter.close();
         }
-        catch (IOException exception) {
+        catch ( IOException exception ) {
             System.out.println("\nError: " + exception.getMessage());
         }
     }
 
-    //Crear archivo con usuarios Dummy
     public static void crearArchivoUsuariosDummy() {
-
         Usuario usuario1 = new Usuario("Rouse", "Rouse484848@@");
         Usuario usuario2 = new Usuario("Nakko", "dsa321");
         Usuario usuario3 = new Usuario("Britany", "suerteConMate");
@@ -49,9 +45,7 @@ public abstract class ControladorArchivoUsuarios {
         JSONUtilities.uploadJSON(usuarios, Config.getCarpetaRaiz() + "usuariosRegistrados.json");
     }
 
-    //Cargamos el repositorio con los datos grabados en el archivo
     public static HashMap<String, Usuario> cargarRepositorioDesdeArchivo() {
-
         HashMap<String, Usuario> repositorio = new HashMap<>();
 
         try {
@@ -65,18 +59,16 @@ public abstract class ControladorArchivoUsuarios {
             }
             return  repositorio;
         }
-        catch(InvalidFileIsEmpty | JSONException exception) {
+        catch( InvalidFileIsEmpty | JSONException exception ) {
             System.out.println("\nError: " + exception.getMessage());
         }
         return repositorio;
     }
 
-    //Grabamos el repositorio en el archivo
     public static void grabarRepositorioEnArchivo(HashMap<String, Usuario> repositorio) {
-
         JSONArray usuariosJSONArray = new JSONArray();
         if( !repositorio.isEmpty() ) {
-            for (Usuario usuario : repositorio.values()) {
+            for ( Usuario usuario : repositorio.values() ) {
                 JSONObject usuarioJSON = usuario.toJSON();
                 usuariosJSONArray.put(usuarioJSON);
             }
@@ -84,19 +76,15 @@ public abstract class ControladorArchivoUsuarios {
         }
     }
 
-    //Mostramos el archivo por consola (TEST)
     public static void mostrarArchivo() {
-
         HashMap<String, Usuario> repositorio = cargarRepositorioDesdeArchivo();
 
-        for(Map.Entry<String, Usuario> entry : repositorio.entrySet()) {
+        for( Map.Entry<String, Usuario> entry : repositorio.entrySet() ) {
             System.out.println(entry.getValue().toString());
         }
     }
 
-    //Nos traemos un usuario en específico
     public static Usuario leerUsuario(String claveUsuario) {
-
         HashMap<String, Usuario> repositorio = cargarRepositorioDesdeArchivo();
 
         if( repositorio.containsKey(claveUsuario) )
@@ -105,9 +93,7 @@ public abstract class ControladorArchivoUsuarios {
             return null;
     }
 
-    //Modificamos un usuario
     public static void modificarUsuario(Usuario usuario) {
-
         HashMap<String, Usuario> repositorio = cargarRepositorioDesdeArchivo();
 
         if( repositorio.containsKey(usuario.getUsuario()) ) {
@@ -119,9 +105,7 @@ public abstract class ControladorArchivoUsuarios {
         }
     }
 
-    //Eliminar usuario
     public static Usuario eliminarUsuario(Usuario usuario) {
-
         HashMap<String, Usuario> repositorio = cargarRepositorioDesdeArchivo();
 
         Usuario usuarioEliminado = null;
@@ -130,9 +114,8 @@ public abstract class ControladorArchivoUsuarios {
             repositorio.remove(usuario);
             grabarRepositorioEnArchivo(repositorio);
         }
-        else {
+        else
             System.out.println("El repositorio no contiene el usuario a eliminar.");
-        }
         return usuarioEliminado;
     }
 }

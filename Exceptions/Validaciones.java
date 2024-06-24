@@ -46,9 +46,10 @@ public class Validaciones {
         else return true;
     }
 
-    public static boolean invalidUserDoesntExists(String nombreUsuario, HashMap<String, Usuario> mapaUsuariosRegistrados) throws InvalidUserDoesntExists {
+    public static boolean invalidUserDoesntExists(String nombreUsuario) throws InvalidUserDoesntExists {
+        HashMap<String, Usuario> repositorio = ControladorArchivoUsuarios.cargarRepositorioDesdeArchivo();
 
-        if(mapaUsuariosRegistrados.containsKey(nombreUsuario)) return true;
+        if(repositorio.containsKey(nombreUsuario)) return true;
         else throw new InvalidUserDoesntExists("El usuario no existe");
     }
 
